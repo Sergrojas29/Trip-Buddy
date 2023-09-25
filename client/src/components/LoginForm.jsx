@@ -1,7 +1,5 @@
-// see SignupForm.js for comments
 import { useState } from 'react';
 import { Box, Button, TextField } from '@mui/material';
-// import { Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 
