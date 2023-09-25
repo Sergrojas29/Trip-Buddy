@@ -1,7 +1,6 @@
 // see SignupForm.js for comments
 import { useState } from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import { Box, Button, TextField } from '@mui/material';
 // import { Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
@@ -54,30 +53,43 @@ const LoginForm = () => {
 
   return (
     <>
-    <Box
-      component="form"
-      sx={{
-        '& .MuiTextField-root': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <div>
-        <TextField
-          required
-          id="outlined-required"
-          label="Required"
-          defaultValue="Hello World"
-        />
+      <Box
+        component="form"
+        sx={{
+          '& .MuiTextField-root': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <div>
+          <TextField
+            required
+            id="outlined-required"
+            label="Required"
+            placeholder="Email"
+            onChange={handleInputChange}
+            value={userFormData.email}
+          />
         </div>
-        </Box>
+        <div>
+          <TextField
+            required
+            id="outlined-password-input"
+            label="Password"
+            type="password"
+            placeholder="Password"
+            onChange={handleInputChange}
+            value={userFormData.password}
+          />
+        </div>
+        <div>
+          <Button variant="contained" onClick={handleFormSubmit}>
+            Submit
+          </Button>
+        </div>
+      </Box>
 
-
-
-
-
-
-
+      {/* //////////////////////////////////////////////////////////////// */}
 
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         <Alert
