@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 // import { Form, Button, Alert } from 'react-bootstrap';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-
+import { Box, Button, TextField } from '@mui/material';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 
@@ -64,26 +62,53 @@ const SignupForm = () => {
 
   return (
     <>
-       <Box
-      component="form"
-      sx={{
-        '& .MuiTextField-root': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <div>
-        <TextField
-          required
-          id="outlined-required"
-          label="Required"
-          defaultValue="Hello World"
-        />
+      <Box
+        component="form"
+        sx={{
+          '& .MuiTextField-root': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <div>
+          <TextField
+            required
+            id="outlined-required"
+            label="Required"
+            placeholder="Username"
+            onChange={handleInputChange}
+            value={userFormData.username}
+          />
         </div>
-        </Box>
+        <div>
+          <TextField
+            required
+            id="outlined-required"
+            label="Required"
+            placeholder="Email"
+            onChange={handleInputChange}
+            value={userFormData.email}
+          />
+        </div>
+        <div>
+          <TextField
+            required
+            id="outlined-password-input"
+            label="Password"
+            type="password"
+            placeholder="Password"
+            onChange={handleInputChange}
+            value={userFormData.password}
+          />
+        </div>
+        <div>
+          <Button variant="contained" onClick={handleFormSubmit}>
+            Submit
+          </Button>
+        </div>
+      </Box>
 
-
-
+      {/* //////////////////////////////////////////////////////////////// */}
 
       {/* This is needed for the validation functionality above */}
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
