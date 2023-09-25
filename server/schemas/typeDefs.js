@@ -33,6 +33,7 @@ const typeDefs = `
     users: [User]!
     user(userId: ID!, username: String): User
     places(username: String): [Place]
+    place(placeId: ID): [Place]
   }
 
   type Mutation {
