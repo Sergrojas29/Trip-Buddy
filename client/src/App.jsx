@@ -1,27 +1,27 @@
-import './App.css';
+import './App.css'
 import { Outlet, BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
-import theme from './style/theme';
+// import theme from './style/theme';
 
 function App() {
+
+
   return (
     <>
-      <ThemeProvider theme={createTheme(theme)}>
+      {/* <ThemeProvider theme={createTheme(theme)}> */}
+      {/* <ThemeProvider > */}
+      {/* <ThemeProvider/> */}
         <CssBaseline>
-          <BrowserRouter>
-
-
+          {/* <BrowserRouter> */}
             <Navbar />
-            <Outlet />
-
-            
-          </BrowserRouter>
+            <Outlet />            
+          {/* </BrowserRouter> */}
         </CssBaseline>
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </>
-  );
+  )
 }
 
-export default App;
+export default App
