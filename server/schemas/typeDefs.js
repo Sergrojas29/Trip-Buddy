@@ -51,8 +51,6 @@ input PlaceInput {
     places: [Place]!
   }
 
-  
- 
 
   type Auth {
     token: ID!

@@ -37,7 +37,6 @@ mutation savePlace($place: PlaceInput!) {
       lat
       lon
       image
-      }
     }
   }
 }`
@@ -55,7 +54,7 @@ mutation removePlace($placeId: ID) {
       lat
       lon
       image
-      }
+    }
   }
 }`
 
@@ -69,5 +68,5 @@ export const SAVE_API_DATA = gql`
       apiData
     }
   }
-  `;
+`;
 
