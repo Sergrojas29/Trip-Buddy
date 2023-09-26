@@ -1,0 +1,1278 @@
+  {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "id": "14689670",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7426987,
+            30.2665005
+          ]
+        },
+        "properties": {
+          "xid": "Q3089263",
+          "name": "Frost Bank Tower",
+          "dist": 79.95164527,
+          "rate": 3,
+          "wikidata": "Q3089263",
+          "kinds": "skyscrapers,architecture,interesting_places"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14693313",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7425003,
+            30.2677784
+          ]
+        },
+        "properties": {
+          "xid": "Q5160787",
+          "name": "Congress Avenue Historic District",
+          "dist": 88.03681638,
+          "rate": 7,
+          "wikidata": "Q5160787",
+          "kinds": "historic,historical_places,interesting_places,historic_districts"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14602804",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7442703,
+            30.2669964
+          ]
+        },
+        "properties": {
+          "xid": "Q42298366",
+          "name": "Alamo Drafthouse Cinema Downtown",
+          "dist": 117.38429455,
+          "rate": 1,
+          "wikidata": "Q42298366",
+          "kinds": "cinemas,cultural,theatres_and_entertainments,interesting_places"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15060253",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.74366,
+            30.2683125
+          ]
+        },
+        "properties": {
+          "xid": "Q42298476",
+          "name": "Capitol Theater",
+          "dist": 141.04789479,
+          "rate": 1,
+          "wikidata": "Q42298476",
+          "kinds": "architecture,historic_architecture,cinemas,cultural,theatres_and_entertainments,interesting_places,destroyed_objects"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14469028",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7432022,
+            30.2686005
+          ]
+        },
+        "properties": {
+          "xid": "Q7092446",
+          "name": "One American Center",
+          "dist": 161.30613956,
+          "rate": 3,
+          "wikidata": "Q7092446",
+          "kinds": "skyscrapers,architecture,interesting_places"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15155129",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7433319,
+            30.2686119
+          ]
+        },
+        "properties": {
+          "xid": "Q7072121",
+          "name": "O. Henry Hall",
+          "dist": 164.07863417,
+          "rate": 7,
+          "wikidata": "Q7072121",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14831693",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7428207,
+            30.2692776
+          ]
+        },
+        "properties": {
+          "xid": "Q42298481",
+          "name": "Queen Theater",
+          "dist": 236.8838308,
+          "rate": 1,
+          "wikidata": "Q42298481",
+          "kinds": "cinemas,cultural,theatres_and_entertainments,interesting_places"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15750357",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7432022,
+            30.2693996
+          ]
+        },
+        "properties": {
+          "xid": "Q46996839",
+          "name": "Norwood Tower",
+          "dist": 249.79173131,
+          "rate": 7,
+          "wikidata": "Q46996839",
+          "kinds": "architecture,skyscrapers,interesting_places"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15745563",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7404709,
+            30.2677155
+          ]
+        },
+        "properties": {
+          "xid": "Q42298483",
+          "name": "Studio IV",
+          "dist": 256.88330476,
+          "rate": 1,
+          "wikidata": "Q42298483",
+          "kinds": "cinemas,cultural,theatres_and_entertainments,interesting_places"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14689966",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7444992,
+            30.2647991
+          ]
+        },
+        "properties": {
+          "xid": "Q3297809",
+          "name": "The Austonian",
+          "dist": 295.07388674,
+          "rate": 3,
+          "wikidata": "Q3297809",
+          "kinds": "skyscrapers,architecture,interesting_places"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14831692",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7399292,
+            30.2675629
+          ]
+        },
+        "properties": {
+          "xid": "Q42298480",
+          "name": "Iris Theatre",
+          "dist": 304.55406362,
+          "rate": 1,
+          "wikidata": "Q42298480",
+          "kinds": "cinemas,cultural,theatres_and_entertainments,interesting_places"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14457394",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7397232,
+            30.2672215
+          ]
+        },
+        "properties": {
+          "xid": "Q1079139",
+          "name": "Sixth Street",
+          "dist": 321.30409369,
+          "rate": 7,
+          "wikidata": "Q1079139",
+          "kinds": "historic,historical_places,interesting_places,historic_districts"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15150823",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7438889,
+            30.2700005
+          ]
+        },
+        "properties": {
+          "xid": "Q4976081",
+          "name": "Brown Building",
+          "dist": 325.85731336,
+          "rate": 7,
+          "wikidata": "Q4976081",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15426120",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7433319,
+            30.270277
+          ]
+        },
+        "properties": {
+          "xid": "Q26339163",
+          "name": "United States Courthouse",
+          "dist": 347.73234991,
+          "rate": 7,
+          "wikidata": "Q26339163",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15607024",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7397232,
+            30.2658329
+          ]
+        },
+        "properties": {
+          "xid": "Q4823015",
+          "name": "Austin Central Fire Station 1",
+          "dist": 352.83091692,
+          "rate": 7,
+          "wikidata": "Q4823015",
+          "kinds": "museums,cultural,interesting_places,other_museums"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14912951",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7394562,
+            30.2681694
+          ]
+        },
+        "properties": {
+          "xid": "Q108387789",
+          "name": "St. David’s Episcopal Church",
+          "dist": 364.51971675,
+          "rate": 1,
+          "wikidata": "Q108387789",
+          "kinds": "religion,churches,interesting_places,other_churches"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14912937",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7394562,
+            30.2681694
+          ]
+        },
+        "properties": {
+          "xid": "Q108387788",
+          "name": "St. David’s Cathedral",
+          "dist": 364.51971675,
+          "rate": 1,
+          "wikidata": "Q108387788",
+          "kinds": "religion,churches,interesting_places,other_churches"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15848766",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7447968,
+            30.2642002
+          ]
+        },
+        "properties": {
+          "xid": "Q14711206",
+          "name": "One Congress Plaza",
+          "dist": 367.39961018,
+          "rate": 3,
+          "wikidata": "Q14711206",
+          "kinds": "skyscrapers,architecture,interesting_places"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15141825",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7392044,
+            30.2690773
+          ]
+        },
+        "properties": {
+          "xid": "Q108387790",
+          "name": "St. David’s Episcopal Church, Mary Huling Edens Youth Center",
+          "dist": 428.35263204,
+          "rate": 1,
+          "wikidata": "Q108387790",
+          "kinds": "religion,churches,interesting_places,other_churches"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15745562",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7430725,
+            30.2712326
+          ]
+        },
+        "properties": {
+          "xid": "Q42298474",
+          "name": "Bell Airdome",
+          "dist": 452.55330648,
+          "rate": 1,
+          "wikidata": "Q42298474",
+          "kinds": "architecture,historic_architecture,cinemas,cultural,theatres_and_entertainments,interesting_places,destroyed_objects"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15156818",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7457962,
+            30.2637997
+          ]
+        },
+        "properties": {
+          "xid": "Q7714665",
+          "name": "The Ashton",
+          "dist": 455.45133108,
+          "rate": 3,
+          "wikidata": "Q7714665",
+          "kinds": "skyscrapers,architecture,interesting_places"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15154659",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7408295,
+            30.2708321
+          ]
+        },
+        "properties": {
+          "xid": "Q6859447",
+          "name": "Millett Opera House",
+          "dist": 461.10651487,
+          "rate": 7,
+          "wikidata": "Q6859447",
+          "kinds": "theatres_and_entertainments,cultural,interesting_places,opera_houses"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15622971",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.745903,
+            30.2635994
+          ]
+        },
+        "properties": {
+          "xid": "Q16848753",
+          "name": "Buford Tower",
+          "dist": 479.1265689,
+          "rate": 3,
+          "wikidata": "Q16848753",
+          "kinds": "architecture,towers,interesting_places,bell_towers"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "16068642",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7452774,
+            30.2711105
+          ]
+        },
+        "properties": {
+          "xid": "Q7373677",
+          "name": "Royal Arch Masonic Lodge",
+          "dist": 488.22512991,
+          "rate": 7,
+          "wikidata": "Q7373677",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14466640",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7444458,
+            30.271389
+          ]
+        },
+        "properties": {
+          "xid": "Q5723038",
+          "name": "Henry Hirshfeld House and Cottage",
+          "dist": 488.42913509,
+          "rate": 7,
+          "wikidata": "Q5723038",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14692664",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7463913,
+            30.2705555
+          ]
+        },
+        "properties": {
+          "xid": "Q4960599",
+          "name": "Bremond Block Historic District",
+          "dist": 495.15589832,
+          "rate": 7,
+          "wikidata": "Q4960599",
+          "kinds": "historic,historical_places,interesting_places,historic_districts"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15610286",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7479248,
+            30.2651501
+          ]
+        },
+        "properties": {
+          "xid": "Q6106712",
+          "name": "J. P. Schneider Store",
+          "dist": 517.73497129,
+          "rate": 7,
+          "wikidata": "Q6106712",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "16202289",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7416916,
+            30.2716579
+          ]
+        },
+        "properties": {
+          "xid": "Q42298479",
+          "name": "Crescent Theater",
+          "dist": 516.82887152,
+          "rate": 1,
+          "wikidata": "Q42298479",
+          "kinds": "cinemas,cultural,theatres_and_entertainments,interesting_places"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15289298",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7482147,
+            30.2654552
+          ]
+        },
+        "properties": {
+          "xid": "Q42298484",
+          "name": "Violet Crown Cinema",
+          "dist": 530.37785661,
+          "rate": 2,
+          "wikidata": "Q42298484",
+          "kinds": "cinemas,cultural,theatres_and_entertainments,interesting_places"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15289297",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7375107,
+            30.2665462
+          ]
+        },
+        "properties": {
+          "xid": "Q42298478",
+          "name": "Carver Theatre",
+          "dist": 538.53324936,
+          "rate": 1,
+          "wikidata": "Q42298478",
+          "kinds": "cinemas,cultural,theatres_and_entertainments,interesting_places"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14912825",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7467575,
+            30.2709751
+          ]
+        },
+        "properties": {
+          "xid": "Q108387752",
+          "name": "Austin Women’s Club",
+          "dist": 553.71309268,
+          "rate": 1,
+          "wikidata": "Q108387752",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15147612",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7416992,
+            30.2623005
+          ]
+        },
+        "properties": {
+          "xid": "Q3079993",
+          "name": "Four Seasons Residences Austin",
+          "dist": 553.35468926,
+          "rate": 3,
+          "wikidata": "Q3079993",
+          "kinds": "skyscrapers,architecture,interesting_places"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14470605",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7429962,
+            30.2726994
+          ]
+        },
+        "properties": {
+          "xid": "Q7707718",
+          "name": "Texas Governor's Mansion",
+          "dist": 615.2862368,
+          "rate": 7,
+          "wikidata": "Q7707718",
+          "kinds": "historic_architecture,architecture,interesting_places,manor_houses"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15832036",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7496033,
+            30.2674999
+          ]
+        },
+        "properties": {
+          "xid": "Q2816343",
+          "name": "360 Condominiums",
+          "dist": 630.51709434,
+          "rate": 3,
+          "wikidata": "Q2816343",
+          "kinds": "skyscrapers,architecture,interesting_places"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15163798",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7455597,
+            30.2724304
+          ]
+        },
+        "properties": {
+          "xid": "Q14711414",
+          "name": "Wooldridge Park",
+          "dist": 632.83070693,
+          "rate": 7,
+          "wikidata": "Q14711414",
+          "kinds": "cultural,urban_environment,interesting_places,squares"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14733385",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7495193,
+            30.2653103
+          ]
+        },
+        "properties": {
+          "xid": "Q24514680",
+          "name": "The Northshore",
+          "dist": 654.20662512,
+          "rate": 3,
+          "wikidata": "Q24514680",
+          "kinds": "skyscrapers,architecture,interesting_places"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14584120",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7407913,
+            30.2731113
+          ]
+        },
+        "properties": {
+          "xid": "Q37072290",
+          "name": "Confederate Soldiers Monument",
+          "dist": 695.92248884,
+          "rate": 3,
+          "wikidata": "Q37072290",
+          "kinds": "historic,cultural,urban_environment,monuments_and_memorials,interesting_places,sculptures,monuments"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14862958",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7402954,
+            30.2729721
+          ]
+        },
+        "properties": {
+          "xid": "Q60742365",
+          "name": "Tejano Monument",
+          "dist": 698.06141751,
+          "rate": 3,
+          "wikidata": "Q60742365",
+          "kinds": "historic,monuments_and_memorials,interesting_places,monuments"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15837477",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7393036,
+            30.2726994
+          ]
+        },
+        "properties": {
+          "xid": "Q5531996",
+          "name": "General Land Office Building",
+          "dist": 713.7517201,
+          "rate": 7,
+          "wikidata": "Q5531996",
+          "kinds": "museums,cultural,interesting_places,other_museums"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14944252",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7381973,
+            30.2621002
+          ]
+        },
+        "properties": {
+          "xid": "Q17509961",
+          "name": "Fairmont Austin",
+          "dist": 729.46960541,
+          "rate": 3,
+          "wikidata": "Q17509961",
+          "kinds": "skyscrapers,architecture,interesting_places"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15378236",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7430573,
+            30.2738895
+          ]
+        },
+        "properties": {
+          "xid": "Q4823054",
+          "name": "Austin Daily Tribune Building",
+          "dist": 747.06551739,
+          "rate": 7,
+          "wikidata": "Q4823054",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14697958",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7493057,
+            30.2713184
+          ]
+        },
+        "properties": {
+          "xid": "Q7352967",
+          "name": "Robinson-Macken House",
+          "dist": 758.16842773,
+          "rate": 7,
+          "wikidata": "Q7352967",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15752861",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.742775,
+            30.2741661
+          ]
+        },
+        "properties": {
+          "xid": "Q48797047",
+          "name": "Westgate Tower",
+          "dist": 778.32099483,
+          "rate": 7,
+          "wikidata": "Q48797047",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15265712",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7512436,
+            30.2679176
+          ]
+        },
+        "properties": {
+          "xid": "Q30766111",
+          "name": "The Independent",
+          "dist": 791.7112337,
+          "rate": 3,
+          "wikidata": "Q30766111",
+          "kinds": "skyscrapers,architecture,interesting_places"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14921937",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7462997,
+            30.2740993
+          ]
+        },
+        "properties": {
+          "xid": "Q4971745",
+          "name": "Brizendine House",
+          "dist": 831.14351788,
+          "rate": 7,
+          "wikidata": "Q4971745",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15539156",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7393646,
+            30.2740726
+          ]
+        },
+        "properties": {
+          "xid": "Q56420344",
+          "name": "Hood's Texas Brigade Monument",
+          "dist": 845.94186093,
+          "rate": 3,
+          "wikidata": "Q56420344",
+          "kinds": "historic,monuments_and_memorials,interesting_places,monuments"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15067814",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7513885,
+            30.2705555
+          ]
+        },
+        "properties": {
+          "xid": "Q48838573",
+          "name": "West Sixth Street Bridge",
+          "dist": 885.91694952,
+          "rate": 7,
+          "wikidata": "Q48838573",
+          "kinds": "bridges,architecture,interesting_places,other_bridges"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15296812",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7447205,
+            30.2752781
+          ]
+        },
+        "properties": {
+          "xid": "Q48839544",
+          "name": "Delta Kappa Gamma Society International Headquarters Building",
+          "dist": 915.10748338,
+          "rate": 7,
+          "wikidata": "Q48839544",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "16019969",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7523575,
+            30.269556
+          ]
+        },
+        "properties": {
+          "xid": "Q80258460",
+          "name": "West Fifth Street Bridge at Shoal Creek",
+          "dist": 933.88900321,
+          "rate": 7,
+          "wikidata": "Q80258460",
+          "kinds": "bridges,architecture,interesting_places,other_bridges"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14923755",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7421494,
+            30.2757416
+          ]
+        },
+        "properties": {
+          "xid": "Q5583458",
+          "name": "Goodman Building",
+          "dist": 956.47359801,
+          "rate": 7,
+          "wikidata": "Q5583458",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15380248",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7490311,
+            30.2744446
+          ]
+        },
+        "properties": {
+          "xid": "Q5454425",
+          "name": "Fischer House",
+          "dist": 991.76331082,
+          "rate": 7,
+          "wikidata": "Q5454425",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15542896",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7406998,
+            30.2759075
+          ]
+        },
+        "properties": {
+          "xid": "Q56749537",
+          "name": "Texas World War II Memorial",
+          "dist": 996.91564192,
+          "rate": 3,
+          "wikidata": "Q56749537",
+          "kinds": "historic,monuments_and_memorials,interesting_places,monuments"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15995789",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7406464,
+            30.2760239
+          ]
+        },
+        "properties": {
+          "xid": "Q56616719",
+          "name": "Statue of Liberty Replica Monument",
+          "dist": 1010.6884834,
+          "rate": 3,
+          "wikidata": "Q56616719",
+          "kinds": "historic,monuments_and_memorials,interesting_places,monuments"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14927768",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7538986,
+            30.2688007
+          ]
+        },
+        "properties": {
+          "xid": "Q7580361",
+          "name": "Spring",
+          "dist": 1059.00605756,
+          "rate": 3,
+          "wikidata": "Q7580361",
+          "kinds": "skyscrapers,architecture,interesting_places"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "16004750",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7406921,
+            30.2764492
+          ]
+        },
+        "properties": {
+          "xid": "Q60742234",
+          "name": "Korean War Veterans Memorial",
+          "dist": 1055.91388654,
+          "rate": 3,
+          "wikidata": "Q60742234",
+          "kinds": "historic,monuments_and_memorials,burial_places,interesting_places,other_burial_places,monuments"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14699410",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7416687,
+            30.2766666
+          ]
+        },
+        "properties": {
+          "xid": "Q7959844",
+          "name": "Wahrenberger House",
+          "dist": 1063.50684304,
+          "rate": 7,
+          "wikidata": "Q7959844",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14923690",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7394409,
+            30.2775002
+          ]
+        },
+        "properties": {
+          "xid": "Q5554462",
+          "name": "Gethsemane Lutheran Church",
+          "dist": 1198.96606114,
+          "rate": 7,
+          "wikidata": "Q5554462",
+          "kinds": "religion,churches,interesting_places,other_churches"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15385541",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7343979,
+            30.2591991
+          ]
+        },
+        "properties": {
+          "xid": "Q8022250",
+          "name": "Willow-Spence Streets Historic District",
+          "dist": 1212.92880877,
+          "rate": 7,
+          "wikidata": "Q8022250",
+          "kinds": "historic,historical_places,interesting_places,historic_districts"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "16063791",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7399979,
+            30.2777786
+          ]
+        },
+        "properties": {
+          "xid": "Q5046430",
+          "name": "Carrington-Covert House",
+          "dist": 1214.42267206,
+          "rate": 7,
+          "wikidata": "Q5046430",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15837470",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7297211,
+            30.2655563
+          ]
+        },
+        "properties": {
+          "xid": "Q5530881",
+          "name": "Genaro P. and Carolina Briones House",
+          "dist": 1295.59047573,
+          "rate": 7,
+          "wikidata": "Q5530881",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15606961",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7294464,
+            30.2691669
+          ]
+        },
+        "properties": {
+          "xid": "Q4794954",
+          "name": "Arnold Bakery",
+          "dist": 1329.15326364,
+          "rate": 7,
+          "wikidata": "Q4794954",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "16065381",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7291641,
+            30.2688885
+          ]
+        },
+        "properties": {
+          "xid": "Q5638162",
+          "name": "Haehnel Building",
+          "dist": 1350.69537365,
+          "rate": 7,
+          "wikidata": "Q5638162",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "14471455",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.753891,
+            30.2755566
+          ]
+        },
+        "properties": {
+          "xid": "Q8071911",
+          "name": "Ziller House",
+          "dist": 1397.90046904,
+          "rate": 7,
+          "wikidata": "Q8071911",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "16064360",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7474976,
+            30.2791672
+          ]
+        },
+        "properties": {
+          "xid": "Q5217391",
+          "name": "Daniel H. and William T. Caswell Houses",
+          "dist": 1398.99704683,
+          "rate": 7,
+          "wikidata": "Q5217391",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15613997",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7286148,
+            30.2691669
+          ]
+        },
+        "properties": {
+          "xid": "Q7927499",
+          "name": "Victory Grill",
+          "dist": 1408.23157625,
+          "rate": 7,
+          "wikidata": "Q7927499",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15517301",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7384872,
+            30.2799377
+          ]
+        },
+        "properties": {
+          "xid": "Q42298475",
+          "name": "IMAX at Bullock Texas State History Museum",
+          "dist": 1484.49150463,
+          "rate": 1,
+          "wikidata": "Q42298475",
+          "kinds": "cinemas,cultural,theatres_and_entertainments,interesting_places"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "15609304",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7477798,
+            30.2800007
+          ]
+        },
+        "properties": {
+          "xid": "Q5595732",
+          "name": "Granger House and The Perch",
+          "dist": 1495.10050096,
+          "rate": 7,
+          "wikidata": "Q5595732",
+          "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures"
+        }
+      }
+    ]
+  }

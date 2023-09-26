@@ -1,4 +1,48 @@
 const typeDefs = `
+
+input AddressInput {
+    road: String
+    house: String
+    state: String
+    suburb: String
+    country: String
+    postcode: String
+    country_code: String
+    house_number: String
+    state_district: String
+  }
+
+input PlaceInput {
+    xid: String!
+    name: String!
+    location: AddressInput
+    lat: Float!
+    lon: Float!
+    image: String
+  }
+
+  type Address {
+    road: String
+    house: String
+    state: String
+    suburb: String
+    country: String
+    postcode: String
+    country_code: String
+    house_number: String
+    state_district: String
+  }
+  
+
+ type Place {
+    xid: String!
+    name: String!
+    location: Address
+    lat: Float!
+    lon: Float!
+    image: String
+  }
+
   type User {
     _id: ID
     username: String!
@@ -7,22 +51,8 @@ const typeDefs = `
     places: [Place]!
   }
 
-  type Place {
-    _id: ID
-    title: String!
-    description: String
-    location: String!
-    image: String
-    link: String
-  }
-
-  input PlaceInput {
-    title: String!
-    description: String
-    location: String
-    image: String
-    link: String
-   }
+  
+ 
 
   type Auth {
     token: ID!
@@ -32,15 +62,15 @@ const typeDefs = `
   type Query {
     users: [User]!
     user(userId: ID!, username: String): User
-    places(username: String): [Place]
+    getPlaces(lon: Float!, lat: Float!): Place
     place(placeId: ID): [Place]
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    savePlace(userId: ID!, place: PlaceInput!): User  
-    removePlace(placeId: ID!): User
+    savePlace(place: PlaceInput!): User  
+    removePlace(xid: ID!): User
   }
 `;
 

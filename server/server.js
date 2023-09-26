@@ -11,8 +11,17 @@ const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-});
+  context: ({ req }) => {
+    // Extract the token from the request headers or cookies
+    const token = req.headers.authorization || req.cookies.token || '';
 
+    // Authenticate the user and retrieve the userId
+    const userId = authenticateUser(token); // Implement this function to verify the token and get the userId
+
+    // Include the userId in the context
+    return { userId };
+  },
+});
 const app = express();
 
 // Create a new instance of an Apollo server with the GraphQL schema

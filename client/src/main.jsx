@@ -4,9 +4,11 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App.jsx'
 import ErrorPage from './pages/ErrorPage';
-import SearchLocation from './pages/SearchLocation'
+// import SearchLocation from './pages/SearchLocation'
 import SavedLocation from './pages/SavedLocation'
 import LoginPage from './pages/LoginPage.jsx';
+import HomePage from "./pages/HomePage.jsx";
+
 
 
 
@@ -22,7 +24,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <SearchLocation />,
+        element: <HomePage />,
       },
       {
         path: 'saved',

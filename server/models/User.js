@@ -20,7 +20,10 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    savedPlacess: [placeSchema],
+    apiData: {
+      type: String,
+      required: true,
+    },
   },
   {
     toJSON: {
