@@ -1,16 +1,21 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
 import SignupForm from '../components/SignupForm';
 import LoginForm from '../components/LoginForm';
 
+<<<<<<< HEAD
 // import * as React from 'react';
+=======
+import * as React from 'react';
+>>>>>>> 2ebe25af3ec3ef7d9d2e44749fb4e342ff0b4510
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
+<<<<<<< HEAD
 function LoginPage() {
+=======
+>>>>>>> 2ebe25af3ec3ef7d9d2e44749fb4e342ff0b4510
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -44,6 +49,10 @@ function a11yProps(index) {
   };
 }
 
+<<<<<<< HEAD
+=======
+export default function LoginPage() {
+>>>>>>> 2ebe25af3ec3ef7d9d2e44749fb4e342ff0b4510
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -53,6 +62,7 @@ function a11yProps(index) {
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+<<<<<<< HEAD
       <div>TEST LOGIN PAGE</div>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Sign Up" {...a11yProps(0)} />
@@ -65,10 +75,27 @@ function a11yProps(index) {
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         {LoginForm}
+=======
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="basic tabs example"
+        >
+          <Tab label="Sign Up" {...a11yProps(0)} />
+          <Tab label="Log In" {...a11yProps(1)} />
+        </Tabs>
+      </Box>
+      <CustomTabPanel value={value} index={0}>
+        <SignupForm />
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={1}>
+        <LoginForm />
+>>>>>>> 2ebe25af3ec3ef7d9d2e44749fb4e342ff0b4510
       </CustomTabPanel>
     </Box>
   );
 }
+<<<<<<< HEAD
 
 // function LoginPage() {
   // return (
@@ -81,3 +108,5 @@ function a11yProps(index) {
 // }
 
 export default LoginPage;
+=======
+>>>>>>> 2ebe25af3ec3ef7d9d2e44749fb4e342ff0b4510
