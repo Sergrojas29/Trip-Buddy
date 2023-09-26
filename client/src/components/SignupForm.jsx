@@ -60,51 +60,52 @@ const SignupForm = () => {
   };
 
   return (
-    <>
-      <Box
-        component="form"
-        sx={{
-          '& .MuiTextField-root': { m: 1, width: '25ch' },
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <div>
-          <TextField
-            required
-            label="Username"
-            placeholder="Username"
-            onChange={handleInputChange}
-            value={userFormData.username}
-          />
-        </div>
-        <div>
-          <TextField
-            required
-            label="Email"
-            placeholder="Email"
-            onChange={handleInputChange}
-            value={userFormData.email}
-          />
-        </div>
-        <div>
-          <TextField
-            required
-            id="outlined-password-input"
-            label="Password"
-            type="password"
-            placeholder="Password"
-            onChange={handleInputChange}
-            value={userFormData.password}
-          />
-        </div>
-        <div>
-          <Button variant="contained" onClick={handleFormSubmit} type="submit">
-            Submit
-          </Button>
-        </div>
-      </Box>
-    </>
+    <Box
+      component="form"
+      sx={{
+        '& .MuiTextField-root': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <div>
+        <TextField
+          required
+          label="Username"
+          placeholder="Username"
+          name="username"
+          onChange={handleInputChange}
+          value={userFormData.username}
+        />
+      </div>
+      <div>
+        <TextField
+          required
+          label="Email"
+          placeholder="Email"
+          name="email"
+          onChange={handleInputChange}
+          value={userFormData.email}
+        />
+      </div>
+      <div>
+        <TextField
+          required
+          id="outlined-password-input"
+          label="Password"
+          type="password"
+          placeholder="Password"
+          name="password"
+          onChange={handleInputChange}
+          value={userFormData.password}
+        />
+      </div>
+      <div>
+        <Button variant="contained" onClick={handleFormSubmit} type="submit">
+          Submit
+        </Button>
+      </div>
+    </Box>
   );
 };
 
