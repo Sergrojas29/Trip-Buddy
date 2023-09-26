@@ -1,7 +1,13 @@
-import React from 'react'
+import * as React from 'react';
 import GeoApiCall from '../utils/GetLocationAPI'
 import listData from '../utils/listData'
 import placeData from '../utils/placeData.json'
+
+
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+
+
 
 function Home() {
   // GeoApiCall.getlocation('austin')
@@ -41,7 +47,7 @@ function Home() {
                 <div id="placeName"> {place.properties.name} </div>
                 <div id="placeRating"> Rate: {place.properties.rate}</div>
                 <div id="placeKind"> {place.properties.kinds} </div>
-                
+
               </div>
             )
           })}
@@ -49,7 +55,18 @@ function Home() {
 
         </section>
 
-
+        <Box
+          component="form"
+          sx={{
+            '& > :not(style)': { m: 1, width: '25ch' },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+          <TextField id="filled-basic" label="Filled" variant="filled" />
+          <TextField id="standard-basic" label="Standard" variant="standard" />
+        </Box>
 
 
 

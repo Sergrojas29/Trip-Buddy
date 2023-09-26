@@ -25,22 +25,22 @@ export const ADD_USER = gql`
 `;
 
 export const SAVE_PLACE = gql`
-  mutation savePlace($place: PlaceInput!) {
-    savePlace(place: $place) {
-      _id
-      username
-      email
-      places {
-        xid
-        name
-        location
-        lat
-        lon
-        image
+mutation savePlace($place: PlaceInput!) {
+  savePlace(place: $place) {
+    _id
+    username
+    email
+    places {
+      xid
+      name
+      location
+      lat
+      lon
+      image
       }
     }
   }
-`;
+}`;
 
 export const REMOVE_PLACE = gql`
   mutation removePlace($placeId: ID) {
