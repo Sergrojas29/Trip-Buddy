@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Box, Button, TextField } from '@mui/material';
-// import { useMutation } from '@apollo/client';
-// import { ADD_USER } from '../utils/mutations';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations';
 
 // import { createUser } from '../utils/API';
 import Auth from '../utils/auth';
@@ -13,18 +13,18 @@ const SignupForm = () => {
     email: '',
     password: '',
   });
-  // const [addUser, { error }] = useMutation(ADD_USER);
-  // // set state for form validation
-  // const [validated] = useState(false);
-  // // set state for alert
-  // const [showAlert, setShowAlert] = useState(false);
-  // useEffect(() => {
-  //   if (error) {
-  //     setShowAlert(true);
-  //   } else {
-  //     setShowAlert(false);
-  //   }
-  // }, [error]);
+  const [addUser, { error }] = useMutation(ADD_USER);
+  // set state for form validation
+  const [validated] = useState(false);
+  // set state for alert
+  const [showAlert, setShowAlert] = useState(false);
+  useEffect(() => {
+    if (error) {
+      setShowAlert(true);
+    } else {
+      setShowAlert(false);
+    }
+  }, [error]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -72,8 +72,7 @@ const SignupForm = () => {
         <div>
           <TextField
             required
-            id="outlined-required"
-            label="Required"
+            label="Username"
             placeholder="Username"
             onChange={handleInputChange}
             value={userFormData.username}
@@ -82,8 +81,7 @@ const SignupForm = () => {
         <div>
           <TextField
             required
-            id="outlined-required"
-            label="Required"
+            label="Email"
             placeholder="Email"
             onChange={handleInputChange}
             value={userFormData.email}
@@ -101,7 +99,7 @@ const SignupForm = () => {
           />
         </div>
         <div>
-          <Button variant="contained" onClick={handleFormSubmit}>
+          <Button variant="contained" onClick={handleFormSubmit} type="submit">
             Submit
           </Button>
         </div>

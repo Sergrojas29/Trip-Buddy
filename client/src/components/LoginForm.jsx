@@ -62,8 +62,7 @@ const LoginForm = () => {
         <div>
           <TextField
             required
-            id="outlined-required"
-            label="Required"
+            label="Email"
             placeholder="Email"
             onChange={handleInputChange}
             value={userFormData.email}
@@ -72,7 +71,6 @@ const LoginForm = () => {
         <div>
           <TextField
             required
-            id="outlined-password-input"
             label="Password"
             type="password"
             placeholder="Password"
@@ -81,7 +79,7 @@ const LoginForm = () => {
           />
         </div>
         <div>
-          <Button variant="contained" onClick={handleFormSubmit}>
+          <Button variant="contained" onClick={handleFormSubmit} type="submit">
             Submit
           </Button>
         </div>
