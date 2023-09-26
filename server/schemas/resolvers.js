@@ -1,6 +1,16 @@
 const { User, Place } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 const { ApolloError } = require('apollo-server-errors');
+const fetch = require('node-fetch')
+
+
+
+
+
+const apiKey = "5ae2e3f221c38a28845f05b692698d7c9862f1d763b5481bca8939dd"
+
+// const urlPlace = `http://api.opentripmap.com/0.1/en/places/xid/${xid}?apikey=${apiKey}`
+// const xid = 'Q866789'
 
 //Query: user, users, places, place
 //Mutations: addUser, login, savePlace, removePlace
@@ -18,28 +28,46 @@ const resolvers = {
     },
     user: async (parent, { username }) => {
       try {
+
         return User.findOne({ username }).populate('places');
+
       } catch (error) {
+
         throw new ApolloError('An error occurred while fetching users.', 'DATABASE_ERROR', {
+
           error,
+
         });
       }
     },
-    places: async (parent, { username }) => {
-      const params = username ? { username } : {};
+    getPlaces: async (parent, { lon, lat }) => {
       try {
-        return Place.find(params).sort({ createdAt: -1 });
+        const response = await fetch(`https://api.opentripmap.com/0.1/en/places/radius?radius=1000&lon=${lon}&lat=${lat}&src_geom=wikidata&apikey=${apiKey}`)
+        if (!response.ok) {
+          throw new ApolloError('Failed to fetch from external API', 'API_ERROR', {
+            statusCode: response.status,
+            statusText: response.statusText
+          })
+        }
+
+        //Wait for the data
+
+        const data = await response.json()
+
+        //Simplifiy it for the fields we care about
+        const placeData = {
+          xid: data.xid,
+          name: data.name,
+          location: data.address,
+          lat: data.point.lat,
+          lon: data.point.lon,
+          image: data.image,
+        }
+
+        return placeData
+
       } catch (error) {
-        throw new ApolloError('An error occurred while fetching users.', 'DATABASE_ERROR', {
-          error,
-        });
-      }
-    },
-    place: async (parent, { placeId }) => {
-      try {
-        return Place.findOne({ _id: placeId });
-      } catch (error) {
-        throw new ApolloError('An error occurred while fetching users.', 'DATABASE_ERROR', {
+        throw new ApolloError('An error occurred while fetching places', 'DATABASE_ERROR', {
           error,
         });
       }
@@ -48,21 +76,32 @@ const resolvers = {
 
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
+
       try {
+
         const user = await User.create({ username, email, password });
+
         const token = signToken(user);
+
         return { token, user };
+
       } catch (error) {
+
         if (error.code === 11000) {
+
           throw new UserInputError('Username or email already exists.', {
+
             inputArgs: { username, email },
+
           });
         }
         throw new ApolloError('An error occurred while adding a user.', 'DATABASE_ERROR', {
+
           error,
         });
       }
     },
+
     login: async (parent, { email, password }) => {
       try {
         const user = await User.findOne({ email });
@@ -87,30 +126,34 @@ const resolvers = {
       }
     },
 
-    savePlace: async (parent, { userId, place }) => {
-      try {
-        return User.findOneAndUpdate(
-          { _id: userId },
-          {
-            $addToSet: { savedPlaces: place },
-          },
-          {
-            new: true,
-            runValidators: true,
-          }
-        );
-      } catch (error) {
-        throw new ApolloError('An error occurred while saving a place.', 'DATABASE_ERROR', {
-          error,
-        });
+    savePlace: async (parent, { userId, place }, context) => {
+      if (context.user) {
+        try {
+          return User.findOneAndUpdate(
+            { _id: userId },
+            {
+              $addToSet: { savedPlaces: place },
+            },
+            {
+              new: true,
+              runValidators: true,
+            }
+          );
+        } catch (error) {
+          throw new ApolloError('An error occurred while saving a place.', 'DATABASE_ERROR', {
+            error,
+          });
+        }
       }
     },
-    removePlace: async (parent, { userId, placeId }) => {
+
+    removePlace: async (parent, { userId, xid }) => {
       try {
+
         return User.findOneAndUpdate(
           { _id: userId },
           {
-            $pull: { savedPlaces: placeId },
+            $pull: { savedPlaces: xid },
           },
           {
             new: true,
@@ -118,6 +161,7 @@ const resolvers = {
           }
         );
       } catch (error) {
+
         throw new ApolloError('An error occurred while removing a place.', 'DATABASE_ERROR', {
           error,
         });
