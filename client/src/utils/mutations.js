@@ -25,40 +25,40 @@ export const ADD_USER = gql`
 `;
 
 export const SAVE_PLACE = gql`
-mutation savePlace($place: PlaceInput!) {
-  savePlace(place: $place) {
-    _id
-    username
-    email
-    places {
-      xid
-      name
-      location
-      lat
-      lon
-      image
+  mutation savePlace($place: PlaceInput!) {
+    savePlace(place: $place) {
+      _id
+      username
+      email
+      places {
+        xid
+        name
+        location
+        lat
+        lon
+        image
       }
     }
   }
-}`
+`;
 
 export const REMOVE_PLACE = gql`
-mutation removePlace($placeId: ID) {
-  removePlace(xid: $placeId) {
-    _id
-    username
-    email
-    places {
-      xid
-      name
-      location
-      lat
-      lon
-      image
+  mutation removePlace($placeId: ID) {
+    removePlace(xid: $placeId) {
+      _id
+      username
+      email
+      places {
+        xid
+        name
+        location
+        lat
+        lon
+        image
       }
+    }
   }
-}`
-
+`;
 
 export const SAVE_API_DATA = gql`
   mutation SaveApiData($userId: ID!, $apiData: String!) {
@@ -69,5 +69,4 @@ export const SAVE_API_DATA = gql`
       apiData
     }
   }
-  `;
-
+`;
