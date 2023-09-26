@@ -6,6 +6,7 @@ import App from './App.jsx'
 import ErrorPage from './pages/ErrorPage';
 import SearchLocation from './pages/SearchLocation'
 import SavedLocation from './pages/SavedLocation'
+import LoginPage from './pages/LoginPage.jsx';
 
 
 
@@ -27,10 +28,10 @@ const router = createBrowserRouter([
         path: 'saved',
         element: <SavedLocation />,
       },
-      // {
-      //   path: 'aboutme',
-      //   element: <AboutPage />,
-      // },
+      {
+        path: 'login',
+        element: <LoginPage />,
+      },
     ],
   },
 ]);

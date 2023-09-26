@@ -9,8 +9,8 @@ function Navbar() {
         </div>
         <div id="btnContainer">
             <a className="btnHeader" href='/'>HOME</a>
-            <a className="btnHeader" href='/project'>PROJECTS</a>
-            <a className="btnHeader" href='/aboutme' >ABOUT ME</a>
+            <a className="btnHeader" href='/saved'>MY PLACES</a>
+            <a className="btnHeader" href='/login' >LOGIN</a>
             {/* <a className="btnHeader" href='/contactme'>CONTACT ME</a> */}
         </div>
     </header>

@@ -1,41 +1,41 @@
 {
-  "xid": "Q372040",
-  "name": "Gnessin Russian Academy of Music",
+  "xid": "Q866789",
+  "name": "Roman Catholic Diocese of Albany",
   "address": {
-    "road": "Хорошёвское шоссе",
-    "house": "Общежитие училища им. Гнесиных",
-    "state": "Москва",
-    "suburb": "Хорошёвский район",
-    "country": "Россия",
-    "postcode": "125493",
-    "country_code": "ru",
-    "house_number": "96",
-    "state_district": "Северный административный округ"
+    "city": "Albany",
+    "road": "Eagle Street",
+    "house": "Albany City Hall",
+    "county": "Albany County",
+    "country": "United States of America",
+    "postcode": "12207",
+    "country_code": "us",
+    "house_number": "24",
+    "neighbourhood": "Downtown"
   },
-  "rate": "3h",
-  "wikidata": "Q372040",
-  "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures",
+  "rate": "3",
+  "wikidata": "Q866789",
+  "kinds": "religion,other_temples,interesting_places",
   "sources": {
     "geometry": "wikidata",
     "attributes": [
       "wikidata"
     ]
   },
-  "otm": "https://opentripmap.com/en/card/Q372040",
-  "wikipedia": "https://en.wikipedia.org/wiki/Gnessin%20State%20Musical%20College",
-  "image": "https://commons.wikimedia.org/wiki/File:Gnessinmoscow.jpg",
+  "otm": "https://opentripmap.com/en/card/Q866789",
+  "wikipedia": "https://en.wikipedia.org/wiki/Roman%20Catholic%20Diocese%20of%20Albany",
+  "image": "https://commons.wikimedia.org/wiki/File:Cathedral_of_the_Immaculate_Conception_Albany.jpg",
   "preview": {
-    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Gnessinmoscow.jpg/400px-Gnessinmoscow.jpg",
-    "height": 300,
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Cathedral_of_the_Immaculate_Conception_Albany.jpg/400px-Cathedral_of_the_Immaculate_Conception_Albany.jpg",
+    "height": 370,
     "width": 400
   },
   "wikipedia_extracts": {
-    "title": "en:Gnessin State Musical College",
-    "text": "The Gnessin State Musical College (Russian: Государственный музыкальный колледж имени Гнесиных) and Gnesins Russian Academy of Music (Russian: Российская академия музыки имени Гнесиных) is a prominent music school in Moscow, Russia.Originally known as the Gnessin Institute, it was established on February 15, 1895 by three sisters: Evgenia Fabianovna, Elena Fabianovna, and Maria Fabianovna Gnessin. Each of the Gnessin sisters had studied piano and graduated with distinction from the Moscow Conservatory. Construction of the modern building began in 1937, designed by A. V. Tishin and E. С. Gogolev, interrupted during the war and resumed in 1943. The main part of the academy was built in 1946.",
-    "html": "<p>The <b>Gnessin State Musical College</b> (Russian: <span lang=\"ru\">Государственный музыкальный колледж имени Гнесиных</span>) and <b>Gnesins Russian Academy of Music</b> (Russian: <span lang=\"ru\">Российская академия музыки имени Гнесиных</span>) is a prominent music school in Moscow, Russia.</p><p>Originally known as the Gnessin Institute, it was established on February 15, 1895 by three sisters: Evgenia Fabianovna, Elena Fabianovna, and Maria Fabianovna Gnessin. Each of the Gnessin sisters had studied piano and graduated with distinction from the Moscow Conservatory. Construction of the modern building began in 1937, designed by A. V. Tishin and E. С. Gogolev, interrupted during the war and resumed in 1943. The main part of the academy was built in 1946.</p>"
+    "title": "en:Roman Catholic Diocese of Albany",
+    "text": "The Roman Catholic Diocese of Albany (Latin: Diœcesis Albanensis) covers 13 counties in Eastern New York (Albany, Columbia, Delaware, Fulton, Greene, Montgomery, Otsego, Rensselaer, Saratoga, Schenectady, Schoharie, Warren, and Washington Counties), including a portion of a 14th county (southern Herkimer County, New York). Its Mother Church is the Cathedral of the Immaculate Conception in the city of Albany.When St. Mary's Church was formally established in downtown Albany in 1796, it was the only Catholic church upstate. The parish part of the Diocese of Baltimore.",
+    "html": "<p><b>The Roman Catholic Diocese of Albany</b> (Latin: <i lang=\"la\">Diœcesis Albanensis</i>) covers 13 counties in Eastern New York (Albany, Columbia, Delaware, Fulton, Greene, Montgomery, Otsego, Rensselaer, Saratoga, Schenectady, Schoharie, Warren, and Washington Counties), including a portion of a 14th county (southern Herkimer County, New York). Its Mother Church is the Cathedral of the Immaculate Conception in the city of Albany.</p><p>When St. Mary's Church was formally established in downtown Albany in 1796, it was the only Catholic church upstate. The parish part of the Diocese of Baltimore.</p>"
   },
   "point": {
-    "lon": 37.51100158691406,
-    "lat": 55.77899932861328
+    "lon": -73.75440216064453,
+    "lat": 42.65169906616211
   }
 }
