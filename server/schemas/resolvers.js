@@ -53,17 +53,8 @@ const resolvers = {
 
         const data = await response.json();
 
-        //Simplifiy it for the fields we care about
-        const placeData = {
-          xid: data.xid,
-          name: data.name,
-          location: data.address,
-          lat: data.point.lat,
-          lon: data.point.lon,
-          image: data.image,
-        };
-
-        return placeData;
+     
+        return data;
       } catch (error) {
         throw new ApolloError(
           'An error occurred while fetching places',

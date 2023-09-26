@@ -69,3 +69,37 @@ header {
   border: solid 1pt blue;
 }
 
+
+
+.resultContainer {
+  display: flex;
+  width: 1300px;
+  height: 900px;
+
+  border: solid 1pt red;
+
+  .listContainer {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    
+    overflow-y: scroll;
+    border: solid 1pt violet;
+  }
+
+  .placeContainer {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+
+
+    border: solid 1pt blue;
+  }
+
+
+
+}

@@ -11,8 +11,19 @@ title: {
     required: true,
   },
   location: {
-    type: String,
+    address: {
+      road: String,
+      house: String,
+      state: String,
+      suburb: String,
+      country: String,
+      postcode: String,
+      country_code: String,
+      house_number: String,
+      state_district: String,
+    }
     required: true,
+  },
   },
   image: {
     type: String,

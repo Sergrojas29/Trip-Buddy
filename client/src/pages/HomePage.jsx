@@ -6,6 +6,9 @@ import placeData from '../utils/placeData.json';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
+
+import PlaceList from '../components/PlaceList';
+
 function Home() {
   // GeoApiCall.getlocation('austin')
   async function getCities(city) {
@@ -26,6 +29,9 @@ function Home() {
   return (
     <>
       <main className="CenterArea">
+
+
+
         <h1 className="MainTitle"> Trip Buddy</h1>
         <h1 className="MainTitle"> Search a Location</h1>
         <div id="searchbarContainer">
@@ -38,17 +44,29 @@ function Home() {
           <div id="autosearch"></div>
         </div>
 
-        <section className="resultContain">
-          {listData.features.map((place, index) => {
-            return (
-              <div className="previewContain" key={place.properties.xid}>
-                <div id="placeName"> {place.properties.name} </div>
-                <div id="placeRating"> Rate: {place.properties.rate}</div>
-                <div id="placeKind"> {place.properties.kinds} </div>
-              </div>
-            );
-          })}
+        <section className="resultContainer">
+
+
+
+          <section className="listContainer">
+            <PlaceList />
+          </section>
+          <section className='placeContainer'>
+              <h1 id='placeTitle'>title</h1>
+              <img id='previewImg' src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Cathedral_of_the_Immaculate_Conception_Albany.jpg/400px-Cathedral_of_the_Immaculate_Conception_Albany.jpg"/> 
+              <p id='placeDescription'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora ea facere, architecto, explicabo sed, et quae impedit natus magnam exercitationem soluta nihil facilis. Consectetur reprehenderit veniam ducimus nesciunt quibusdam ad.</p>
+
+              <button>SAVE / Login in</button>
+
+          </section>
+
+
         </section>
+
+
+
+
+
       </main>
     </>
   );
