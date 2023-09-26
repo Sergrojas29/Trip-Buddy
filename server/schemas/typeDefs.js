@@ -44,11 +44,11 @@ input PlaceInput {
   }
 
   type User {
-    _id: ID
+    _id: ID!
     username: String!
     email: String!
     password: String!
-    places: [Place]!
+    places: [Place]
   }
 
 

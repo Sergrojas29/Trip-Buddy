@@ -4,40 +4,54 @@ const { ApolloError } = require('apollo-server-errors');
 
 //Query: user, users, places, place
 //Mutations: addUser, login, savePlace, removePlace
-const apiKey = "5ae2e3f221c38a28845f05b692698d7c9862f1d763b5481bca8939dd"
+const apiKey = '5ae2e3f221c38a28845f05b692698d7c9862f1d763b5481bca8939dd';
 const resolvers = {
   Query: {
     users: async () => {
       try {
         return User.find().populate('places');
       } catch (error) {
-        throw new ApolloError('An error occurred while fetching users.', 'DATABASE_ERROR', {
-          error,
-        });
+        throw new ApolloError(
+          'An error occurred while fetching users.',
+          'DATABASE_ERROR',
+          {
+            error,
+          }
+        );
       }
     },
     user: async (parent, { username }) => {
       try {
         return User.findOne({ username }).populate('places');
       } catch (error) {
-        throw new ApolloError('An error occurred while fetching users.', 'DATABASE_ERROR', {
-          error,
-        });
+        throw new ApolloError(
+          'An error occurred while fetching users.',
+          'DATABASE_ERROR',
+          {
+            error,
+          }
+        );
       }
     },
     getPlaces: async (parent, { lon, lat }) => {
       try {
-        const response = await fetch(`https://api.opentripmap.com/0.1/en/places/radius?radius=1000&lon=${lon}&lat=${lat}&src_geom=wikidata&apikey=${apiKey}`)
+        const response = await fetch(
+          `https://api.opentripmap.com/0.1/en/places/radius?radius=1000&lon=${lon}&lat=${lat}&src_geom=wikidata&apikey=${apiKey}`
+        );
         if (!response.ok) {
-          throw new ApolloError('Failed to fetch from external API', 'API_ERROR', {
-            statusCode: response.status,
-            statusText: response.statusText
-          })
+          throw new ApolloError(
+            'Failed to fetch from external API',
+            'API_ERROR',
+            {
+              statusCode: response.status,
+              statusText: response.statusText,
+            }
+          );
         }
 
         //Wait for the data
 
-        const data = await response.json()
+        const data = await response.json();
 
         //Simplifiy it for the fields we care about
         const placeData = {
@@ -47,22 +61,25 @@ const resolvers = {
           lat: data.point.lat,
           lon: data.point.lon,
           image: data.image,
-        }
+        };
 
-        return placeData
-
+        return placeData;
       } catch (error) {
-        throw new ApolloError('An error occurred while fetching places', 'DATABASE_ERROR', {
-          error,
-        });
+        throw new ApolloError(
+          'An error occurred while fetching places',
+          'DATABASE_ERROR',
+          {
+            error,
+          }
+        );
       }
     },
   },
 
   Mutation: {
-    addUser: async (parent, { username, email, password, apiData }) => {
+    addUser: async (parent, { username, email, password }) => {
       try {
-        const user = await User.create({ username, email, password, apiData });
+        const user = await User.create({ username, email, password });
         const token = signToken(user);
         return { token, user };
       } catch (error) {
@@ -71,9 +88,13 @@ const resolvers = {
             inputArgs: { username, email },
           });
         }
-        throw new ApolloError('An error occurred while adding a user.', 'DATABASE_ERROR', {
-          error,
-        });
+        throw new ApolloError(
+          'An error occurred while adding a user.',
+          'DATABASE_ERROR',
+          {
+            error,
+          }
+        );
       }
     },
 
@@ -95,9 +116,13 @@ const resolvers = {
 
         return { token, user };
       } catch (error) {
-        throw new ApolloError('An error occurred during login.', 'AUTHENTICATION_ERROR', {
-          error,
-        });
+        throw new ApolloError(
+          'An error occurred during login.',
+          'AUTHENTICATION_ERROR',
+          {
+            error,
+          }
+        );
       }
     },
 
@@ -115,9 +140,13 @@ const resolvers = {
             }
           );
         } catch (error) {
-          throw new ApolloError('An error occurred while saving a place.', 'DATABASE_ERROR', {
-            error,
-          });
+          throw new ApolloError(
+            'An error occurred while saving a place.',
+            'DATABASE_ERROR',
+            {
+              error,
+            }
+          );
         }
       }
     },
@@ -135,31 +164,16 @@ const resolvers = {
             }
           );
         } catch (error) {
-
-          throw new ApolloError('An error occurred while removing a place.', 'DATABASE_ERROR', {
-            error,
-          });
+          throw new ApolloError(
+            'An error occurred while removing a place.',
+            'DATABASE_ERROR',
+            {
+              error,
+            }
+          );
         }
       }
     },
-    saveApiData: async (_, { userId, apiData }, context) => {
-      try {
-        if (!context.user) {
-          throw new AuthenticationError('User is not authenticated');
-        }
-        const user = await User.findById(userId);
-        if (!user) {
-          throw new Error('User not found');
-        }
-        user.apiData = apiData
-
-        await user.save();
-        return user;
-
-      } catch (error) {
-        throw new Error(`Error saving API data: ${error.message}`);
-      }
-    }
   },
 };
 

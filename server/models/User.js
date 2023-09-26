@@ -20,10 +20,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    apiData: {
-      type: String,
-      required: true,
-    },
+    places: [placeSchema],
   },
   {
     toJSON: {
@@ -31,7 +28,6 @@ const userSchema = new Schema(
     },
   }
 );
-
 
 userSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
@@ -41,7 +37,6 @@ userSchema.pre('save', async function (next) {
 
   next();
 });
-
 
 userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
