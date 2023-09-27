@@ -74,7 +74,7 @@ header {
 
 .resultContainer {
   display: flex;
-  width: 1300px;
+  width: 900px;
   height: 900px;
   border-radius: 5px;
   overflow: hidden;
@@ -110,7 +110,7 @@ header {
 
     .previewContain:hover{
       cursor: pointer;
-      background-color: rgb(113, 153, 218);
+      /* background-color: rgb(113, 153, 218); */
     }
 
     
@@ -118,13 +118,13 @@ header {
     #placeName {
       /* border: solid 1pt blue; */
       margin: 10px 15px;
-      font-size: 20pt;
+      font-size: 15pt;
       font-weight: 500;
     }
     
     #placeRating {
       margin: 0 15px;
-      font-size: 15pt;
+      font-size: 10pt;
 
       /* border: solid 1pt violet; */
     }
