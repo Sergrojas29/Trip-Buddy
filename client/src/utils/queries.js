@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-export const GET_PLACES = gql`
+export const GET_NEARBY_PLACES = gql`
   query getPlaces($lon: Float!, $lat: Float!) {
       getPlaces(lon: $lon, lat: $lat){
         xid
@@ -12,6 +12,18 @@ export const GET_PLACES = gql`
       }
   }`
 
+
+export const GET_SINGLE_PLACE = gql`
+  query getPlace($xid: String!) {
+      getPlace(xid: $xid){
+        xid
+        name
+        location
+        lat
+        lon
+        image
+      }
+  }`
 
 
 export const GET_ME = gql`
