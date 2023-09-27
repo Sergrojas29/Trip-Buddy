@@ -8,6 +8,7 @@ import TextField from '@mui/material/TextField';
 
 
 import PlaceList from '../components/PlaceList';
+import Place from '../components/Place';
 
 function Home() {
   // GeoApiCall.getlocation('austin')
@@ -25,7 +26,7 @@ function Home() {
 
     return;
   }
-  console.log(listData.features);
+  // console.log(listData.features);
   return (
     <>
       <main className="CenterArea">
@@ -51,14 +52,8 @@ function Home() {
           <section className="listContainer">
             <PlaceList />
           </section>
-          <section className='placeContainer'>
-              <h1 id='placeTitle'>title</h1>
-              <img id='previewImg' src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Cathedral_of_the_Immaculate_Conception_Albany.jpg/400px-Cathedral_of_the_Immaculate_Conception_Albany.jpg"/> 
-              <p id='placeDescription'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora ea facere, architecto, explicabo sed, et quae impedit natus magnam exercitationem soluta nihil facilis. Consectetur reprehenderit veniam ducimus nesciunt quibusdam ad.</p>
 
-              <button>SAVE / Login in</button>
-
-          </section>
+            <Place />
 
 
         </section>

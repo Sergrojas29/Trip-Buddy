@@ -38,18 +38,19 @@ header {
   }
 
   >#btnContainer {
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
 
     >.btnHeader {
       background: none;
       text-decoration: none;
-      height: 30px;
       border: none;
       margin: 10px;
       padding: 10px;
       color: var(--fontColor);
-      font-size: var(--LargeScreenText);
+      font-size: 25px;
       border-radius: 5px;
+
     }
 
     >.btnHeader:hover {
@@ -61,7 +62,7 @@ header {
 }
 
 
-.CenterArea{
+.CenterArea {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,16 +76,61 @@ header {
   display: flex;
   width: 1300px;
   height: 900px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 15px 5px rgb(192, 192, 192) ;
 
-  border: solid 1pt red;
+  /* border: solid 1pt red; */
 
   .listContainer {
     display: flex;
     flex-direction: column;
     width: 40%;
     
+    
+
     overflow-y: scroll;
-    border: solid 1pt violet;
+    /* border: solid 1pt violet; */
+
+    .previewContain {
+      /* border: solid 1pt red; */
+      height: 110px;
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      background-color: rgb(87, 124, 182);
+      border: none;
+      width: 100%;
+      border: solid 1pt rgba(59, 93, 147, 0.297);
+      border-radius: 5px;
+      color: white;
+      
+      
+    }
+
+    .previewContain:hover{
+      cursor: pointer;
+      background-color: rgb(113, 153, 218);
+    }
+
+    
+    
+    #placeName {
+      /* border: solid 1pt blue; */
+      margin: 10px 15px;
+      font-size: 20pt;
+      font-weight: 500;
+    }
+    
+    #placeRating {
+      margin: 0 15px;
+      font-size: 15pt;
+
+      /* border: solid 1pt violet; */
+    }
+
+
+
   }
 
   .placeContainer {
@@ -95,6 +141,16 @@ header {
     align-content: center;
     align-self: center;
     align-items: center;
+
+
+    #placeTitle{
+      margin: 15px 0;
+      font-size: 30pt;
+      text-align: center;
+    }
+    #previewImg{
+      width: 70%;
+    }
 
 
     border: solid 1pt blue;
