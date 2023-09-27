@@ -1,6 +1,6 @@
 const typeDefs = `
 
-input AddressInput {
+  input AddressInput {
     road: String
     house: String
     state: String
@@ -12,12 +12,12 @@ input AddressInput {
     state_district: String
   }
 
-input PlaceInput {
+
+  input PlaceInput {
     xid: String
     name: String
-    location: AddressInput
-    lat: Float
-    lon: Float
+    address: AddressInput
+
     image: String
   }
 
@@ -34,10 +34,12 @@ input PlaceInput {
   }
   
 
- type Place {
+
+  type Place {
     xid: String
     name: String
-    location: Address
+    address: Address
+
     image: String
   }
 

@@ -30,7 +30,7 @@ export const SAVE_PLACE = gql`
       _id
       username
       email
-      places {
+      place {
         xid
         name
         location
@@ -48,7 +48,7 @@ export const REMOVE_PLACE = gql`
       _id
       username
       email
-      places {
+      place {
         xid
         name
         location

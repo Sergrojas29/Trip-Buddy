@@ -14,5 +14,6 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^8.2.0"
-  }
+  },
+  "repository": "https://github.com/Sergrojas29/Group-Project-3"
 }
