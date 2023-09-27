@@ -35,11 +35,15 @@ const LoginForm = () => {
         variables: { ...userFormData },
       });
 
-      // if (!response.ok) {
-      //   throw new Error('something went wrong!');
-      // }
+      if (data.login.token) {
+        localStorage.setItem('token', data.login.token);
 
-      Auth.login(data.login.token);
+        Auth.login(data.login.token);
+      } else {
+        console.error('No token found in the login response');
+        setShowAlert(true);
+      }
+
     } catch (err) {
       console.error(err);
       setShowAlert(true);

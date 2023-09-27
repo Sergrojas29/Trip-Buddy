@@ -13,11 +13,11 @@ input AddressInput {
   }
 
 input PlaceInput {
-    xid: String!
-    name: String!
+    xid: String
+    name: String
     location: AddressInput
-    lat: Float!
-    lon: Float!
+    lat: Float
+    lon: Float
     image: String
   }
 
@@ -35,11 +35,9 @@ input PlaceInput {
   
 
  type Place {
-    xid: String!
-    name: String!
+    xid: String
+    name: String
     location: Address
-    lat: Float!
-    lon: Float!
     image: String
   }
 
@@ -61,7 +59,8 @@ input PlaceInput {
     users: [User]!
     user(userId: ID!, username: String): User
     getPlaces(lon: Float!, lat: Float!): Place
-    place(placeId: ID): [Place]
+    getPlace(xid: String!): Place
+   
   }
 
   type Mutation {
