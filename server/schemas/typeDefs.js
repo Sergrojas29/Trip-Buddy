@@ -12,10 +12,12 @@ const typeDefs = `
     state_district: String
   }
 
+
   input PlaceInput {
     xid: String
     name: String
     address: AddressInput
+
     image: String
   }
 
@@ -32,10 +34,12 @@ const typeDefs = `
   }
   
 
+
   type Place {
     xid: String
     name: String
     address: Address
+
     image: String
   }
 

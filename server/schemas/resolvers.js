@@ -2,7 +2,9 @@ const { User } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 const { ApolloError } = require('apollo-server-errors');
 const fetch = require('node-fetch')
+
 //Query: user, users, getPlaces, getPlace
+
 //Mutations: addUser, login, savePlace, removePlace
 const apiKey = '5ae2e3f221c38a28845f05b692698d7c9862f1d763b5481bca8939dd';
 const resolvers = {
@@ -57,6 +59,7 @@ const resolvers = {
         const data = await response.json();
 
 
+
         //Simplifiy it for the fields we care about
         const features = data.features
 
@@ -67,6 +70,8 @@ const resolvers = {
 
 
         return placeData;
+
+
 
       } catch (error) {
         console.error(error)
