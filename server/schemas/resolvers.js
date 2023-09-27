@@ -56,6 +56,7 @@ const resolvers = {
 
         const data = await response.json();
 
+
         //Simplifiy it for the fields we care about
         const features = data.features
 
@@ -66,6 +67,7 @@ const resolvers = {
 
 
         return placeData;
+
       } catch (error) {
         console.error(error)
         throw new ApolloError(

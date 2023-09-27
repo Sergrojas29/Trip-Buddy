@@ -10,12 +10,14 @@ const placeSchema = new Schema({
     type: String,
     required: true,
   },
+
   address:
   {
     type: Schema.Types.Mixed,
     required: true,
   }
   ,
+
   image: {
     type: String,
   },
