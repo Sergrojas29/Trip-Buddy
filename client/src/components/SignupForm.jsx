@@ -14,8 +14,10 @@ const SignupForm = () => {
     password: '',
   });
   const [addUser, { error }] = useMutation(ADD_USER);
+
   // set state for form validation
-  const [validated] = useState(false);
+  // const [validated] = useState(false);
+
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
   useEffect(() => {
@@ -26,9 +28,22 @@ const SignupForm = () => {
     }
   }, [error]);
 
+  const [usernameError, setUsernameError] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
+
+    // Add validation logic for each field here
+    if (name === 'username') {
+      setUsernameError(value ? '' : 'Username is required');
+    } else if (name === 'email') {
+      setEmailError(value ? '' : 'Email is required');
+    } else if (name === 'password') {
+      setPasswordError(value ? '' : 'Password is required');
+    }
   };
 
   const handleFormSubmit = async (event) => {
@@ -76,6 +91,8 @@ const SignupForm = () => {
           name="username"
           onChange={handleInputChange}
           value={userFormData.username}
+          error={Boolean(usernameError)}
+          helperText={usernameError}
         />
       </div>
       <div>
@@ -86,6 +103,8 @@ const SignupForm = () => {
           name="email"
           onChange={handleInputChange}
           value={userFormData.email}
+          error={Boolean(emailError)}
+          helperText={emailError}
         />
       </div>
       <div>
@@ -98,6 +117,8 @@ const SignupForm = () => {
           name="password"
           onChange={handleInputChange}
           value={userFormData.password}
+          error={Boolean(passwordError)}
+          helperText={passwordError}
         />
       </div>
       <div>
