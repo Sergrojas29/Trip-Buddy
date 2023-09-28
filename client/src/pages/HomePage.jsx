@@ -7,17 +7,14 @@ import { useQuery } from '@apollo/client';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-import { GET_NEARBY_PLACES, GET_SINGLE_PLACE } from '../utils/queries'
+import { GET_NEARBY_PLACES, GET_SINGLE_PLACE } from '../utils/queries';
 import { SAVE_PLACE, REMOVE_PLACE } from '../utils/mutations';
 
 import PlaceList from '../components/PlaceList';
 import Place from '../components/Place';
 
-
 function Home() {
   const { loading, data } = useQuery(GET_NEARBY_PLACES);
-
-
 
   // async function getCities(city) {
   // try {
@@ -34,19 +31,18 @@ function Home() {
   // return;
   // }
 
-
-
-
   return (
     <>
       <main className="CenterArea">
-
-
-
         <h1 className="MainTitle"> Trip Buddy</h1>
         <h1 className="MainTitle"> Search a Location</h1>
 
-            <div className="searchbarContainer">
+
+
+        <section className="resultContainer">
+
+          <section className="searchContainer">
+            <div id="searchbarContainer">
               <input
                 type="search"
                 name="citySearch"
@@ -55,10 +51,7 @@ function Home() {
               ></input>
               <div id="autosearch"></div>
             </div>
-
-        <section className="resultContainer">
-
-
+          </section>
 
 
           <section className="listContainer">
@@ -66,14 +59,7 @@ function Home() {
           </section>
 
           <Place />
-
-
         </section>
-
-
-
-
-
       </main>
     </>
   );

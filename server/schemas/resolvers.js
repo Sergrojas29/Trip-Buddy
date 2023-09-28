@@ -60,6 +60,7 @@ const resolvers = {
 
 
 
+
         //Simplifiy it for the fields we care about
         const features = data.features
 
