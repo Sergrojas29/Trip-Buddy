@@ -46,12 +46,7 @@ function Home() {
         <h1 className="MainTitle"> Trip Buddy</h1>
         <h1 className="MainTitle"> Search a Location</h1>
 
-
-
-        <section className="resultContainer">
-
-          <section className="searchContainer">
-            <div id="searchbarContainer">
+            <div className="searchbarContainer">
               <input
                 type="search"
                 name="citySearch"
@@ -60,7 +55,10 @@ function Home() {
               ></input>
               <div id="autosearch"></div>
             </div>
-          </section>
+
+        <section className="resultContainer">
+
+
 
 
           <section className="listContainer">

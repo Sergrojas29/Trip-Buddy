@@ -13,17 +13,6 @@ export const GET_NEARBY_PLACES = gql`
 
 export const GET_SINGLE_PLACE = gql`
   query getPlace($xid: String!) {
-<<<<<<< HEAD
-      getPlace(xid: $xid){
-        xid
-        name
-        address
-        image
-      }
-  }`
-
-
-=======
     getPlace(xid: $xid) {
       xid
       name
@@ -32,7 +21,6 @@ export const GET_SINGLE_PLACE = gql`
     }
   }
 `;
->>>>>>> 55d9e6c0882566715e52173de9cbe7f3414bd285
 
 // export const GET_SINGLE_PLACE = gql`
 //   query getPlace($xid: String!) {
