@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-import { gql } from '@apollo/client';
+// import { gql } from '@apollo/client';
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
@@ -68,13 +68,4 @@ export const SAVE_API_DATA = gql`
 `;
 
 
-export const SAVE_API_DATA = gql`
-  mutation SaveApiData($userId: ID!, $apiData: String!) {
-    saveApiData(userId: $userId, apiData: $apiData) {
-      _id
-      username
-      email
-      apiData
-    }
-  }
-`;
+
