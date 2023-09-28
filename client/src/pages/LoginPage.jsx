@@ -2,12 +2,15 @@ import SignupForm from '../components/SignupForm';
 import LoginForm from '../components/LoginForm';
 
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
+import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
+<<<<<<< HEAD
+function LoginPage() {
+=======
+>>>>>>> 2ebe25af3ec3ef7d9d2e44749fb4e342ff0b4510
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
 

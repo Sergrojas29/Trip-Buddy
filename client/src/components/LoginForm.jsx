@@ -15,19 +15,36 @@ const LoginForm = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [login] = useMutation(LOGIN_USER);
 
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [loginError, setLoginError] = useState('');
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
+    // Clear the error state when the user types
+    if (name === 'email') {
+      setEmailError('');
+    } else if (name === 'password') {
+      setPasswordError('');
+    }
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // check if form has everything (as per react-bootstrap docs)
+    // Check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
+      // You can also set error messages here if needed
+      setEmailError('Please enter a valid email address');
+      setPasswordError('Please enter a valid password');
+    } else {
+      // Clear error messages if form is valid
+      setEmailError('');
+      setPasswordError('');
     }
 
     try {
@@ -37,20 +54,19 @@ const LoginForm = () => {
 
       if (data.login.token) {
         localStorage.setItem('token', data.login.token);
-
         Auth.login(data.login.token);
       } else {
         console.error('No token found in the login response');
-        setShowAlert(true);
+        // Set the login error message for incorrect email/password
+        setLoginError('Incorrect email or password');
       }
-
     } catch (err) {
       console.error(err);
-      setShowAlert(true);
+      // Set the login error message for server errors
+      setLoginError('An error occurred while logging in');
     }
 
     setUserFormData({
-      username: '',
       email: '',
       password: '',
     });
@@ -74,6 +90,8 @@ const LoginForm = () => {
             name="email"
             onChange={handleInputChange}
             value={userFormData.email}
+            error={Boolean(emailError)}
+            helperText={emailError}
           />
         </div>
         <div>
@@ -85,6 +103,8 @@ const LoginForm = () => {
             name="password"
             onChange={handleInputChange}
             value={userFormData.password}
+            error={Boolean(passwordError)}
+            helperText={passwordError}
           />
         </div>
         <div>
@@ -93,6 +113,8 @@ const LoginForm = () => {
           </Button>
         </div>
       </Box>
+      {/* Display the login error message */}
+      {loginError && <div className="error-message">{loginError}</div>}
     </>
   );
 };
