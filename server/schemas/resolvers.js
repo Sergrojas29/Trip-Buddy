@@ -58,8 +58,7 @@ const resolvers = {
 
         const data = await response.json();
 
-
-
+<<<<<<<<< Temporary merge branch 1
         //Simplifiy it for the fields we care about
         const features = data.features
 
