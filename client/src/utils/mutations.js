@@ -66,13 +66,4 @@ export const REMOVE_PLACE = gql`
 //   }
 // `;
 
-export const SAVE_API_DATA = gql`
-  mutation SaveApiData($userId: ID!, $apiData: String!) {
-    saveApiData(userId: $userId, apiData: $apiData) {
-      _id
-      username
-      email
-      apiData
-    }
-  }
-`;
+
