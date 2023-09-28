@@ -15,8 +15,7 @@ const placeSchema = new Schema({
   {
     type: Schema.Types.Mixed,
     required: true,
-  }
-  ,
+  },
 
   image: {
     type: String,

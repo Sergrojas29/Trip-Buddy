@@ -1,5 +1,5 @@
 {
-  "name": "travelbuddy-app",
+  "name": "tripbuddy-app",
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",

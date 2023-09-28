@@ -39,7 +39,6 @@ const typeDefs = `
     xid: String
     name: String
     address: Address
-
     image: String
   }
 
