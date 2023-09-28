@@ -2,36 +2,25 @@ const { Schema } = require('mongoose');
 
 const placeSchema = new Schema({
 
-title: {
+  xid: {
     type: String,
     required: true,
   },
-  description: {
+  name: {
     type: String,
     required: true,
   },
-  location: {
-    address: {
-      road: String,
-      house: String,
-      state: String,
-      suburb: String,
-      country: String,
-      postcode: String,
-      country_code: String,
-      house_number: String,
-      state_district: String,
-    }
+
+  address:
+  {
+    type: Schema.Types.Mixed,
     required: true,
-  },
-  },
+  }
+  ,
+
   image: {
     type: String,
   },
-  link: {
-    type: String,
-  },
-  
 });
 
 module.exports = placeSchema;

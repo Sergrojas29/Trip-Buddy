@@ -1,6 +1,6 @@
 const typeDefs = `
 
-input AddressInput {
+  input AddressInput {
     road: String
     house: String
     state: String
@@ -12,12 +12,12 @@ input AddressInput {
     state_district: String
   }
 
-input PlaceInput {
-    xid: String!
-    name: String!
-    location: AddressInput
-    lat: Float!
-    lon: Float!
+
+  input PlaceInput {
+    xid: String
+    name: String
+    address: AddressInput
+
     image: String
   }
 
@@ -34,12 +34,12 @@ input PlaceInput {
   }
   
 
- type Place {
-    xid: String!
-    name: String!
-    location: Address
-    lat: Float!
-    lon: Float!
+
+  type Place {
+    xid: String
+    name: String
+    address: Address
+
     image: String
   }
 
@@ -61,7 +61,8 @@ input PlaceInput {
     users: [User]!
     user(userId: ID!, username: String): User
     getPlaces(lon: Float!, lat: Float!): Place
-    place(placeId: ID): [Place]
+    getPlace(xid: String!): Place
+   
   }
 
   type Mutation {

@@ -1,8 +1,10 @@
-const { User, Place } = require('../models');
+const { User } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 const { ApolloError } = require('apollo-server-errors');
+const fetch = require('node-fetch')
 
-//Query: user, users, places, place
+//Query: user, users, getPlaces, getPlace
+
 //Mutations: addUser, login, savePlace, removePlace
 const apiKey = '5ae2e3f221c38a28845f05b692698d7c9862f1d763b5481bca8939dd';
 const resolvers = {
@@ -38,10 +40,13 @@ const resolvers = {
         const response = await fetch(
           `https://api.opentripmap.com/0.1/en/places/radius?radius=1000&lon=${lon}&lat=${lat}&src_geom=wikidata&apikey=${apiKey}`
         );
+
         if (!response.ok) {
+
           throw new ApolloError(
             'Failed to fetch from external API',
             'API_ERROR',
+
             {
               statusCode: response.status,
               statusText: response.statusText,
@@ -53,11 +58,23 @@ const resolvers = {
 
         const data = await response.json();
 
-        //Simplifiy it for the fields we care about
-        
 
-        return data;
+
+        //Simplifiy it for the fields we care about
+        const features = data.features
+
+        const placeData = features.map(feature => feature.properties)
+
+
+        console.log(placeData)
+
+
+        return placeData;
+
+
+
       } catch (error) {
+        console.error(error)
         throw new ApolloError(
           'An error occurred while fetching places',
           'DATABASE_ERROR',
@@ -67,6 +84,46 @@ const resolvers = {
         );
       }
     },
+    getPlace: async (parent, { xid }, context) => {
+      if (!context.user) {
+        try {
+          const response = await fetch(
+            `http://api.opentripmap.com/0.1/en/places/xid/${xid}?apikey=${apiKey}`
+          );
+          if (!response.ok) {
+
+            throw new ApolloError(
+              'Failed to fetch from external API',
+              'API_ERROR',
+
+              {
+                statusCode: response.status,
+                statusText: response.statusText,
+              }
+            );
+          }
+
+          //Wait for the data
+
+          const data = await response.json();
+
+          //Simplifiy it for the fields we care about
+
+          console.log(data)
+
+          return data;
+        } catch (error) {
+          console.error(error)
+          throw new ApolloError(
+            'An error occurred while fetching places',
+            'DATABASE_ERROR',
+            {
+              error,
+            }
+          );
+        }
+      }
+    }
   },
 
   Mutation: {
@@ -122,8 +179,8 @@ const resolvers = {
     savePlace: async (parent, { place }, context) => {
       if (context.user) {
         try {
-          return User.findOneAndUpdate(
-            { _id: userId },
+          const updatedUser = await User.findOneAndUpdate(
+            { _id: context.user._id }, // Use context.user._id
             {
               $addToSet: { savedPlaces: place },
             },
@@ -132,6 +189,8 @@ const resolvers = {
               runValidators: true,
             }
           );
+
+          return updatedUser;
         } catch (error) {
           throw new ApolloError(
             'An error occurred while saving a place.',
@@ -143,11 +202,12 @@ const resolvers = {
         }
       }
     },
+
     removePlace: async (parent, { xid }, context) => {
       if (context.user) {
         try {
-          return User.findOneAndUpdate(
-            { _id: userId },
+          const updatedUser = await User.findOneAndUpdate(
+            { _id: context.user._id }, // Use context.user._id
             {
               $pull: { savedPlaces: xid },
             },
@@ -156,6 +216,8 @@ const resolvers = {
               runValidators: true,
             }
           );
+
+          return updatedUser;
         } catch (error) {
           throw new ApolloError(
             'An error occurred while removing a place.',
@@ -167,6 +229,7 @@ const resolvers = {
         }
       }
     },
+
   },
 };
 

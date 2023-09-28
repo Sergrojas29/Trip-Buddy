@@ -1,5 +1,7 @@
 import { gql } from '@apollo/client';
 
+// import { gql } from '@apollo/client';
+
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
@@ -27,17 +29,10 @@ export const ADD_USER = gql`
 export const SAVE_PLACE = gql`
   mutation savePlace($place: PlaceInput!) {
     savePlace(place: $place) {
-      _id
-      username
-      email
-      places {
-        xid
-        name
-        location
-        lat
-        lon
-        image
-      }
+      xid
+      name
+      address
+      image
     }
   }
 `;
@@ -48,7 +43,7 @@ export const REMOVE_PLACE = gql`
       _id
       username
       email
-      places {
+      place {
         xid
         name
         location
@@ -60,13 +55,15 @@ export const REMOVE_PLACE = gql`
   }
 `;
 
-export const SAVE_API_DATA = gql`
-  mutation SaveApiData($userId: ID!, $apiData: String!) {
-    saveApiData(userId: $userId, apiData: $apiData) {
-      _id
-      username
-      email
-      apiData
-    }
-  }
-`;
+// export const SAVE_API_DATA = gql`
+//   mutation SaveApiData($userId: ID!, $apiData: String!) {
+//     saveApiData(userId: $userId, apiData: $apiData) {
+//       _id
+//       username
+//       email
+//       apiData
+//     }
+//   }
+// `;
+
+
