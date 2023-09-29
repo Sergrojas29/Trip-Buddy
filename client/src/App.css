@@ -1,11 +1,55 @@
 #root {
-  
+
   --std-src-size: 900px;
+
   --lightSecondary: rgb(234, 234, 234);
   --titleSize: 30pt;
+  --noSmallScreen: flex;
+
+  --smallScreenFlexDirection: row;
+  --smallScreento100: 100%;
+
+
+  --sml100large40: 40%;
+  --sml100large60: 60%;
+
+  --lar100Sml20: 100%;
+  --lar100Sml60: 100%;
+
+
+  --lar900pxSml1600px: 900px;
 
   --primary: rgb(87, 124, 182);
+  --secondary: rgb(30, 93, 193);
 }
+
+
+@media screen and (max-width: 960px) {
+  #root {
+    --std-src-size: 100%;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  #root {
+    --smallScreenFlexDirection: column;
+    --noSmallScreen: none;
+
+    --sml100large40: 100%;
+    --sml100large60: 100%;
+
+    --lar100Sml20: 30%;
+    --lar100Sml60:70%;
+
+    --lar900pxSml1600px: 1200px;
+
+  }
+
+
+
+}
+
+
 
 
 * {
@@ -17,13 +61,11 @@
   /* color: white; */
 
 }
-button:hover{
+
+button:hover {
   cursor: pointer;
 }
 
-.icon {
-  height: 50px;
-}
 
 header {
   display: flex;
@@ -36,14 +78,20 @@ header {
   position: relative;
   box-shadow: 0px 0px 15px 5px rgb(234, 234, 234);
 
-  >#logoContainer {
-    display: flex;
+  #logoContainer {
+    display: var(--noSmallScreen);
     position: absolute;
     left: 0;
     /* border: solid 1pt red; */
-    width: 50px;
+    width: 90px;
     margin-left: 30px;
     margin-bottom: 10px;
+    object-fit: contain;
+
+    #logo {
+      width: 100%;
+    }
+
   }
 
   >#btnContainer {
@@ -79,10 +127,10 @@ header {
   /* border: solid 1pt blue;/ */
 }
 
-.searchbarContainer{
+.searchbarContainer {
   width: var(--std-src-size);
-  
-  #citySearch{
+
+  #citySearch {
     width: 100%;
     height: 40px;
     font-size: 16pt;
@@ -93,27 +141,31 @@ header {
     background: var(--lightSecondary);
 
   }
-  #citySearch:active{
+
+  #citySearch:active {
     border: red;
   }
 }
 
 .resultContainer {
   display: flex;
+  flex-direction: var(--smallScreenFlexDirection);
   width: var(--std-src-size);
-  height: 900px;
+  height: var(--lar900pxSml1600px);
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0 0 15px 5px rgb(192, 192, 192) ;
+  box-shadow: 0 0 15px 5px rgb(192, 192, 192);
 
   /* border: solid 1pt red; */
 
   .listContainer {
     display: flex;
     flex-direction: column;
-    width: 40%;
-    
-    
+    width: var(--sml100large40);
+    height: var(--lar100Sml20);
+
+
+
 
     overflow-y: scroll;
     /* border: solid 1pt violet; */
@@ -130,24 +182,25 @@ header {
       border: solid 1pt rgba(59, 93, 147, 0.297);
       border-radius: 5px;
       color: white;
-      
-      
+      text-decoration: none;
+
+
     }
 
-    .previewContain:hover{
+    .previewContain:hover {
       cursor: pointer;
       /* background-color: rgb(113, 153, 218); */
     }
 
-    
-    
+
+
     #placeName {
       /* border: solid 1pt blue; */
       margin: 10px 15px;
       font-size: 15pt;
       font-weight: 500;
     }
-    
+
     #placeRating {
       margin: 0 15px;
       font-size: 10pt;
@@ -159,31 +212,49 @@ header {
 
   }
 
+  .listContainer::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .listContainer::-webkit-scrollbar {
+    box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+  }
+  .listContainer::-webkit-scrollbar-thumb {
+    background: var(--secondary);
+    border-radius: 10px;
+    cursor: pointer;
+
+  }
+
+
+
   .placeContainer {
     display: flex;
     flex-direction: column;
-    width: 60%;
-    height: 100%;
+    width: var(--sml100large60);
+    height: var(--lar100Sml60);
     align-content: center;
     align-self: center;
     align-items: center;
 
 
-    #placeTitle{
+    #placeTitle {
       margin: 15px 0;
       font-size: 30pt;
       text-align: center;
     }
-    #previewImg{
+
+    #previewImg {
       width: 70%;
     }
 
-    #placeDescription{
+    #placeDescription {
       margin: 15pt 0;
       width: 85%;
     }
-    
-    #savebtn{
+
+    #savebtn {
       background-color: var(--primary);
       height: 40px;
       width: 100px;
@@ -201,10 +272,41 @@ header {
 
 
 
-#myplaces{
+#myplaces {
   color: gray;
   font-size: var(--titleSize);
   margin: 30px;
-  
 
+
+}
+
+
+
+
+
+
+
+
+
+footer{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: end;
+
+  #logoContainer {
+    display: var(--noSmallScreen);
+    position: absolute;
+  left: 0;
+  /* border: solid 1pt red; */
+  width: 90px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  object-fit: contain;
+  
+  #logo {
+    width: 100%;
+  }
+  
+}
 }
