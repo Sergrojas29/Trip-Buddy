@@ -50,60 +50,7 @@ function Home() {
   }
 
 
-  // const fetchPlace = async (xid) => {
 
-  // const fetchPlaces = async (lat, lon) => {
-  //   try {
-  //     
-
-  //     // Update the state within the component
-  //     setMultiPlaceData(data.getPlaces);
-  //   } catch (error) {
-  //     console.error('An error occurred:', error);
-  //   }
-  // };
-
-
-  //
-  //     if (!loading && !error) {
-  //       setSinglePlaceData(data.getPlace);
-  //       console.log(data.getPlace);
-  //     } else {
-  //       console.log(error);
-  //     }
-  //   } catch (error) {
-  //     console.error('An error occurred:', error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   if (!loadingMulti && !errorMulti) {
-  //     // Access the data using the correct field name for GET_NEARBY_PLACES
-  //     setCityData(dataMulti.getPlaces);
-  //     console.log(dataMulti.getPlaces);
-  //   } else if (!loadingSing && !errorSing) {
-  //     // Access the data using the correct field name for GET_SINGLE_PLACE
-  //     // Handle dataSing as needed
-  //   }
-  // }, [loadingMulti, errorMulti, loadingSing, errorSing]);
-
-
-  // Render your component content here
-
-
-  //  async function getCities(city) {
-  // try {
-  //   const url = `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=10&language=en&format=json`;
-  //   const response = await fetch(url);
-  //   const data = await response.json();
-  //   const selectedCity = data.results[0];
-  //   const { latitude, longitude } = selectedCity;
-  //   console.log(`${latitude}, and ${longitude}`);
-  // } catch (error) {
-  //   console.log(error);
-  // }
-  //  return;
-  // }}
 
 
 
@@ -115,7 +62,10 @@ function Home() {
         <h1 className="MainTitle"> Trip Buddy</h1>
         <h1 className="MainTitle"> Search a Location</h1>
         <Button onClick={handleFormSubmit}>
-          Button
+          CheckApiCall
+        </Button>
+        <Button onClick={() => console.log(multiPlaceInfo)} >
+          checkUSEstate
         </Button>
         <div className="searchbarContainer">
           <input
@@ -135,7 +85,25 @@ function Home() {
 
 
           <section className="listContainer">
-            <PlaceList />
+            <section className="resultContain">
+              
+              {useEffect(() => {
+                multiPlaceInfo.map((place, index) => {
+                  while (index < 25) {
+                    return (
+                      <a className="previewContain" key={place.xid} href='#placeTitle' id={place.xid} onClick={(e) => console.log(e.target.id)} >
+                        <div className="placeName" maxLength="15" id={place.xid} > {place.name} </div>
+                        <div className="placeRating" id={place.xid} > RATING: {place.rate}</div>
+                      </a>
+                    );
+                  }
+                })
+                // console.log(multiPlaceInfo)
+              }, [multiPlaceInfo])}
+
+            </section>
+
+            {/* <PlaceList /> */}
           </section>
 
           <Place />

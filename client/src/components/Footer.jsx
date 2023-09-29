@@ -11,7 +11,7 @@ function Footer() {
 
   return (
     <footer >
-      <div id="logoContainer" onClick={() => play()}>
+      <div style={{marginBottom:'-10%'}} id="logoContainer" onClick={() => play()}>
         <img src={logo} alt="Trip Buddy Logo" id="logo"/>
       </div>
     </footer>
