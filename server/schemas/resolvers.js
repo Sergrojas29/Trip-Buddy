@@ -6,7 +6,6 @@ const fetch = require('node-fetch')
 //Query: user, users, getPlaces, getPlace
 
 //Mutations: addUser, login, savePlace, removePlace
-
 const apiKey = '5ae2e3f221c38a28845f05b692698d7c9862f1d763b5481bca8939dd';
 const resolvers = {
   Query: {
@@ -56,20 +55,21 @@ const resolvers = {
         }
 
         //Wait for the data
+
         const data = await response.json();
 
         //Simplifiy it for the fields we care about
         const features = data.features
 
-        //Map through the data and pull from properties
         const placeData = features.map(feature => feature.properties)
 
-        //Return all the places
+        console.log(placeData)
+
+
         return placeData;
 
       } catch (error) {
-
-        //If theres and error, log it and throw it
+        
         console.error(error)
         throw new ApolloError(
           'An error occurred while fetching places',
