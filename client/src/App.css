@@ -1,7 +1,10 @@
 #root {
   
   --std-src-size: 900px;
-  --lightSecondary: rgb(234, 234, 234)
+  --lightSecondary: rgb(234, 234, 234);
+  --titleSize: 30pt;
+
+  --primary: rgb(87, 124, 182);
 }
 
 
@@ -14,7 +17,9 @@
   /* color: white; */
 
 }
-
+button:hover{
+  cursor: pointer;
+}
 
 .icon {
   height: 50px;
@@ -71,7 +76,7 @@ header {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  border: solid 1pt blue;
+  /* border: solid 1pt blue;/ */
 }
 
 .searchbarContainer{
@@ -119,7 +124,7 @@ header {
       display: flex;
       flex-direction: column;
       justify-content: left;
-      background-color: rgb(87, 124, 182);
+      background-color: var(--primary);
       border: none;
       width: 100%;
       border: solid 1pt rgba(59, 93, 147, 0.297);
@@ -173,9 +178,33 @@ header {
       width: 70%;
     }
 
+    #placeDescription{
+      margin: 15pt 0;
+      width: 85%;
+    }
+    
+    #savebtn{
+      background-color: var(--primary);
+      height: 40px;
+      width: 100px;
+      border: none;
+      box-shadow: 0 0 25px 5px rgb(192, 192, 192);
+      border-radius: 5pt;
+      color: white;
+    }
 
   }
 
 
+
+}
+
+
+
+#myplaces{
+  color: gray;
+  font-size: var(--titleSize);
+  margin: 30px;
+  
 
 }
