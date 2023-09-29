@@ -1,4 +1,11 @@
-#root {}
+#root {
+  
+  --std-src-size: 900px;
+  --lightSecondary: rgb(234, 234, 234);
+  --titleSize: 30pt;
+
+  --primary: rgb(87, 124, 182);
+}
 
 
 * {
@@ -10,7 +17,9 @@
   /* color: white; */
 
 }
-
+button:hover{
+  cursor: pointer;
+}
 
 .icon {
   height: 50px;
@@ -25,7 +34,7 @@ header {
   /* border: solid 1pt blue; */
   background-color: white;
   position: relative;
-  box-shadow: 0px 0px 15px 5px rgb(184, 184, 184);
+  box-shadow: 0px 0px 15px 5px rgb(234, 234, 234);
 
   >#logoContainer {
     display: flex;
@@ -67,14 +76,31 @@ header {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  border: solid 1pt blue;
+  /* border: solid 1pt blue;/ */
 }
 
+.searchbarContainer{
+  width: var(--std-src-size);
+  
+  #citySearch{
+    width: 100%;
+    height: 40px;
+    font-size: 16pt;
+    border: none;
+    border-radius: 5px;
+    margin: 20px 0;
+    padding: 5px;
+    background: var(--lightSecondary);
 
+  }
+  #citySearch:active{
+    border: red;
+  }
+}
 
 .resultContainer {
   display: flex;
-  width: 900px;
+  width: var(--std-src-size);
   height: 900px;
   border-radius: 5px;
   overflow: hidden;
@@ -98,7 +124,7 @@ header {
       display: flex;
       flex-direction: column;
       justify-content: left;
-      background-color: rgb(87, 124, 182);
+      background-color: var(--primary);
       border: none;
       width: 100%;
       border: solid 1pt rgba(59, 93, 147, 0.297);
@@ -152,10 +178,33 @@ header {
       width: 70%;
     }
 
+    #placeDescription{
+      margin: 15pt 0;
+      width: 85%;
+    }
+    
+    #savebtn{
+      background-color: var(--primary);
+      height: 40px;
+      width: 100px;
+      border: none;
+      box-shadow: 0 0 25px 5px rgb(192, 192, 192);
+      border-radius: 5pt;
+      color: white;
+    }
 
-    border: solid 1pt blue;
   }
 
 
+
+}
+
+
+
+#myplaces{
+  color: gray;
+  font-size: var(--titleSize);
+  margin: 30px;
+  
 
 }
