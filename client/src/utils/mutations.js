@@ -55,6 +55,35 @@ export const REMOVE_PLACE = gql`
   }
 `;
 
+export const GET_NEARBY_PLACES = gql`
+  mutation getPlaces($city: String!) {
+    getPlaces(city: $city) {
+      xid
+      name
+      rate
+    }
+}`;
+
+export const GET_SINGLE_PLACE = gql`
+  mutation getPlace($xid: ID) {
+    getPlace(xid: $xid) {
+      name
+      address {
+        road
+        house
+        state
+        suburb
+        country
+        postcode
+        country_code
+        house_number
+        state_district
+      }
+      image
+    }
+  }
+`;
+
 // export const SAVE_API_DATA = gql`
 //   mutation SaveApiData($userId: ID!, $apiData: String!) {
 //     saveApiData(userId: $userId, apiData: $apiData) {

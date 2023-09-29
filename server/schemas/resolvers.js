@@ -35,91 +35,6 @@ const resolvers = {
         );
       }
     },
-    getPlaces: async (parent, { lon, lat }) => {
-      try {
-        const response = await fetch(
-          `https://api.opentripmap.com/0.1/en/places/radius?radius=1000&lon=${lon}&lat=${lat}&src_geom=wikidata&apikey=${apiKey}`
-        );
-
-        if (!response.ok) {
-
-          throw new ApolloError(
-            'Failed to fetch from external API',
-            'API_ERROR',
-
-            {
-              statusCode: response.status,
-              statusText: response.statusText,
-            }
-          );
-        }
-
-        //Wait for the data
-
-        const data = await response.json();
-
-        //Simplifiy it for the fields we care about
-        const features = data.features
-
-        const placeData = features.map(feature => feature.properties)
-
-        console.log(placeData)
-
-
-        return placeData;
-
-      } catch (error) {
-        
-        console.error(error)
-        throw new ApolloError(
-          'An error occurred while fetching places',
-          'DATABASE_ERROR',
-          {
-            error,
-          }
-        );
-      }
-    },
-    getPlace: async (parent, { xid }, context) => {
-      if (!context.user) {
-        try {
-          const response = await fetch(
-            `http://api.opentripmap.com/0.1/en/places/xid/${xid}?apikey=${apiKey}`
-          );
-          if (!response.ok) {
-
-            throw new ApolloError(
-              'Failed to fetch from external API',
-              'API_ERROR',
-
-              {
-                statusCode: response.status,
-                statusText: response.statusText,
-              }
-            );
-          }
-
-          //Wait for the data
-
-          const data = await response.json();
-
-          //Simplifiy it for the fields we care about
-
-          console.log(data)
-
-          return data;
-        } catch (error) {
-          console.error(error)
-          throw new ApolloError(
-            'An error occurred while fetching places',
-            'DATABASE_ERROR',
-            {
-              error,
-            }
-          );
-        }
-      }
-    }
   },
 
   Mutation: {
@@ -226,7 +141,120 @@ const resolvers = {
       }
     },
 
-  },
-};
 
+
+    getPlaces: async (parent, { city }) => {
+      try {
+        // Replace spaces in the city name with '+' for the URL
+        const typedCity = city.replace(' ', '+');
+
+        // Fetch geolocation data for the city
+        const cityData = await fetch(
+          `https://geocoding-api.open-meteo.com/v1/search?name=${typedCity}&count=10&language=en&format=json`
+        );
+
+        if (!cityData.ok) {
+          throw new ApolloError(
+            'Failed to fetch city geolocation data from external API',
+            'API_ERROR',
+            {
+              statusCode: cityData.status,
+              statusText: cityData.statusText,
+            }
+          );
+        }
+
+        // Wait for the data
+        const cityInfo = await cityData.json();
+
+        // Check if the city was found
+        if (!cityInfo.results || cityInfo.results.length === 0) {
+          throw new ApolloError('City not found', 'DATA_NOT_FOUND');
+        }
+
+        // Extract the coordinates (latitude and longitude) of the first result
+        const lon = cityInfo.results[0].longitude;
+        const lat = cityInfo.results[0].latitude;
+
+        // Fetch places based on the coordinates
+        const response = await fetch(
+          `https://api.opentripmap.com/0.1/en/places/radius?radius=1000&lon=${lon}&lat=${lat}&src_geom=wikidata&apikey=${apiKey}`
+        );
+
+        if (!response.ok) {
+          throw new ApolloError(
+            'Failed to fetch places from external API',
+            'API_ERROR',
+            {
+              statusCode: response.status,
+              statusText: response.statusText,
+            }
+          );
+        }
+
+        // Wait for the data
+        const data = await response.json();
+
+        // Simplify it for the fields we care about
+        const features = data.features;
+        const placeData = features.map((feature) => feature.properties);
+
+        console.log(placeData);
+
+        return placeData;
+      } catch (error) {
+
+        console.error(error);
+        throw new ApolloError(
+          'An error occurred while fetching places',
+          'DATABASE_ERROR',
+          {
+            error,
+          }
+        );
+      }
+    },
+    getPlace: async (parent, { xid }, context) => {
+
+      if (!context.user) {
+        try {
+          const response = await fetch(
+            `http://api.opentripmap.com/0.1/en/places/xid/${xid}?apikey=${apiKey}`
+          );
+          if (!response.ok) {
+
+            throw new ApolloError(
+              'Failed to fetch from external API',
+              'API_ERROR',
+
+              {
+                statusCode: response.status,
+                statusText: response.statusText,
+              }
+            );
+          }
+
+          //Wait for the data
+
+          const data = await response.json();
+
+          //Simplifiy it for the fields we care about
+
+          console.log(data)
+
+          return data;
+        } catch (error) {
+          console.error(error)
+          throw new ApolloError(
+            'An error occurred while fetching places',
+            'DATABASE_ERROR',
+            {
+              error,
+            }
+          );
+        }
+      }
+    }
+  }
+}
 module.exports = resolvers;

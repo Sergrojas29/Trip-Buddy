@@ -194,14 +194,14 @@ header {
 
 
 
-    #placeName {
+    .placeName {
       /* border: solid 1pt blue; */
       margin: 10px 15px;
       font-size: 15pt;
       font-weight: 500;
     }
 
-    #placeRating {
+    .placeRating {
       margin: 0 15px;
       font-size: 10pt;
 

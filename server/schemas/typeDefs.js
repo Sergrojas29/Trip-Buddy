@@ -39,7 +39,7 @@ const typeDefs = `
     xid: String
     name: String
     address: Address
-
+    rate: Int
     image: String
   }
 
@@ -60,12 +60,13 @@ const typeDefs = `
   type Query {
     users: [User]!
     user(userId: ID!, username: String): User
-    getPlaces(lon: Float!, lat: Float!): [Place]
-    getPlace(xid: String!): Place
+    
    
   }
 
   type Mutation {
+    getPlaces(city: String!): [Place]
+    getPlace(xid: ID!): Place
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     savePlace(place: PlaceInput!): User  
