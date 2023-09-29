@@ -1,22 +1,29 @@
 import { gql } from '@apollo/client';
 
 export const GET_NEARBY_PLACES = gql`
-  query getPlaces($lon: Float!, $lat: Float!) {
+  query Query($lon: Float!, $lat: Float!) {
     getPlaces(lon: $lon, lat: $lat) {
       xid
       name
-      location
-      image
+
     }
-  }
-`;
+  }`;
 
 export const GET_SINGLE_PLACE = gql`
-  query getPlace($xid: String!) {
+  query Query($xid: String!) {
     getPlace(xid: $xid) {
-      xid
       name
-      address
+      address {
+        road
+        house
+        state
+        suburb
+        country
+        postcode
+        country_code
+        house_number
+        state_district
+      }
       image
     }
   }
