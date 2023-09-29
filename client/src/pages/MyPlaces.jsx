@@ -8,12 +8,21 @@ import placeData from '../utils/placeData.json';
 
 import PlaceList from '../components/PlaceList';
 import Place from '../components/Place';
+import { Link } from 'react-router-dom';
 
+
+import AuthService from '../utils/auth'
 
 function MyPlaces() {
+
+  // const {email , username} = AuthService.getProfile().data
+
+
   return (
 
     <main className="CenterArea">
+
+    <div id="myplaces"> username's places </div>
 
       <section className="resultContainer">
 
