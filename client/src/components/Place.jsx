@@ -2,9 +2,9 @@ import React from 'react'
 import placeData from '../utils/placeData';
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
+import { Button } from '@mui/material';
 
 function Place() {
-    const userid = Auth.getProfile().data._id
 
 
     function addedtouser(){
@@ -23,7 +23,7 @@ function Place() {
 
             {Auth.loggedIn() ? (
                 <>
-                        <button key={userid} id='savebtn' onClick={addedtouser}>SAVE</button>
+                        <Button key={Auth.getProfile().data._id} id='savebtn' onClick={addedtouser}>SAVE</Button>
 
                 </>
             ) : (
