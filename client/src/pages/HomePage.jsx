@@ -37,20 +37,20 @@ function Home() {
         <h1 className="MainTitle"> Trip Buddy</h1>
         <h1 className="MainTitle"> Search a Location</h1>
 
-
+        <div className="searchbarContainer">
+          <input
+            type="search"
+            name="citySearch"
+            id="citySearch"
+            placeholder="Search for City"
+          ></input>
+          <div id="autosearch"></div>
+        </div>
 
         <section className="resultContainer">
 
           <section className="searchContainer">
-            <div id="searchbarContainer">
-              <input
-                type="search"
-                name="citySearch"
-                id="citySearch"
-                placeholder="Search for City"
-              ></input>
-              <div id="autosearch"></div>
-            </div>
+
           </section>
 
 
