@@ -10,7 +10,7 @@ function Footer() {
   }
 
   return (
-    <footer>
+    <footer >
       <div id="logoContainer" onClick={() => play()}>
         <img src={logo} alt="Trip Buddy Logo" id="logo"/>
       </div>

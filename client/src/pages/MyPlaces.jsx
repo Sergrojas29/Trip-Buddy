@@ -10,7 +10,7 @@ import PlaceList from '../components/PlaceList';
 import Place from '../components/Place';
 import { Link } from 'react-router-dom';
 
-
+import {REMOVE_PLACE } from '../utils/mutations';
 import AuthService from '../utils/auth'
 
 function MyPlaces() {
