@@ -1,12 +1,20 @@
 import logo from '../assets/react.svg';
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
+import yeahBuddy from  '../assets/yeahbuddy.mp3'
 
 function Navbar() {
+
+
+  function play() {
+    new Audio(yeahBuddy).play()
+  }
+
   return (
     <header>
-      <div id="logoContainer">
-        <img src={logo} alt={logo} id="logo"></img>
+      <div id="logoContainer" onClick={()=> play()}>
+        <img src={logo} alt={logo} id="logo" >
+        </img>
       </div>
       <div id="btnContainer">
         <Link style={{ textDecoration: 'none' }} className="btnHeader" to="/">
