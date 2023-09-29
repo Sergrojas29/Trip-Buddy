@@ -18,115 +18,132 @@ import { Button } from '@mui/material';
 function Home() {
   console.log("Home component rendering")
 
-  const [multiPlaceData, setMultiPlaceData] = useState([])
-  const [singlePlaceData, setSinglePlaceData] = useState(null);
+  const [multiPlaceInfo, setMultiPlaceInfo] = useState([])
+  const [singlePlaceInfo, setSinglePlaceInfo] = useState(null);
 
 
-  const fetchPlaces = async (lat, lon) => {
+  // const { loading: nearbyPlacesLoading, data: nearbyPlacesData, error: nearbyPlacesError } = useQuery(GET_NEARBY_PLACES, {
+  //   variables: {...placeCoords},
+  // });
+  
+  // const { loading: singlePlaceLoading, data: singlePlaceData, error: singlePlaceError } = useQuery(GET_SINGLE_PLACE, {
+  //   variables: {...placeXID},
+  // });
+  
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const city = event.target.citySearch.value; 
     try {
-      const { loading, data, error } = useQuery(GET_NEARBY_PLACES, {
-        variables: {
-          lon: lon,
-          lat: lat,
-        },
-      });
-
-      // Update the state within the component
-      setMultiPlaceData(data.getPlaces);
-    } catch (error) {
-      console.error('An error occurred:', error);
-    }
-  };
-
-
-  const fetchPlace = async (xid) => {
-    try {
-      const { loading, data, error } = useQuery(GET_SINGLE_PLACE, {
-        variables: {
-          xid: xid,
-        },
-      });
-
-      if (!loading && !error) {
-        setSinglePlaceData(data.getPlace);
-        console.log(data.getPlace);
-      } else {
-        console.log(error);
+      const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=10&language=en&format=json`)
+      if(!response.ok) {
+        throw new Error ('Something went wrong with the initial fetch')
       }
+      const { items } = await response.json()
+
+     
+         console.log(items);
+
     } catch (error) {
-      console.error('An error occurred:', error);
+      console.error(error)
     }
-  };
-
-  // useEffect(() => {
-  //   if (!loadingMulti && !errorMulti) {
-  //     // Access the data using the correct field name for GET_NEARBY_PLACES
-  //     setCityData(dataMulti.getPlaces);
-  //     console.log(dataMulti.getPlaces);
-  //   } else if (!loadingSing && !errorSing) {
-  //     // Access the data using the correct field name for GET_SINGLE_PLACE
-  //     // Handle dataSing as needed
-  //   }
-  // }, [loadingMulti, errorMulti, loadingSing, errorSing]);
-  
-
-  // Render your component content here
+    
+  }
 
 
-  //  async function getCities(city) {
-  // try {
-  //   const url = `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=10&language=en&format=json`;
-  //   const response = await fetch(url);
-  //   const data = await response.json();
-  //   const selectedCity = data.results[0];
-  //   const { latitude, longitude } = selectedCity;
-  //   console.log(`${latitude}, and ${longitude}`);
-  // } catch (error) {
-  //   console.log(error);
-  // }
+ // const fetchPlace = async (xid) => {
+
+    // const fetchPlaces = async (lat, lon) => {
+    //   try {
+    //     
+
+    //     // Update the state within the component
+    //     setMultiPlaceData(data.getPlaces);
+    //   } catch (error) {
+    //     console.error('An error occurred:', error);
+    //   }
+    // };
 
 
-  //  return;
-  // }}
+    //
+    //     if (!loading && !error) {
+    //       setSinglePlaceData(data.getPlace);
+    //       console.log(data.getPlace);
+    //     } else {
+    //       console.log(error);
+    //     }
+    //   } catch (error) {
+    //     console.error('An error occurred:', error);
+    //   }
+    // };
 
-  
+    // useEffect(() => {
+    //   if (!loadingMulti && !errorMulti) {
+    //     // Access the data using the correct field name for GET_NEARBY_PLACES
+    //     setCityData(dataMulti.getPlaces);
+    //     console.log(dataMulti.getPlaces);
+    //   } else if (!loadingSing && !errorSing) {
+    //     // Access the data using the correct field name for GET_SINGLE_PLACE
+    //     // Handle dataSing as needed
+    //   }
+    // }, [loadingMulti, errorMulti, loadingSing, errorSing]);
+
+
+    // Render your component content here
+
+
+    //  async function getCities(city) {
+    // try {
+    //   const url = `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=10&language=en&format=json`;
+    //   const response = await fetch(url);
+    //   const data = await response.json();
+    //   const selectedCity = data.results[0];
+    //   const { latitude, longitude } = selectedCity;
+    //   console.log(`${latitude}, and ${longitude}`);
+    // } catch (error) {
+    //   console.log(error);
+    // }
+    //  return;
+    // }}
 
 
 
-  return (
-    <>
-      <main className="CenterArea">
-        <h1 className="MainTitle"> Trip Buddy</h1>
-        <h1 className="MainTitle"> Search a Location</h1>
-        <Button onClick={() => fetchPlace("Q7411545")}>
-          Button
-        </Button>
-        <div className="searchbarContainer">
-          <input
-            type="search"
-            name="citySearch"
-            id="citySearch"
-            placeholder="Search for City"
-          ></input>
-          <div id="autosearch"></div>
-        </div>
 
-        <section className="resultContainer">
 
-          <section className="searchContainer">
+    return (
+      <>
+        <main className="CenterArea">
+          <h1 className="MainTitle"> Trip Buddy</h1>
+          <h1 className="MainTitle"> Search a Location</h1>
+          <Button onClick={() => handleFormSubmit}>
+            Button
+          </Button>
+          <div className="searchbarContainer">
+            <input
+              type="search"
+              name="citySearch"
+              id="citySearch"
+              placeholder="Search for City"
+            ></input>
+            <div id="autosearch"></div>
+          </div>
 
+          <section className="resultContainer">
+
+            <section className="searchContainer">
+
+            </section>
+
+
+            <section className="listContainer">
+              <PlaceList />
+            </section>
+
+            <Place />
           </section>
+        </main>
+      </>
+    );
+  }
 
-
-          <section className="listContainer">
-            <PlaceList />
-          </section>
-
-          <Place />
-        </section>
-      </main>
-    </>
-  );
-}
-
-export default Home;
+  export default Home;
