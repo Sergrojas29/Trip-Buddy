@@ -1,22 +1,26 @@
 import logo from '../assets/tripBuddyBIG.png';
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
+import yeahBuddy from  '../assets/yeahbuddy.mp3'
 
 function Navbar() {
-  // Set the width of your logo image (e.g., 125px)
-  const logoWidth = '90px';
+
+  function play() {
+    new Audio(yeahBuddy).play()
+    
+  }
 
   return (
     <header>
-      <div id="logoContainer" style={{ width: logoWidth }}>
-        <img src={logo} alt="Trip Buddy Logo" id="logo" style={{ width: '100%' }} />
+      <div id="logoContainer" onClick={() => play()}>
+        <img src={logo} alt="Trip Buddy Logo" id="logo"/>
       </div>
-      <div id="btnContainer" style={{ width: '50%', display: 'flex', marginLeft: 'auto' }}>
-        <Link style={{ textDecoration: 'none', width: '33%' }} className="btnHeader" to="/">
+      <div id="btnContainer" >
+        <Link style={{ textDecoration: 'none'}} className="btnHeader" to="/">
           HOME
         </Link>
         <Link
-          style={{ textDecoration: 'none', width: '33%' }}
+          style={{ textDecoration: 'none'}}
           className="btnHeader"
           to="/saved"
         >
@@ -26,7 +30,7 @@ function Navbar() {
           <>
             <Link
               onClick={Auth.logout}
-              style={{ textDecoration: 'none', width: '33%' }}
+              style={{ textDecoration: 'none'}}
               className="btnHeader"
             >
               LOGOUT
@@ -34,7 +38,7 @@ function Navbar() {
           </>
         ) : (
           <Link
-            style={{ textDecoration: 'none', width: '33%' }}
+            style={{ textDecoration: 'none'}}
             className="btnHeader"
             to="/login"
           >
