@@ -58,23 +58,18 @@ const resolvers = {
 
         const data = await response.json();
 
-
-
-
         //Simplifiy it for the fields we care about
         const features = data.features
 
         const placeData = features.map(feature => feature.properties)
-
 
         console.log(placeData)
 
 
         return placeData;
 
-
-
       } catch (error) {
+        
         console.error(error)
         throw new ApolloError(
           'An error occurred while fetching places',

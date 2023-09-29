@@ -60,7 +60,7 @@ const typeDefs = `
   type Query {
     users: [User]!
     user(userId: ID!, username: String): User
-    getPlaces(lon: Float!, lat: Float!): Place
+    getPlaces(lon: Float!, lat: Float!): [Place]
     getPlace(xid: String!): Place
    
   }
