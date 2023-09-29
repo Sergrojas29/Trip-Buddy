@@ -1,41 +1,33 @@
-import logo from '../assets/react.svg';
+import logo from '../assets/tripBuddyBIG.png';
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 import yeahBuddy from  '../assets/yeahbuddy.mp3'
 
 function Navbar() {
-
-
-  function play() {
-    new Audio(yeahBuddy).play()
-  }
+  // Set the width of your logo image (e.g., 125px)
+  const logoWidth = '90px';
 
   return (
     <header>
-      <div id="logoContainer" onClick={()=> play()}>
-        <img src={logo} alt={logo} id="logo" >
-        </img>
+      <div id="logoContainer" style={{ width: logoWidth }}>
+        <img src={logo} alt="Trip Buddy Logo" id="logo" style={{ width: '100%' }} />
       </div>
-      <div id="btnContainer">
-        <Link style={{ textDecoration: 'none' }} className="btnHeader" to="/">
-          <div className="btnHeader" href="/">
-            HOME
-          </div>
+      <div id="btnContainer" style={{ width: '50%', display: 'flex', marginLeft: 'auto' }}>
+        <Link style={{ textDecoration: 'none', width: '33%' }} className="btnHeader" to="/">
+          HOME
         </Link>
         <Link
-          style={{ textDecoration: 'none' }}
+          style={{ textDecoration: 'none', width: '33%' }}
           className="btnHeader"
           to="/saved"
         >
-          <div className="btnHeader" href="/saved">
-            MY PLACES
-          </div>
+          MY PLACES
         </Link>
         {Auth.loggedIn() ? (
           <>
             <Link
               onClick={Auth.logout}
-              style={{ textDecoration: 'none' }}
+              style={{ textDecoration: 'none', width: '33%' }}
               className="btnHeader"
             >
               LOGOUT
@@ -43,13 +35,11 @@ function Navbar() {
           </>
         ) : (
           <Link
-            style={{ textDecoration: 'none' }}
+            style={{ textDecoration: 'none', width: '33%' }}
             className="btnHeader"
             to="/login"
           >
-            <div className="btnHeader" href="/login">
-              LOGIN
-            </div>
+            LOGIN
           </Link>
         )}
       </div>
