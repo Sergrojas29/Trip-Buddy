@@ -176,7 +176,7 @@ const resolvers = {
 
         // Fetch places based on the coordinates
         const response = await fetch(
-          `https://api.opentripmap.com/0.1/en/places/radius?radius=1000&lon=${lon}&lat=${lat}&src_geom=wikidata&apikey=${apiKey}`
+          `https://api.opentripmap.com/0.1/en/places/radius?radius=1000&lon=${lon}&lat=${lat}&src_attr=wikidata&apikey=${apiKey}`
         );
 
         if (!response.ok) {
