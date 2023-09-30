@@ -2,6 +2,7 @@ const express = require('express');
 // Import the ApolloServer class
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
+const { authMiddleware } = require('./utils/auth');
 
 // Import the two parts of a GraphQL schema
 const { typeDefs, resolvers } = require('./schemas');
@@ -11,16 +12,6 @@ const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: ({ req }) => {
-    // Extract the token from the request headers or cookies
-    const token = req.headers.authorization || req.cookies.token || '';
-
-    // Authenticate the user and retrieve the userId
-    const userId = authenticateUser(token); // Implement this function to verify the token and get the userId
-
-    // Include the userId in the context
-    return { userId };
-  },
 });
 const app = express();
 
@@ -31,7 +22,10 @@ const startApolloServer = async () => {
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
   
-  app.use('/graphql', expressMiddleware(server));
+  app.use('/graphql', expressMiddleware(server, {
+    context: authMiddleware
+  }));
+  ;
 
   db.once('open', () => {
     app.listen(PORT, () => {

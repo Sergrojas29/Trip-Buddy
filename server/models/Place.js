@@ -22,7 +22,6 @@ const placeSchema = new Schema({
   
   wikipedia_extracts: {
     type: Schema.Types.Mixed,
-    required: true,
   },
 
   preview: {

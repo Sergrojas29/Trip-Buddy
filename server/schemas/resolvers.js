@@ -3,9 +3,9 @@ const { signToken, AuthenticationError } = require('../utils/auth');
 const { ApolloError } = require('apollo-server-errors');
 const fetch = require('node-fetch')
 
-//Query: user, users, getPlaces, getPlace
+//Query: user, users, 
 
-//Mutations: addUser, login, savePlace, removePlace
+//Mutations: addUser, login, savePlace, removePlace, getPlaces, getPlace
 const apiKey = '5ae2e3f221c38a28845f05b692698d7c9862f1d763b5481bca8939dd';
 const resolvers = {
   Query: {
@@ -86,6 +86,7 @@ const resolvers = {
     },
 
     savePlace: async (parent, { place }, context) => {
+      
       if (context.user) {
         try {
           const updatedUser = await User.findOneAndUpdate(
@@ -108,6 +109,7 @@ const resolvers = {
               error,
             }
           );
+          console.log(error)
         }
       }
     },
@@ -197,7 +199,7 @@ const resolvers = {
         const features = data.features;
         const placeData = features.map((feature) => feature.properties);
 
-        console.log(placeData);
+       
 
         return placeData;
       } catch (error) {
@@ -238,7 +240,7 @@ const resolvers = {
 
           //Simplifiy it for the fields we care about
 
-          console.log(data)
+        
 
           return data;
         } catch (error) {

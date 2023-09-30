@@ -29,10 +29,36 @@ export const ADD_USER = gql`
 export const SAVE_PLACE = gql`
   mutation savePlace($place: PlaceInput!) {
     savePlace(place: $place) {
-      xid
-      name
-      address
-      image
+      _id
+      username
+      email
+      password
+      savedPlaces {
+        xid
+        name
+        rate
+        address {
+          road
+          house
+          state
+          suburb
+          country
+          postcode
+          country_code
+          house_number
+          state_district
+        }
+        image
+        wikipedia_extracts {
+          title
+          text
+          html
+        }
+        preview {
+          source
+          
+        }
+      }
     }
   }
 `;
@@ -113,16 +139,4 @@ mutation getPlace($xid: ID!) {
   }
 }
 `;
-
-// export const SAVE_API_DATA = gql`
-//   mutation SaveApiData($userId: ID!, $apiData: String!) {
-//     saveApiData(userId: $userId, apiData: $apiData) {
-//       _id
-//       username
-//       email
-//       apiData
-//     }
-//   }
-// `;
-
 

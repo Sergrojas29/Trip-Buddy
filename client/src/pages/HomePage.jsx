@@ -15,7 +15,7 @@ import { Button } from '@mui/material';
 
 
 function Home() {
-  console.log("Home component rendering")
+
 
   const [multiPlaceInfo, setMultiPlaceInfo] = useState([])
   const [singlePlaceInfo, setSinglePlaceInfo] = useState(null);
@@ -23,7 +23,7 @@ function Home() {
 
   const [getPlace] = useMutation(GET_SINGLE_PLACE)
   const [getPlaces] = useMutation(GET_NEARBY_PLACES)
-
+  const [savePlace] = useMutation(SAVE_PLACE)
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -39,7 +39,7 @@ function Home() {
         }
       })
 
-      console.log(data.getPlaces)
+  
       setMultiPlaceInfo(data.getPlaces)
 
 
@@ -58,7 +58,7 @@ function Home() {
           xid: xid
         }
       })
-      console.log(data.getPlace)
+    
       setSinglePlaceInfo(data.getPlace)
 
     } catch (error) {
@@ -66,8 +66,46 @@ function Home() {
     }
   }
 
-
-  // firstCall("Q3089263")
+  const saveMyPlace = async (placeData) => {
+  
+    // Remove "__typename" from placeData
+    function removeTypename(obj) {
+      if (obj && typeof obj === 'object') {
+        for (const key in obj) {
+          if (key === '__typename') {
+            delete obj[key];
+          } else {
+            removeTypename(obj[key]);
+          }
+        }
+      }
+      return obj;
+    }
+  
+    // Remove "__typename" from placeData
+    const trimmedData = removeTypename(placeData);
+  
+    // get token
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+  
+    if (!token) {
+      console.log('Token Failure');
+      return false;
+    }
+  
+    try {
+      const { data } = await savePlace({
+        variables: {
+          place: { ...trimmedData },
+        },
+      });
+  
+      console.log(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  
 
 
 
@@ -133,7 +171,7 @@ function Home() {
                 <p id='placeDescription'>{singlePlaceInfo.wikipedia_extracts.text}</p>
                 {Auth.loggedIn() ? (
                   <>
-                    <Button key={Auth.getProfile().data._id} id='savebtn' onClick={() => { }}>SAVE</Button>
+                    <Button key={Auth.getProfile().data._id} id='savebtn' onClick={() => {saveMyPlace(singlePlaceInfo)}}>SAVE</Button>
 
                   </>
                 ) : (

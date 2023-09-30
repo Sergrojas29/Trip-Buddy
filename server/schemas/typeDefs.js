@@ -10,6 +10,7 @@ const typeDefs = `
     country_code: String
     house_number: String
     state_district: String
+    
   }
 
   input Wikipedia_extractsInput {
@@ -20,6 +21,7 @@ const typeDefs = `
 
   input PreviewInput {
     source: String
+    
   }
 
 
@@ -29,6 +31,8 @@ const typeDefs = `
     address: AddressInput
     wikipedia_extracts: Wikipedia_extractsInput
     image: String
+    preview: PreviewInput
+    rate: Int
   }
 
   type Address {
@@ -52,6 +56,7 @@ const typeDefs = `
 
   type Preview {
     source: String
+    _typename: String
   }
 
 
@@ -70,7 +75,7 @@ const typeDefs = `
     username: String!
     email: String!
     password: String!
-    places: [Place]
+    savedPlaces: [Place]
   }
 
 
