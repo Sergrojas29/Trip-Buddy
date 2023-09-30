@@ -35,8 +35,13 @@ const resolvers = {
         );
       }
     },
+  
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({_id: context.user._id}).populate('places')
+      }
+    },
   },
-
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       try {
@@ -207,6 +212,7 @@ const resolvers = {
         );
       }
     },
+    
     getPlace: async (parent, { xid }, context) => {
       if (!context.user) {
         try {

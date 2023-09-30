@@ -27,6 +27,7 @@ function MyPlaces() {
   useEffect(() => {
     if (!loading && data?.me) {
       setUserData(data.me)
+      console.log(data.me)
     }
   }, [loading, data])
 
