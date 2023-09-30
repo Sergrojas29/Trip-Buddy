@@ -145,8 +145,8 @@ function Home() {
               {multiPlaceInfo && multiPlaceInfo.map((place, index) => {
                 while (index < 25) {
                   return (
-                    <a className="previewContain" key={place.xid} href='#placeTitle' id={place.xid} onClick={(e) =>  {
-                      console.log( e.target.id)
+                    <a className="previewContain" key={place.xid} href='#placeTitle' id={place.xid} onClick={(e) => {
+                      console.log(e.target.id)
                       firstCall(e.target.id)
                     }} >
                       <div className="placeName" maxLength="15" id={place.xid} > {place.name} </div>
@@ -168,6 +168,7 @@ function Home() {
               <>
                 <p id='placeTitle'>{singlePlaceInfo.name}</p>
                 {/* <img id='previewImg' src={singlePlaceInfo.preview.source} /> */}
+
                 <p id='placeDescription'>{singlePlaceInfo.wikipedia_extracts.text}</p>
                 {Auth.loggedIn() ? (
                   <>
