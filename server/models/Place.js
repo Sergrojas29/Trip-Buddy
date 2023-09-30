@@ -21,6 +21,12 @@ const placeSchema = new Schema({
   image: {
     type: String,
   },
+  wikipedia_extracts:
+  {
+    type: Schema.Types.Mixed,
+    required: true,
+  }
+
 });
 
 module.exports = placeSchema;

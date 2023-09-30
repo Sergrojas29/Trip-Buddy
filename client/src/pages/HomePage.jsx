@@ -1,11 +1,8 @@
 import * as React from 'react';
-import GeoApiCall from '../utils/GetLocationAPI';
 import listData from '../utils/listData';
 import placeData from '../utils/placeData.json';
 import { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 
@@ -33,7 +30,6 @@ function Home() {
 
     const citySearch = document.getElementById('citySearch').value
 
-    console.log(citySearch)
 
     try {
 
@@ -47,22 +43,23 @@ function Home() {
       setMultiPlaceInfo(data.getPlaces)
 
 
-      // firstCall(data.getPlaces[0].xid)
+      firstCall(data.getPlaces[0].xid)
     } catch (error) {
       console.error(error)
     }
 
   }
 
-  async function firstCall() {
+  async function firstCall(xid) {
     try {
-      const xid = "Q3089263"
-      const { loading, data } = await getPlaces({
+
+      const { loading, data } = await getPlace({
         variables: {
           xid: xid
         }
       })
-      console.log(data.data)
+      console.log(data.getPlace)
+      setSinglePlaceInfo(data.getPlace)
 
     } catch (error) {
       console.log(error)
@@ -82,11 +79,12 @@ function Home() {
         <h1 className="MainTitle"> Trip Buddy</h1>
         <h1 className="MainTitle"> Search a Location</h1>
         <Button onClick={handleFormSubmit}>
-          CheckApiCall
+          Search-Debug
         </Button>
-        <Button onClick={firstCall} >
-          checkUSEstate
+        <Button onClick={() => firstCall("Q3089263")} >
+          SinglePLace-Debug
         </Button>
+
         <div className="searchbarContainer">
           <input
             type="search"
@@ -109,7 +107,10 @@ function Home() {
               {multiPlaceInfo && multiPlaceInfo.map((place, index) => {
                 while (index < 25) {
                   return (
-                    <a className="previewContain" key={place.xid} href='#placeTitle' id={place.xid} onClick={(e) => console.log(e.target.id)} >
+                    <a className="previewContain" key={place.xid} href='#placeTitle' id={place.xid} onClick={(e) =>  {
+                      console.log( e.target.id)
+                      firstCall(e.target.id)
+                    }} >
                       <div className="placeName" maxLength="15" id={place.xid} > {place.name} </div>
                       <div className="placeRating" id={place.xid} > RATING: {place.rate}</div>
                     </a>
@@ -125,11 +126,11 @@ function Home() {
 
 
           <section className="placeContainer">
-            {multiPlaceInfo > 0  && (
+            {singlePlaceInfo && (
               <>
-                <p id='placeTitle'>{placeData.name}</p>
-                <img id='previewImg' src={placeData.preview.source} />
-                <p id='placeDescription'>{placeData.wikipedia_extracts.text}</p>
+                <p id='placeTitle'>{singlePlaceInfo.name}</p>
+                {/* <img id='previewImg' src={singlePlaceInfo.preview.source} /> */}
+                <p id='placeDescription'>{singlePlaceInfo.wikipedia_extracts.text}</p>
                 {Auth.loggedIn() ? (
                   <>
                     <Button key={Auth.getProfile().data._id} id='savebtn' onClick={() => { }}>SAVE</Button>
