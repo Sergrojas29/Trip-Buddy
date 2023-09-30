@@ -65,23 +65,33 @@ export const GET_NEARBY_PLACES = gql`
 }`;
 
 export const GET_SINGLE_PLACE = gql`
-  mutation getPlace($xid: ID) {
-    getPlace(xid: $xid) {
-      name
-      address {
-        road
-        house
-        state
-        suburb
-        country
-        postcode
-        country_code
-        house_number
-        state_district
-      }
-      image
+mutation getPlace($xid: ID!) {
+  getPlace(xid: $xid) {
+    xid
+    name
+    image
+    rate
+    address {
+      road
+      house
+      state
+      suburb
+      country
+      postcode
+      country_code
+      house_number
+      state_district
+    }
+    wikipedia_extracts {
+      html
+      text
+      title
+    }
+    preview {
+      source
     }
   }
+}
 `;
 
 // export const SAVE_API_DATA = gql`

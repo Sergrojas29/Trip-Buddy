@@ -215,7 +215,6 @@ const resolvers = {
       }
     },
     getPlace: async (parent, { xid }, context) => {
-
       if (!context.user) {
         try {
           const response = await fetch(

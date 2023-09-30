@@ -12,12 +12,22 @@ const typeDefs = `
     state_district: String
   }
 
+  input Wikipedia_extractsInput {
+    title: String
+    text: String
+    html: String
+  }
+
+  input PreviewInput {
+    source: String
+  }
+
 
   input PlaceInput {
     xid: String
     name: String
     address: AddressInput
-
+    wikipedia_extracts: Wikipedia_extractsInput
     image: String
   }
 
@@ -33,6 +43,16 @@ const typeDefs = `
     state_district: String
   }
   
+  type Wikipedia_extracts {
+    title: String
+    text: String
+    html: String
+  }
+
+
+  type Preview {
+    source: String
+  }
 
 
   type Place {
@@ -41,6 +61,8 @@ const typeDefs = `
     address: Address
     rate: Int
     image: String
+    wikipedia_extracts: Wikipedia_extracts
+    preview: Preview 
   }
 
   type User {
