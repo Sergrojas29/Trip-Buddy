@@ -6,6 +6,8 @@ import { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { Link } from 'react-router-dom';
+import Auth from '../utils/auth';
 
 
 import { SAVE_PLACE, REMOVE_PLACE, GET_NEARBY_PLACES, GET_SINGLE_PLACE } from '../utils/mutations';
@@ -43,14 +45,32 @@ function Home() {
 
       console.log(data.getPlaces)
       setMultiPlaceInfo(data.getPlaces)
+
+
+      // firstCall(data.getPlaces[0].xid)
     } catch (error) {
       console.error(error)
     }
 
   }
 
+  async function firstCall() {
+    try {
+      const xid = "Q3089263"
+      const { loading, data } = await getPlaces({
+        variables: {
+          xid: xid
+        }
+      })
+      console.log(data.data)
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
 
+  // firstCall("Q3089263")
 
 
 
@@ -64,7 +84,7 @@ function Home() {
         <Button onClick={handleFormSubmit}>
           CheckApiCall
         </Button>
-        <Button onClick={() => console.log(multiPlaceInfo)} >
+        <Button onClick={firstCall} >
           checkUSEstate
         </Button>
         <div className="searchbarContainer">
@@ -86,27 +106,50 @@ function Home() {
 
           <section className="listContainer">
             <section className="resultContain">
-              
-              {useEffect(() => {
-                multiPlaceInfo.map((place, index) => {
-                  while (index < 25) {
-                    return (
-                      <a className="previewContain" key={place.xid} href='#placeTitle' id={place.xid} onClick={(e) => console.log(e.target.id)} >
-                        <div className="placeName" maxLength="15" id={place.xid} > {place.name} </div>
-                        <div className="placeRating" id={place.xid} > RATING: {place.rate}</div>
-                      </a>
-                    );
-                  }
-                })
-                // console.log(multiPlaceInfo)
-              }, [multiPlaceInfo])}
-
+              {multiPlaceInfo && multiPlaceInfo.map((place, index) => {
+                while (index < 25) {
+                  return (
+                    <a className="previewContain" key={place.xid} href='#placeTitle' id={place.xid} onClick={(e) => console.log(e.target.id)} >
+                      <div className="placeName" maxLength="15" id={place.xid} > {place.name} </div>
+                      <div className="placeRating" id={place.xid} > RATING: {place.rate}</div>
+                    </a>
+                  )
+                }
+              })}
             </section>
 
             {/* <PlaceList /> */}
+
+
           </section>
 
-          <Place />
+
+          <section className="placeContainer">
+            {multiPlaceInfo > 0  && (
+              <>
+                <p id='placeTitle'>{placeData.name}</p>
+                <img id='previewImg' src={placeData.preview.source} />
+                <p id='placeDescription'>{placeData.wikipedia_extracts.text}</p>
+                {Auth.loggedIn() ? (
+                  <>
+                    <Button key={Auth.getProfile().data._id} id='savebtn' onClick={() => { }}>SAVE</Button>
+
+                  </>
+                ) : (
+                  <Link to='/login'>
+                    <button id='savebtn' >LOGIN</button>
+
+                  </Link>
+                )}
+              </>
+            )
+            }
+
+
+
+          </section>
+
+          {/* <Place /> */}
         </section>
       </main>
     </>
