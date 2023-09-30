@@ -59,7 +59,6 @@ const typeDefs = `
     xid: String
     name: String
     address: Address
-    rate: Int
     image: String
     wikipedia_extracts: Wikipedia_extracts
     preview: Preview 
@@ -81,7 +80,7 @@ const typeDefs = `
 
   type Query {
     users: [User]!
-    user(userId: ID!, username: String): User
+    user(username: String): User
     
    
   }

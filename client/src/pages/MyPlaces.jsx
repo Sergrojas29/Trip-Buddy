@@ -56,20 +56,39 @@ function MyPlaces() {
     return <h2>LOADING...</h2>;
   }
 
-
+  if (userData) {
+    var name = userData.username
+  } else {
+    var name = 'User'
+  }
+  
   return (
 
     <main className="CenterArea">
 
-      <div id="myplaces"> username's places </div>
+      <div id="myplaces"> {name}'s places </div>
 
       <section className="resultContainer">
 
-        <section className="listContainer">
-          <PlaceList />
-        </section>
-
-        <Place />
+      <div>
+          {userData.places && userData.places.map((place) => {
+            return (
+              <div md="4" key={place.x}>
+                <div border='dark'>
+                  {place.image ? <img src={place.image} alt={`The cover for ${book.title}`} variant='top' /> : null}
+                  <div>
+                    <h1>{place.name}</h1>
+                    <p className='small'>Address: {place.address}</p>
+                    
+                    <Button className='btn-block btn-danger' onClick={() => handleRemovePlace(place.xid)}>
+                      Remove this Place!
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
 
 
       </section>

@@ -44,18 +44,11 @@ const resolvers = {
         const token = signToken(user);
         return { token, user };
       } catch (error) {
-        if (error.code === 11000) {
-          throw new UserInputError('Username or email already exists.', {
+        if (error) {
+          throw new Error(error, {
             inputArgs: { username, email },
           });
         }
-        throw new ApolloError(
-          'An error occurred while adding a user.',
-          'DATABASE_ERROR',
-          {
-            error,
-          }
-        );
       }
     },
 
