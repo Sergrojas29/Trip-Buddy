@@ -61,6 +61,26 @@ export const GET_NEARBY_PLACES = gql`
       xid
       name
       rate
+      address {
+        road
+        house
+        state
+        suburb
+        country
+        postcode
+        country_code
+        house_number
+        state_district
+      }
+      image
+      wikipedia_extracts {
+        title
+        text
+        html
+      }
+      preview {
+        source
+      }
     }
 }`;
 

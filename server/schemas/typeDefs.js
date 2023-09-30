@@ -58,8 +58,8 @@ const typeDefs = `
   type Place {
     xid: String
     name: String
-    address: Address
     rate: Int
+    address: Address
     image: String
     wikipedia_extracts: Wikipedia_extracts
     preview: Preview 
@@ -77,13 +77,13 @@ const typeDefs = `
   type Auth {
     token: ID!
     user: User
+    me: User
   }
 
   type Query {
     users: [User]!
-    user(userId: ID!, username: String): User
-    
-   
+    user(username: String): User
+    me: User
   }
 
   type Mutation {

@@ -35,8 +35,13 @@ const resolvers = {
         );
       }
     },
+  
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({_id: context.user._id}).populate('places')
+      }
+    },
   },
-
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       try {
@@ -44,18 +49,11 @@ const resolvers = {
         const token = signToken(user);
         return { token, user };
       } catch (error) {
-        if (error.code === 11000) {
-          throw new UserInputError('Username or email already exists.', {
+        if (error) {
+          throw new Error(error, {
             inputArgs: { username, email },
           });
         }
-        throw new ApolloError(
-          'An error occurred while adding a user.',
-          'DATABASE_ERROR',
-          {
-            error,
-          }
-        );
       }
     },
 
@@ -214,6 +212,7 @@ const resolvers = {
         );
       }
     },
+    
     getPlace: async (parent, { xid }, context) => {
       if (!context.user) {
         try {

@@ -11,20 +11,22 @@ const placeSchema = new Schema({
     required: true,
   },
 
-  address:
-  {
+  address: {
     type: Schema.Types.Mixed,
     required: true,
-  }
-  ,
+  },
 
   image: {
     type: String,
   },
-  wikipedia_extracts:
-  {
+  
+  wikipedia_extracts: {
     type: Schema.Types.Mixed,
     required: true,
+  },
+
+  preview: {
+    type: Schema.Types.Mixed,
   }
 
 });

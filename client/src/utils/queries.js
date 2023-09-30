@@ -6,6 +6,14 @@ export const GET_ME = gql`
       _id
       username
       email
+      places {
+        xid: String
+        name: String
+        address: Address
+        image: String
+        wikipedia_extracts: Wikipedia_extracts
+        preview: Preview 
+      }
     }
   }
 `;
