@@ -39,7 +39,7 @@
     --sml100large60: 100%;
 
     --lar100Sml20: 30%;
-    --lar100Sml60:70%;
+    --lar100Sml60: 70%;
 
     --lar900pxSml1600px: 1200px;
 
@@ -157,118 +157,159 @@ header {
   box-shadow: 0 0 15px 5px rgb(192, 192, 192);
 
   /* border: solid 1pt red; */
+}
 
-  .listContainer {
-    display: flex;
-    flex-direction: column;
-    width: var(--sml100large40);
-    height: var(--lar100Sml20);
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  width: var(--sml100large40);
+  height: var(--lar100Sml20);
+  overflow-y: scroll;
+  /* border: solid 1pt violet; */
+}
 
-
-
-
-    overflow-y: scroll;
-    /* border: solid 1pt violet; */
-
-    .previewContain {
-      /* border: solid 1pt red; */
-      height: 110px;
-      display: flex;
-      flex-direction: column;
-      justify-content: left;
-      background-color: var(--primary);
-      border: none;
-      width: 100%;
-      border: solid 1pt rgba(59, 93, 147, 0.297);
-      border-radius: 5px;
-      color: white;
-      text-decoration: none;
-
-
-    }
-
-    .previewContain:hover {
-      cursor: pointer;
-      /* background-color: rgb(113, 153, 218); */
-    }
-
-
-
-    .placeName {
-      /* border: solid 1pt blue; */
-      margin: 10px 15px;
-      font-size: 15pt;
-      font-weight: 500;
-    }
-
-    .placeRating {
-      margin: 0 15px;
-      font-size: 10pt;
-
-      /* border: solid 1pt violet; */
-    }
-
-
-
-  }
-
-  .listContainer::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  .listContainer::-webkit-scrollbar {
-    box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
-  }
-  .listContainer::-webkit-scrollbar-thumb {
-    background: var(--secondary);
-    border-radius: 10px;
-    cursor: pointer;
-
-  }
-
-
-
-  .placeContainer {
-    display: flex;
-    flex-direction: column;
-    width: var(--sml100large60);
-    height: var(--lar100Sml60);
-    align-content: center;
-    align-self: center;
-    align-items: center;
-
-
-    #placeTitle {
-      margin: 15px 0;
-      font-size: 30pt;
-      text-align: center;
-    }
-
-    #previewImg {
-      width: 70%;
-    }
-
-    #placeDescription {
-      margin: 15pt 0;
-      width: 85%;
-    }
-
-    #savebtn {
-      background-color: var(--primary);
-      height: 40px;
-      width: 100px;
-      border: none;
-      box-shadow: 0 0 25px 5px rgb(192, 192, 192);
-      border-radius: 5pt;
-      color: white;
-    }
-
-  }
-
+.previewContain {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding: 15px 0;
+  background-color: var(--primary);
+  width: 100%;
+  border: solid 1pt rgba(59, 93, 147, 0.297);
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
 
 
 }
+
+.previewContain:hover {
+  cursor: pointer;
+  /* background-color: rgb(113, 153, 218); */
+}
+
+
+
+.placeName {
+  /* border: solid 1pt blue; */
+  margin: 10px 15px;
+  font-size: 15pt;
+  font-weight: 500;
+}
+
+.placeRating {
+  margin: 0 15px;
+  font-size: 10pt;
+
+  /* border: solid 1pt violet; */
+}
+
+
+
+
+.listContainer::-webkit-scrollbar {
+  width: 10px;
+}
+
+.listContainer::-webkit-scrollbar {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+.listContainer::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border-radius: 10px;
+  cursor: pointer;
+
+}
+
+
+
+.placeContainer {
+  display: flex;
+  flex-direction: column;
+  width: var(--sml100large60);
+  height: var(--lar100Sml60);
+  align-content: center;
+  align-self: center;
+  align-items: center;
+
+
+  #placeTitle {
+    margin: 15px 0;
+    font-size: 30pt;
+    text-align: center;
+  }
+
+  #previewImg {
+    /* width: 70%; */
+    height: 30%;
+  }
+
+  #placeDescription {
+    margin: 15pt 0;
+    width: 85%;
+  }
+
+  .addressContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
+    align-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+    text-transform: uppercase;
+
+    background-color: var(--primary);
+    border: none;
+    box-shadow: 0 0 15px 1px rgb(192, 192, 192);
+    border-radius: 5pt;
+    color: white;
+
+
+    .addressLineOne{
+      display: flex;
+    }
+    .addressLineTwo{
+      display: flex;
+    }
+  }
+
+  .addressContainer:hover{
+    background-color: var(--secondary);
+    box-shadow: inset 0 0 25px 5px var(--primary);
+  }
+
+  .addressText{
+    margin: 0 2px;
+  }
+
+
+  .savebtn {
+    background-color: var(--primary);
+    height: 40px;
+    width: 100px;
+    border: none;
+    box-shadow: 0 0 15px 1px rgb(192, 192, 192);
+    border-radius: 5pt;
+    color: white;
+  }
+  .savebtn:hover {
+    background-color: var(--secondary);
+    box-shadow: inset 0 0 25px 5px var(--primary);
+    transform: scale(.96);
+  }
+
+}
+
+
+
 
 
 
@@ -288,7 +329,7 @@ header {
 
 
 
-footer{
+footer {
   display: flex;
   width: 100%;
   justify-content: center;
@@ -297,16 +338,17 @@ footer{
   #logoContainer {
     display: var(--noSmallScreen);
     position: absolute;
-  left: 0;
-  /* border: solid 1pt red; */
-  width: 90px;
-  margin-left: 30px;
-  margin-bottom: 10px;
-  object-fit: contain;
-  
-  #logo {
-    width: 100%;
+    left: 0;
+    /* border: solid 1pt red; */
+    width: 90px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    object-fit: contain;
+
+    #logo {
+      width: 100%;
+    }
+
   }
-  
 }
-}
+
