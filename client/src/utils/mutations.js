@@ -116,7 +116,6 @@ mutation getPlace($xid: ID!) {
     xid
     name
     image
-    rate
     address {
       road
       house

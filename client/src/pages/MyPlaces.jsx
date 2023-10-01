@@ -2,7 +2,6 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 
 
-import GeoApiCall from '../utils/GetLocationAPI';
 import listData from '../utils/listData';
 import placeData from '../utils/placeData.json';
 

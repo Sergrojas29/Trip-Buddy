@@ -12,6 +12,7 @@ import { SAVE_PLACE, REMOVE_PLACE, GET_NEARBY_PLACES, GET_SINGLE_PLACE } from '.
 import PlaceList from '../components/PlaceList';
 import Place from '../components/Place';
 import { Button } from '@mui/material';
+import SaveButton from '../components/SaveButton';
 
 
 function Home() {
@@ -20,6 +21,7 @@ function Home() {
   const [multiPlaceInfo, setMultiPlaceInfo] = useState([])
   const [singlePlaceInfo, setSinglePlaceInfo] = useState(null);
 
+  const [debugState, setDebugState] = useState(false);
 
   const [getPlace] = useMutation(GET_SINGLE_PLACE)
   const [getPlaces] = useMutation(GET_NEARBY_PLACES)
@@ -39,7 +41,7 @@ function Home() {
         }
       })
 
-  
+
       setMultiPlaceInfo(data.getPlaces)
 
 
@@ -58,7 +60,6 @@ function Home() {
           xid: xid
         }
       })
-    
       setSinglePlaceInfo(data.getPlace)
 
     } catch (error) {
@@ -67,7 +68,6 @@ function Home() {
   }
 
   const saveMyPlace = async (placeData) => {
-  
     // Remove "__typename" from placeData
     function removeTypename(obj) {
       if (obj && typeof obj === 'object') {
@@ -81,31 +81,103 @@ function Home() {
       }
       return obj;
     }
-  
+
     // Remove "__typename" from placeData
     const trimmedData = removeTypename(placeData);
-  
+
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-  
+
     if (!token) {
       console.log('Token Failure');
       return false;
     }
-  
+
     try {
       const { data } = await savePlace({
         variables: {
           place: { ...trimmedData },
         },
       });
-  
+
       console.log(data);
     } catch (err) {
       console.error(err);
     }
   };
-  
+
+
+  function PlaceContainer() {
+    if (multiPlaceInfo.length > 0) {
+      // if (debugState) {
+
+      return (
+        <section className="resultContainer">
+
+          {/* <ListRender list={multiPlaceInfo} /> */}
+          <ListRender />
+          <PlaceRender place={singlePlaceInfo} />
+          {/* <DebugFunction place={singlePlaceInfo} /> */}
+        </section>
+      )
+    } else {
+      return <h1>none</h1>
+    }
+  }
+
+  function ListRender() {
+    // const data = props.list
+    // const data = props.list.features
+    if (multiPlaceInfo.length > 0) {
+      const data = multiPlaceInfo
+      return (
+        <section className="listContainer">
+          {data.map((place, index) => {
+            while (index < 25) {
+              return (
+                <div className="previewContain" style={{ height: '300px' }} key={place.xid} href='#placeTitle' id={place.xid} onClick={(e) => { firstCall(e.target.id) }} >
+                  <div className="placeName" maxLength="15" id={place.xid} > {place.name} </div>
+                  <div className="placeRating" id={place.xid} > RATING: {place.rate}</div>
+                </div>
+              )
+            }
+
+          })}
+        </section >
+      )
+    }
+  }
+
+  function PlaceRender() {
+    const data = singlePlaceInfo
+    if (data !== null) {
+      const { xid, name, preview, wikipedia_extracts, address } = data
+      return (
+        <section className="placeContainer">
+
+          <p id='placeTitle'>{name}</p>
+          {preview && <img id='previewImg' src={data.preview.source} alt='preview' />}
+          {wikipedia_extracts && <p id='placeDescription'>{wikipedia_extracts.text}</p>}
+          <button className="addressContainer">
+            <div className="addressLineOne">
+              {address && <div className='addressText' >{address.house_number}</div>}
+              {address && <div className='addressText' >{address.road}</div>}
+              {address && <div className='addressText' >{address.city}</div>}
+            </div>
+            <div className="addressLineTwo">
+              {address && <div className='addressText' >{address.neighbourhood}</div>}
+              {address && <div className='addressText' >{address.postcode}</div>}
+              {address && <div className='addressText' >{address.country_code}</div>}
+            </div>
+          </button>
+
+          <SaveButton xid={xid} />
+        </section>
+      )
+    }
+
+  }
+
 
 
 
@@ -119,9 +191,13 @@ function Home() {
         <Button onClick={handleFormSubmit}>
           Search-Debug
         </Button>
-        <Button onClick={() => firstCall("Q3089263")} >
+        <Button onClick={() => setDebugState(true)} >
           SinglePLace-Debug
         </Button>
+        <Button onClick={() => firstCall("N338451025")} >
+          OneCall-Debug
+        </Button>
+
 
         <div className="searchbarContainer">
           <input
@@ -133,64 +209,8 @@ function Home() {
           <div id="autosearch"></div>
         </div>
 
-        <section className="resultContainer">
+        <PlaceContainer />
 
-          <section className="searchContainer">
-
-          </section>
-
-
-          <section className="listContainer">
-            <section className="resultContain">
-              {multiPlaceInfo && multiPlaceInfo.map((place, index) => {
-                while (index < 25) {
-                  return (
-                    <a className="previewContain" key={place.xid} href='#placeTitle' id={place.xid} onClick={(e) => {
-                      console.log(e.target.id)
-                      firstCall(e.target.id)
-                    }} >
-                      <div className="placeName" maxLength="15" id={place.xid} > {place.name} </div>
-                      <div className="placeRating" id={place.xid} > RATING: {place.rate}</div>
-                    </a>
-                  )
-                }
-              })}
-            </section>
-
-            {/* <PlaceList /> */}
-
-
-          </section>
-
-
-          <section className="placeContainer">
-            {singlePlaceInfo && (
-              <>
-                <p id='placeTitle'>{singlePlaceInfo.name}</p>
-                {/* <img id='previewImg' src={singlePlaceInfo.preview.source} /> */}
-
-                <p id='placeDescription'>{singlePlaceInfo.wikipedia_extracts.text}</p>
-                {Auth.loggedIn() ? (
-                  <>
-                    <Button key={Auth.getProfile().data._id} id='savebtn' onClick={() => {saveMyPlace(singlePlaceInfo)}}>SAVE</Button>
-
-                  </>
-                ) : (
-                  <Link to='/login'>
-                    <button id='savebtn' >LOGIN</button>
-
-                  </Link>
-                )}
-              </>
-            )
-            }
-
-
-
-          </section>
-
-          {/* <Place /> */}
-        </section>
       </main>
     </>
   );
