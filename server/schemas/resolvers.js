@@ -38,7 +38,8 @@ const resolvers = {
   
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({_id: context.user._id}).populate('places')
+        console.log('User info being request')
+        return User.findOne({_id: context.user._id}).populate('savedPlaces')
       }
     },
   },
@@ -86,8 +87,8 @@ const resolvers = {
     },
 
     savePlace: async (parent, { place }, context) => {
-      
       if (context.user) {
+        console.log('Incoming Save Request')
         try {
           const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id }, // Use context.user._id
@@ -108,19 +109,20 @@ const resolvers = {
             {
               error,
             }
-          );
-          console.log(error)
+          )
+        
         }
       }
     },
 
     removePlace: async (parent, { xid }, context) => {
       if (context.user) {
+        console.log('Incoming Remove Request')
         try {
           const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id }, // Use context.user._id
             {
-              $pull: { savedPlaces: xid },
+              $pull: { savedPlaces: {xid} },
             },
             {
               new: true,
@@ -130,13 +132,7 @@ const resolvers = {
 
           return updatedUser;
         } catch (error) {
-          throw new ApolloError(
-            'An error occurred while removing a place.',
-            'DATABASE_ERROR',
-            {
-              error,
-            }
-          );
+          throw new Error(error);
         }
       }
     },
@@ -144,6 +140,7 @@ const resolvers = {
 
 
     getPlaces: async (parent, { city }) => {
+      console.log('Incoming request for nearby places')
       try {
         // Replace spaces in the city name with '+' for the URL
         const typedCity = city.replace(' ', '+');
@@ -216,7 +213,8 @@ const resolvers = {
     },
     
     getPlace: async (parent, { xid }, context) => {
-      if (!context.user) {
+      
+        console.log('Incoming request for single place info')
         try {
           const response = await fetch(
             `http://api.opentripmap.com/0.1/en/places/xid/${xid}?apikey=${apiKey}`
@@ -254,7 +252,7 @@ const resolvers = {
           );
         }
       }
-    }
+    
   }
 }
 module.exports = resolvers;

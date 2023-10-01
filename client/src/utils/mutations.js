@@ -64,18 +64,37 @@ export const SAVE_PLACE = gql`
 `;
 
 export const REMOVE_PLACE = gql`
-  mutation removePlace($placeId: ID) {
-    removePlace(xid: $placeId) {
+  mutation removePlace($xid: String!) {
+    removePlace(xid: $xid) {
       _id
       username
       email
-      place {
+      password
+      savedPlaces {
         xid
         name
-        location
-        lat
-        lon
+        rate
+        address {
+          road
+          house
+          state
+          suburb
+          country
+          postcode
+          country_code
+          house_number
+          state_district
+        }
         image
+        wikipedia_extracts {
+          title
+          text
+          html
+        }
+        preview {
+          source
+          _typename
+        }
       }
     }
   }

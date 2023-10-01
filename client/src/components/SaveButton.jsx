@@ -10,7 +10,7 @@ export default function SaveButton(props) {
     // if (true) {
       return (
         <>
-          <Button key={Auth.getProfile().data._id} className='savebtn' id={props.xid} onClick={() => { saveMyPlace(data) }}>SAVE</Button>
+          <Button key={Auth.getProfile().data._id} className='savebtn' id={props.xid} onClick={() => { props.saveMyPlace(props.data) }}>SAVE</Button>
         </>
       )
     } else {

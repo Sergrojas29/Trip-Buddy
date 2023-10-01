@@ -61,7 +61,7 @@ function Home() {
         }
       })
       setSinglePlaceInfo(data.getPlace)
-
+      console.log(singlePlaceInfo)
     } catch (error) {
       console.log(error)
     }
@@ -171,7 +171,7 @@ function Home() {
             </div>
           </button>
 
-          <SaveButton xid={xid} />
+          <SaveButton xid={xid} saveMyPlace={saveMyPlace} data={data}/>
         </section>
       )
     }

@@ -97,7 +97,7 @@ const typeDefs = `
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     savePlace(place: PlaceInput!): User  
-    removePlace(xid: ID!): User
+    removePlace(xid: String!): User
   }
 `;
 
