@@ -2,6 +2,7 @@ import logo from '../assets/tripBuddyBIG.png';
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 import yeahBuddy from  '../assets/yeahbuddy.mp3'
+import auth from '../utils/auth';
 
 function Navbar() {
 
@@ -22,7 +23,7 @@ function Navbar() {
         <Link
           style={{ textDecoration: 'none'}}
           className="btnHeader"
-          to="/saved"
+          to={Auth.loggedIn() ? "/saved" : "/login" }
         >
           MY PLACES
         </Link>

@@ -1,12 +1,9 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { Button } from '@mui/material';
-
-import { Link } from 'react-router-dom';
-
+import DeleteIcon from '@mui/icons-material/Delete';
 import { REMOVE_PLACE } from '../utils/mutations';
 import { GET_ME } from '../utils/queries'
-import AuthService from '../utils/auth'
 import { useMutation, useQuery } from '@apollo/client';
 import Auth from '../utils/auth';
 
@@ -27,14 +24,13 @@ function MyPlaces() {
   }, [loading, data])
 
 
-  // create function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleRemovePlace = async (xid) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
       return false;
     }
-    
+
     console.log(typeof xid)
     try {
       const { data } = await removePlace({
@@ -42,7 +38,7 @@ function MyPlaces() {
           xid: xid
         },
       });
-     console.log(data)
+      console.log(data)
     } catch (error) {
       console.log(error)
       console.error(error);
@@ -53,26 +49,95 @@ function MyPlaces() {
     return <h2>LOADING...</h2>;
   }
 
-  
- 
+
+
+  function UserSavedPlaces() {
+    console.log(userData.savedPlaces)
+    return (
+      <section className="resultContainer">
+        {userData.savedPlaces && userData.savedPlaces.map((data) => {
+
+          <div key={data.xid} className="savePlaceItems">
+            <div className="imgContainer">
+              <img className='thumblenail' src={data.preview.source} alt="" />
+            </div>
+            <div className="infoContainer">
+              <h1 className='title' >{data.name}</h1>
+              <Button className='btn' onClick={() => handleRemovePlace(data.xid)}>
+                <DeleteIcon />
+              </Button>
+
+            </div>
+          </div>
+        })}
+
+      </section>
+    )
+  }
+
+
+
   return (
 
     <main className="CenterArea">
 
       <div id="myplaces"> {userData.username}'s places </div>
 
+
+      <section className="myPlaceContainer">
+        {userData.savedPlaces && userData.savedPlaces.map((data) => {
+
+          return (
+            <div key={data.xid} className="savePlaceItems">
+              <div className="imgContainer">
+                {data.preview && <img className='thumblenail' src={data.preview.source} alt="" />}
+              </div>
+              <div className="infoContainer">
+                <h1 className='title' >{data.name}</h1>
+                <Button className='btn' onClick={() => handleRemovePlace(data.xid)}>
+                  <DeleteIcon />
+                </Button>
+              </div>
+            </div>
+          )
+        })}
+
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/* 
       <section className="resultContainer">
 
-      <div>
+        <div>
           {userData.savedPlaces && userData.savedPlaces.map((place) => {
             return (
-              <div md="4" key={place.xid}>
+              <div key={place.xid}>
                 <div border='dark'>
-                  {place.image ? <img src={place.preview.source} alt={` ${place.name}`} variant='top' /> : null}
+                  {place.image ? <img src={place.preview.source} alt={` ${place.name}`} /> : null}
                   <div>
                     <h1>{place.name}</h1>
                     <p className='small'>Address:
-                    {` ${place.address.house_number}, ${place.address.road}, ${place.address.state}, ${place.address.country}, ${place.address.postcode}`}
+                      {` ${place.address.house_number}, ${place.address.road}, ${place.address.state}, ${place.address.country}, ${place.address.postcode}`}
                     </p>
 
 
@@ -87,7 +152,7 @@ function MyPlaces() {
         </div>
 
 
-      </section>
+      </section> */}
 
 
 

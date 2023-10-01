@@ -309,16 +309,23 @@ header {
 
 }
 
-
+.myPlaceContainer{
+  display: flex;
+  flex-direction: column;
+  width: var(--std-src-size);
+  border-radius: 5px;
+  
+}
 
 .savePlaceItems{
-  /* border: solid 1pt red; */
   display: flex;
   width: 100%;
-  height: 250px;
+  height: 225px;
+  border-radius: 5px;
 
   .imgContainer{
     display: flex;
+    border-radius: 5px 0 0 5px;
     justify-content: center;
     align-content: center;
     align-items: center;
@@ -330,10 +337,11 @@ header {
     
     .thumblenail{
       height: 90%;
+      max-width: 100%;
       /* width: 50%; */
       object-fit:cover;
       border-radius: 5px;
-      box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.259);
+      box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.259);
       /* border: solid 1pt yellow; */
     }
 
@@ -348,11 +356,20 @@ header {
     display: flex;
     width: 60%;
     flex-direction: column;
-    border: solid 1pt blue;
+    border-radius: 0 5px 5px 0;
+    background-color: #949494;
+    background-color: #949494;
+    border: solid 1pt #474747;
+    
     
     .title{
       margin: 15px;
-      font-size: 30pt;
+      border: solid 1pt red;
+      
+      font-size: clamp(30pt, 30pt, 6vw);
+      /* font-size: 30pt; */
+      
+
     }
   
     .btn{
