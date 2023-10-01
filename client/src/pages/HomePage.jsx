@@ -121,7 +121,7 @@ function Home() {
         </section>
       )
     } else {
-      return <h1>none</h1>
+      return <></>
     }
   }
 
