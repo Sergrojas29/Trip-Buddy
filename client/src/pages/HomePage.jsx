@@ -102,7 +102,7 @@ function Home() {
       });
 
       console.log(data);
-      window.alert(`You're selected location has been saved! View on your Saved Places Tab`)
+      window.alert("You're selected designation has been saved! Check My Places tab")
     } catch (err) {
       console.error(err);
     }
