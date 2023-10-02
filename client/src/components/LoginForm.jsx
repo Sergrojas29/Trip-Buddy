@@ -19,8 +19,10 @@ const LoginForm = () => {
     // Clear the error state when the user types
     if (name === 'email') {
       setEmailError(value ? '' : 'Email is required');
+      window.alert('Email is required')
     } else if (name === 'password') {
       setPasswordError(value ? '' : 'Password is required');
+      window.alert('Password is required')
     }
   };
 
@@ -45,12 +47,15 @@ const LoginForm = () => {
 
       if (userFormData.username === '') {
         setUsernameError(value ? '' : 'Username is required');
+        window.alert('Username is required')
       }
       if (userFormData.email === '') {
         setEmailError(value ? '' : 'Email is required');
+        window.alert('Email is required')
       }
       if (userFormData.password === '') {
         setPasswordError(value ? '' : 'Password is required');
+        window.alert('Password is required')
       }
     }
   };
