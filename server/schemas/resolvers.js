@@ -1,9 +1,9 @@
 const { User } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 const { ApolloError } = require('apollo-server-errors');
-const fetch = require('node-fetch')
+const fetch = require('node-fetch');
 
-//Query: user, users, 
+//Query: user, users,
 
 //Mutations: addUser, login, savePlace, removePlace, getPlaces, getPlace
 const apiKey = '5ae2e3f221c38a28845f05b692698d7c9862f1d763b5481bca8939dd';
@@ -35,11 +35,11 @@ const resolvers = {
         );
       }
     },
-  
+
     me: async (parent, args, context) => {
       if (context.user) {
-        console.log('User info being request')
-        return User.findOne({_id: context.user._id}).populate('savedPlaces')
+        console.log('User info being request');
+        return User.findOne({ _id: context.user._id }).populate('savedPlaces');
       }
     },
   },
@@ -59,36 +59,26 @@ const resolvers = {
     },
 
     login: async (parent, { email, password }) => {
-      try {
-        const user = await User.findOne({ email });
+      const user = await User.findOne({ email });
 
-        if (!user) {
-          throw new AuthenticationError('Incorrect email or password');
-        }
-
-        const correctPw = await user.isCorrectPassword(password);
-
-        if (!correctPw) {
-          throw new AuthenticationError('Incorrect email or password');
-        }
-
-        const token = signToken(user);
-
-        return { token, user };
-      } catch (error) {
-        throw new ApolloError(
-          'An error occurred during login.',
-          'AUTHENTICATION_ERROR',
-          {
-            error,
-          }
-        );
+      if (!user) {
+        throw AuthenticationError;
       }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw AuthenticationError;
+      }
+
+      const token = signToken(user);
+
+      return { token, user };
     },
 
     savePlace: async (parent, { place }, context) => {
       if (context.user) {
-        console.log('Incoming Save Request')
+        console.log('Incoming Save Request');
         try {
           const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id }, // Use context.user._id
@@ -109,20 +99,19 @@ const resolvers = {
             {
               error,
             }
-          )
-        
+          );
         }
       }
     },
 
     removePlace: async (parent, { xid }, context) => {
       if (context.user) {
-        console.log('Incoming Remove Request')
+        console.log('Incoming Remove Request');
         try {
           const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id }, // Use context.user._id
             {
-              $pull: { savedPlaces: {xid} },
+              $pull: { savedPlaces: { xid } },
             },
             {
               new: true,
@@ -137,10 +126,8 @@ const resolvers = {
       }
     },
 
-
-
     getPlaces: async (parent, { city }) => {
-      console.log('Incoming request for nearby places')
+      console.log('Incoming request for nearby places');
       try {
         // Replace spaces in the city name with '+' for the URL
         const typedCity = city.replace(' ', '+');
@@ -196,11 +183,8 @@ const resolvers = {
         const features = data.features;
         const placeData = features.map((feature) => feature.properties);
 
-       
-
         return placeData;
       } catch (error) {
-
         console.error(error);
         throw new ApolloError(
           'An error occurred while fetching places',
@@ -211,48 +195,43 @@ const resolvers = {
         );
       }
     },
-    
+
     getPlace: async (parent, { xid }, context) => {
-      
-        console.log('Incoming request for single place info')
-        try {
-          const response = await fetch(
-            `http://api.opentripmap.com/0.1/en/places/xid/${xid}?apikey=${apiKey}`
-          );
-          if (!response.ok) {
-
-            throw new ApolloError(
-              'Failed to fetch from external API',
-              'API_ERROR',
-
-              {
-                statusCode: response.status,
-                statusText: response.statusText,
-              }
-            );
-          }
-
-          //Wait for the data
-
-          const data = await response.json();
-
-          //Simplifiy it for the fields we care about
-
-        
-
-          return data;
-        } catch (error) {
-          console.error(error)
+      console.log('Incoming request for single place info');
+      try {
+        const response = await fetch(
+          `http://api.opentripmap.com/0.1/en/places/xid/${xid}?apikey=${apiKey}`
+        );
+        if (!response.ok) {
           throw new ApolloError(
-            'An error occurred while fetching places',
-            'DATABASE_ERROR',
+            'Failed to fetch from external API',
+            'API_ERROR',
+
             {
-              error,
+              statusCode: response.status,
+              statusText: response.statusText,
             }
           );
         }
+
+        //Wait for the data
+
+        const data = await response.json();
+
+        //Simplifiy it for the fields we care about
+
+        return data;
+      } catch (error) {
+        console.error(error);
+        throw new ApolloError(
+          'An error occurred while fetching places',
+          'DATABASE_ERROR',
+          {
+            error,
+          }
+        );
       }
-    
-  }
-}
+    },
+  },
+};
 module.exports = resolvers;
