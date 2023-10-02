@@ -21,6 +21,10 @@ const userSchema = new Schema(
       required: true,
     },
     savedPlaces: [placeSchema],
+    premium: {
+      type: Boolean,
+      default: false
+    }
   },
   {
     toJSON: {

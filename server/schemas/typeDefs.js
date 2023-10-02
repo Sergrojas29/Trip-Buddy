@@ -84,6 +84,7 @@ const typeDefs = `
     username: String!
     email: String!
     password: String!
+    premium: Boolean
     savedPlaces: [Place]
   }
 
