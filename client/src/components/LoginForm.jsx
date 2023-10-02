@@ -30,7 +30,7 @@ const LoginForm = () => {
     // setUserFormData({ ...userFormData, [name]: value });
 
     try {
-      const { data } = await addUser({
+      const { data } = await login({
         variables: { ...userFormData },
       });
       setUserFormData({
@@ -39,7 +39,7 @@ const LoginForm = () => {
         password: '',
       });
 
-      Auth.login(data.addUser.token);
+      Auth.login(data.login.token);
     } catch (err) {
       console.error(err);
 
