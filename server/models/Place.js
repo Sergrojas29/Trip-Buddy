@@ -26,7 +26,12 @@ const placeSchema = new Schema({
 
   preview: {
     type: Schema.Types.Mixed,
+  },
+
+  point: {
+    type: Schema.Types.Mixed,
   }
+
 
 });
 

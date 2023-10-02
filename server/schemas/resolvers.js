@@ -141,6 +141,7 @@ const resolvers = {
 
     getPlaces: async (parent, { city }) => {
       console.log('Incoming request for nearby places')
+      
       try {
         // Replace spaces in the city name with '+' for the URL
         const typedCity = city.replace(' ', '+');
@@ -238,7 +239,7 @@ const resolvers = {
 
           //Simplifiy it for the fields we care about
 
-        
+        console.log(data)
 
           return data;
         } catch (error) {

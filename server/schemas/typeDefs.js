@@ -1,5 +1,18 @@
 const typeDefs = `
 
+
+  type Address {
+    road: String
+    house: String
+   state: String
+   suburb: String
+    country: String
+    postcode: String
+    country_code: String
+   house_number: String
+   state_district: String
+  }
+
   input AddressInput {
     road: String
     house: String
@@ -10,7 +23,12 @@ const typeDefs = `
     country_code: String
     house_number: String
     state_district: String
-    
+  }
+
+  type Wikipedia_extracts {
+    title: String
+    text: String
+    html: String
   }
 
   input Wikipedia_extractsInput {
@@ -19,9 +37,22 @@ const typeDefs = `
     html: String
   }
 
-  input PreviewInput {
+  type Preview {
     source: String
-    
+  }
+
+  input PreviewInput {
+    source: String   
+  }
+
+  type Point {
+    lon: Float
+    lat: Float
+  }
+
+  input PointInput {
+    lon: Float
+    lat: Float
   }
 
 
@@ -33,30 +64,7 @@ const typeDefs = `
     image: String
     preview: PreviewInput
     rate: Int
-  }
-
-  type Address {
-    road: String
-    house: String
-    state: String
-    suburb: String
-    country: String
-    postcode: String
-    country_code: String
-    house_number: String
-    state_district: String
-  }
-  
-  type Wikipedia_extracts {
-    title: String
-    text: String
-    html: String
-  }
-
-
-  type Preview {
-    source: String
-    _typename: String
+    point: PointInput
   }
 
 
@@ -67,7 +75,8 @@ const typeDefs = `
     address: Address
     image: String
     wikipedia_extracts: Wikipedia_extracts
-    preview: Preview 
+    preview: Preview
+    point: Point 
   }
 
   type User {

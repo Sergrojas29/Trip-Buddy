@@ -56,7 +56,10 @@ export const SAVE_PLACE = gql`
         }
         preview {
           source
-          
+        }
+        point {
+          lon
+          lat
         }
       }
     }
@@ -93,7 +96,10 @@ export const REMOVE_PLACE = gql`
         }
         preview {
           source
-          _typename
+        }
+        point {
+          lon
+          lat
         }
       }
     }
@@ -126,6 +132,10 @@ export const GET_NEARBY_PLACES = gql`
       preview {
         source
       }
+      point {
+        lon
+        lat
+      }
     }
 }`;
 
@@ -153,6 +163,10 @@ mutation getPlace($xid: ID!) {
     }
     preview {
       source
+    }
+    point {
+      lon
+      lat
     }
   }
 }
