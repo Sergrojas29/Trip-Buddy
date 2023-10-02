@@ -54,7 +54,8 @@
     --relativeNavBar: 4vw;
     /* --lar100Sml60: 120%; */
   }
-  .placeContainer{
+
+  .placeContainer {
     overflow: scroll;
   }
 }
@@ -139,7 +140,7 @@ header {
 }
 
 
-.MainLogoContainer{
+.MainLogoContainer {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -147,17 +148,17 @@ header {
   margin: 25px 0;
   /* border: solid 1pt red; */
   object-fit: contain;
-  background-size:contain;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
   background-image: url(/tripBuddyBIG.png);
 
-  #mainLogo{
+  #mainLogo {
     width: 90%;
 
   }
-  
+
 }
 
 
@@ -225,6 +226,7 @@ header {
 
 .previewContain:hover {
   cursor: pointer;
+  text-transform: uppercase;
   background-color: var(--secondary);
   /* background-color: rgb(113, 153, 218); */
 }
@@ -292,7 +294,7 @@ header {
     width: 85%;
   }
 
-  .addressContainer{
+  .addressContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -315,20 +317,21 @@ header {
     color: white;
 
 
-    .addressLineOne{
+    .addressLineOne {
       display: flex;
     }
-    .addressLineTwo{
+
+    .addressLineTwo {
       display: flex;
     }
   }
 
-  .addressContainer:hover{
+  .addressContainer:hover {
     background-color: var(--secondary);
     box-shadow: inset 0 0 25px 5px var(--primary);
   }
 
-  .addressText{
+  .addressText {
     margin: 0 2px;
   }
 
@@ -343,6 +346,7 @@ header {
     color: white;
     margin-bottom: 15px;
   }
+
   .savebtn:hover {
     background-color: var(--secondary);
     box-shadow: inset 0 0 25px 5px var(--primary);
@@ -351,37 +355,49 @@ header {
 
 }
 
-.myPlaceContainer{
+
+:root {
+  --bgBlack: #343434
+}
+
+
+
+.myPlaceContainer {
   display: flex;
   flex-direction: column;
   width: var(--std-src-size);
-  border-radius: 5px;
-  
+  border-radius: 15px;
+  background-color: none;
+  overflow: hidden;
+  /* box-shadow: 0 0 15px 5px rgba(181, 181, 181, 0.491); */
+
 }
 
-.savePlaceItems{
+.savePlaceItems {
   display: flex;
   width: 100%;
   height: 225px;
-  border-radius: 5px;
+  border-radius: 15px;
+  margin: 5px 0;
 
-  .imgContainer{
+
+  .imgContainer {
     display: flex;
-    border-radius: 5px 0 0 5px;
+    border-radius: 15px 0 0 15px;
     justify-content: center;
     align-content: center;
     align-items: center;
     align-self: center;
     height: 100%;
     width: 40%;
-    background-color: #343434;
+    background-color: var(--bgBlack);
     /* border: solid 1pt purple; */
-    
-    .thumblenail{
+
+    .thumblenail {
       height: 90%;
       max-width: 100%;
       /* width: 50%; */
-      object-fit:cover;
+      object-fit: cover;
       border-radius: 5px;
       box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.259);
       /* border: solid 1pt yellow; */
@@ -394,40 +410,83 @@ header {
 
   }
 
-  .infoContainer{
+  .infoContainer {
     display: flex;
     width: 60%;
     flex-direction: column;
-    border-radius: 0 5px 5px 0;
-    background-color: #949494;
-    background-color: #949494;
-    border: solid 1pt #474747;
-    
-    
-    .title{
-      margin: 15px;
-      border: solid 1pt red;
-      
-      font-size: clamp(30pt, 30pt, 6vw);
-      /* font-size: 30pt; */
-      
+    border-radius: 0 15px 15px 0;
+    /* background-color: var(--secondary); */
+    border: solid .5pt var(--bgBlack);
+
+    position: relative;
+
+
+
+    .title {
+      /* margin: 15px; */
+      padding: 5px;
+      width: 100%;
+      overflow: hidden;
+      /* font-size: clamp(30pt, 30pt, 6vw); */
+      font-size: 25pt;
+
 
     }
+
+    .bottomContainer {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 69%;
+      position: relative;
+      padding: 5px;
+      
+
+
+
+      .descriptionContainer {
+        display: flex;
+        flex-direction: column;
+        font-size: 10pt;
+        position: relative;
+        height: 100%;
+        width: 80%;
+        overflow: scroll;
+        /* border: solid 1pt red; */
+        
+      }
   
-    .btn{
-      height: 40px;
-      width: 25px;
-      background-color: var(--remove);
-      text-decoration: none;
-      color: white;
-
-
+      .btnContainer {
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        justify-content: center;
+        align-items: center;
+        
+        .btn-green{
+          color: green;
+        }
+        .btn {
+          height: 40px;
+          width: 25px;
+          background-color: var(--remove);
+          text-decoration: none;
+          color: white;
+          margin: 5px 0;
+  
+  
+        }
+  
+        .btn:hover {
+          cursor: pointer;
+          transform: scale(.95);
+        }
+        .btn-green{
+          background-color: green;
+        }
+      }
     }
 
-    .btn:hover{
-      cursor: pointer;
-      transform: scale(.95);
-    }
 
   }
 
@@ -476,8 +535,8 @@ footer {
   bottom: 0;
   /* border: solid 1pt red; */
   background-color: #3f4347;
-  
-  
+
+
   #logoContainer {
     /* border: solid 1pt red; */
     position: absolute;
@@ -494,11 +553,6 @@ footer {
   }
 }
 
-#root{
+#root {
   background-color: white;
 }
-
-
-
-
-
