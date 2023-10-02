@@ -41,16 +41,21 @@ const LoginForm = () => {
 
       Auth.login(data.addUser.token);
     } catch (err) {
-      console.error(err);
 
+      console.error(err);
+      
+      window.alert(error)
       if (userFormData.username === '') {
         setUsernameError(value ? '' : 'Username is required');
+        window.alert('Username is required')
       }
       if (userFormData.email === '') {
         setEmailError(value ? '' : 'Email is required');
+        window.alert('Email is required')
       }
       if (userFormData.password === '') {
         setPasswordError(value ? '' : 'Password is required');
+        window.alert('Password is required')
       }
     }
   };
