@@ -8,7 +8,6 @@ function Navbar() {
 
   function play() {
     new Audio(yeahBuddy).play()
-    
   }
 
   return (
