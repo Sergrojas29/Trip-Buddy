@@ -1,10 +1,10 @@
+import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { Box, Button, TextField } from '@mui/material';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
-
-// import { createUser } from '../utils/API';
 import Auth from '../utils/auth';
+import { handleError } from '@apollo/client/link/http/parseAndCheckHttpResponse';
 
 const SignupForm = () => {
   // set initial form state
@@ -15,22 +15,9 @@ const SignupForm = () => {
   });
   const [addUser, { error }] = useMutation(ADD_USER);
 
-  // set state for form validation
-  // const [validated] = useState(false);
-
-  // set state for alert
-  const [showAlert, setShowAlert] = useState(false);
-  useEffect(() => {
-    if (error) {
-      setShowAlert(true);
-    } else {
-      setShowAlert(false);
-    }
-  }, [error]);
-
-  const [usernameError, setUsernameError] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
+  const [usernameError, setUsernameError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -48,30 +35,33 @@ const SignupForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
-    // check if form has everything (as per react-bootstrap docs)
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+    const { name, value } = event.target;
+    // setUserFormData({ ...userFormData, [name]: value });
 
     try {
       const { data } = await addUser({
         variables: { ...userFormData },
       });
+      setUserFormData({
+        username: '',
+        email: '',
+        password: '',
+      });
 
       Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);
-      setShowAlert(true);
-    }
 
-    setUserFormData({
-      username: '',
-      email: '',
-      password: '',
-    });
+      if (userFormData.username === '') {
+        setUsernameError(value ? '' : 'Username is required');
+      }
+      if (userFormData.email === '') {
+        setEmailError(value ? '' : 'Email is required');
+      }
+      if (userFormData.password === '') {
+        setPasswordError(value ? '' : 'Password is required');
+      }
+    }
   };
 
   return (

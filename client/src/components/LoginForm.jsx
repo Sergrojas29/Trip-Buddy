@@ -3,16 +3,10 @@ import { useState } from 'react';
 import { Box, Button, TextField } from '@mui/material';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
-
-// import Box from '@mui/material/Box';
-// import TextField from '@mui/material/TextField';
-// import { loginUser } from '../utils/API';
 import Auth from '../utils/auth';
 
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
-  const [validated] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
   const [login] = useMutation(LOGIN_USER);
 
   const [emailError, setEmailError] = useState('');
@@ -24,52 +18,41 @@ const LoginForm = () => {
     setUserFormData({ ...userFormData, [name]: value });
     // Clear the error state when the user types
     if (name === 'email') {
-      setEmailError('');
+      setEmailError(value ? '' : 'Email is required');
     } else if (name === 'password') {
-      setPasswordError('');
+      setPasswordError(value ? '' : 'Password is required');
     }
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
-    // Check if form has everything (as per react-bootstrap docs)
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-      // You can also set error messages here if needed
-      setEmailError('Please enter a valid email address');
-      setPasswordError('Please enter a valid password');
-    } else {
-      // Clear error messages if form is valid
-      setEmailError('');
-      setPasswordError('');
-    }
+    const { name, value } = event.target;
+    // setUserFormData({ ...userFormData, [name]: value });
 
     try {
-      const { data } = await login({
+      const { data } = await addUser({
         variables: { ...userFormData },
       });
+      setUserFormData({
+        username: '',
+        email: '',
+        password: '',
+      });
 
-      if (data.login.token) {
-        localStorage.setItem('token', data.login.token);
-        Auth.login(data.login.token);
-      } else {
-        console.error('No token found in the login response');
-        // Set the login error message for incorrect email/password
-        setLoginError('Incorrect email or password');
-      }
+      Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);
-      // Set the login error message for server errors
-      setLoginError('An error occurred while logging in');
-    }
 
-    setUserFormData({
-      email: '',
-      password: '',
-    });
+      if (userFormData.username === '') {
+        setUsernameError(value ? '' : 'Username is required');
+      }
+      if (userFormData.email === '') {
+        setEmailError(value ? '' : 'Email is required');
+      }
+      if (userFormData.password === '') {
+        setPasswordError(value ? '' : 'Password is required');
+      }
+    }
   };
 
   return (
