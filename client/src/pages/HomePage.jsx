@@ -128,8 +128,6 @@ function Home() {
   }
 
   function ListRender() {
-    // const data = props.list
-    // const data = props.list.features
     if (multiPlaceInfo.length > 0) {
       const data = multiPlaceInfo
       return (
@@ -137,8 +135,9 @@ function Home() {
           {data.map((place, index) => {
             while (index < 25) {
               return (
-                <div className="previewContain" style={{ height: '300px' }} key={place.xid} href='#placeTitle' id={place.xid} onClick={(e) => { firstCall(e.target.id) }} >
-                  <div className="placeName" maxLength="15" id={place.xid} > {place.name} </div>
+                <div className="previewContain" key={place.xid} href='#placeTitle' id={place.xid} onClick={(e) => { firstCall(e.target.id) }} >
+                  <div className="placeName" id={place.xid} > {place.name} </div>
+                  {/* <br /> */}
                   <div className="placeRating" id={place.xid} > RATING: {place.rate}</div>
                 </div>
               )
@@ -153,14 +152,17 @@ function Home() {
   function PlaceRender() {
     const data = singlePlaceInfo
     if (data !== null) {
-      const { xid, name, preview, wikipedia_extracts, address } = data
+      const { xid, name, preview, wikipedia_extracts, address, point } = data
       return (
         <section className="placeContainer">
 
           <p id='placeTitle'>{name}</p>
           {preview && <img id='previewImg' src={data.preview.source} alt='preview' />}
           {wikipedia_extracts && <p id='placeDescription'>{wikipedia_extracts.text}</p>}
-          <button className="addressContainer">
+          <button className="addressContainer" onClick={()=>{
+            const url = `http://maps.google.com/maps?q=${point.lat},${point.lon}`
+            window.open(url, "_blank")
+          }}>
             <div className="addressLineOne">
               {address && <div className='addressText' >{address.house_number}</div>}
               {address && <div className='addressText' >{address.road}</div>}
