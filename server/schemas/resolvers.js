@@ -1,7 +1,7 @@
 const { User } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 const { ApolloError } = require('apollo-server-errors');
-const fetch = require('node-fetch')
+const fetch = require('node-fetch');
 
 //Query: user, users, getPlaces, getPlace
 
@@ -42,7 +42,6 @@ const resolvers = {
         );
 
         if (!response.ok) {
-
           throw new ApolloError(
             'Failed to fetch from external API',
             'API_ERROR',
@@ -58,24 +57,16 @@ const resolvers = {
 
         const data = await response.json();
 
-
-
-
         //Simplifiy it for the fields we care about
-        const features = data.features
+        const features = data.features;
 
-        const placeData = features.map(feature => feature.properties)
+        const placeData = features.map((feature) => feature.properties);
 
-
-        console.log(placeData)
-
+        console.log(placeData);
 
         return placeData;
-
-
-
       } catch (error) {
-        console.error(error)
+        console.error(error);
         throw new ApolloError(
           'An error occurred while fetching places',
           'DATABASE_ERROR',
@@ -92,7 +83,6 @@ const resolvers = {
             `http://api.opentripmap.com/0.1/en/places/xid/${xid}?apikey=${apiKey}`
           );
           if (!response.ok) {
-
             throw new ApolloError(
               'Failed to fetch from external API',
               'API_ERROR',
@@ -110,11 +100,11 @@ const resolvers = {
 
           //Simplifiy it for the fields we care about
 
-          console.log(data)
+          console.log(data);
 
           return data;
         } catch (error) {
-          console.error(error)
+          console.error(error);
           throw new ApolloError(
             'An error occurred while fetching places',
             'DATABASE_ERROR',
@@ -124,7 +114,7 @@ const resolvers = {
           );
         }
       }
-    }
+    },
   },
 
   Mutation: {
@@ -150,31 +140,21 @@ const resolvers = {
     },
 
     login: async (parent, { email, password }) => {
-      try {
-        const user = await User.findOne({ email });
+      const user = await User.findOne({ email });
 
-        if (!user) {
-          throw new AuthenticationError('Incorrect email or password');
-        }
-
-        const correctPw = await user.isCorrectPassword(password);
-
-        if (!correctPw) {
-          throw new AuthenticationError('Incorrect email or password');
-        }
-
-        const token = signToken(user);
-
-        return { token, user };
-      } catch (error) {
-        throw new ApolloError(
-          'An error occurred during login.',
-          'AUTHENTICATION_ERROR',
-          {
-            error,
-          }
-        );
+      if (!user) {
+        throw AuthenticationError;
       }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw AuthenticationError;
+      }
+
+      const token = signToken(user);
+
+      return { token, user };
     },
 
     savePlace: async (parent, { place }, context) => {
@@ -230,7 +210,6 @@ const resolvers = {
         }
       }
     },
-
   },
 };
 
