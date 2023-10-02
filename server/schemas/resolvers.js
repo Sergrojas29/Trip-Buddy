@@ -2,11 +2,13 @@ const { User } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 const { ApolloError } = require('apollo-server-errors');
 const fetch = require('node-fetch');
-
+// import 'dotenv/config'
+require('dotenv').config();
 //Query: user, users,
 
 //Mutations: addUser, login, savePlace, removePlace, getPlaces, getPlace
-const apiKey = '5ae2e3f221c38a28845f05b692698d7c9862f1d763b5481bca8939dd';
+const apiKey =process.env.APIKEY;
+console.log(apiKey)
 const resolvers = {
   Query: {
     users: async () => {
