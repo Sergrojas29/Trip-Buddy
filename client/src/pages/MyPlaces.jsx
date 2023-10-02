@@ -6,6 +6,7 @@ import { REMOVE_PLACE } from '../utils/mutations';
 import { GET_ME } from '../utils/queries'
 import { useMutation, useQuery } from '@apollo/client';
 import Auth from '../utils/auth';
+import DirectionsIcon from '@mui/icons-material/Directions';
 
 function MyPlaces() {
 
@@ -51,17 +52,12 @@ function MyPlaces() {
 
 
 
-  function UserSavedPlaces() {
-    
-  }
-
-
 
   return (
 
     <main className="CenterArea">
 
-      <div id="myplaces"> {userData.username}'s places </div>
+      <div id="myplaces" style={{ textTransform: 'uppercase' }}> {userData.username}'s places </div>
 
 
       <section className="myPlaceContainer">
@@ -74,9 +70,20 @@ function MyPlaces() {
               </div>
               <div className="infoContainer">
                 <h1 className='title' >{data.name}</h1>
-                <Button className='btn' onClick={() => handleRemovePlace(data.xid)}>
-                  <DeleteIcon />
-                </Button>
+
+                <div className="bottomContainer">
+                  <div className="descriptionContainer">
+                    {data.wikipedia_extracts && <p>{data.wikipedia_extracts.text}</p>}
+                  </div>
+                  <div className="btnContainer">
+                    <Button className='btn btn-green' onClick={() => handleRemovePlace(data.xid)}>
+                      <DirectionsIcon />
+                    </Button>
+                    <Button className='btn' onClick={() => handleRemovePlace(data.xid)}>
+                      <DeleteIcon />
+                    </Button>
+                  </div>
+                </div>
               </div>
             </div>
           )
@@ -105,7 +112,7 @@ function MyPlaces() {
 
 
 
-{/* 
+      {/* 
       <section className="resultContainer">
 
         <div>
