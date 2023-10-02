@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
+import MainLogo from '../assets/tripBuddyBIG.png'
 
 
 import { SAVE_PLACE, REMOVE_PLACE, GET_NEARBY_PLACES, GET_SINGLE_PLACE } from '../utils/mutations';
@@ -121,7 +122,7 @@ function Home() {
         </section>
       )
     } else {
-      return <h1>none</h1>
+      return <></>
     }
   }
 
@@ -171,9 +172,33 @@ function Home() {
             </div>
           </button>
 
-          <SaveButton xid={xid} saveMyPlace={saveMyPlace} data={data}/>
+          <SaveButton xid={xid} saveMyPlace={saveMyPlace} data={data} />
         </section>
       )
+    }
+
+  }
+
+  async function handleKeyUp(event) {
+    event.preventDefault();
+    if (event.key === 'Enter') {
+      const citySearch = event.target.value
+      try {
+
+        const { loading, data } = await getPlaces({
+          variables: {
+            city: citySearch
+          }
+        })
+
+
+        setMultiPlaceInfo(data.getPlaces)
+
+
+        firstCall(data.getPlaces[0].xid)
+      } catch (error) {
+        console.error(error)
+      }
     }
 
   }
@@ -182,13 +207,12 @@ function Home() {
 
 
 
-
   return (
     <>
       <main className="CenterArea">
-        <h1 className="MainTitle"> Trip Buddy</h1>
-        <h1 className="MainTitle"> Search a Location</h1>
-        <Button onClick={handleFormSubmit}>
+        <div className="MainLogoContainer"></div>
+        {/* <h1 className="MainTitle"> Search a Location</h1> */}
+        {/* <Button onClick={handleFormSubmit}>
           Search-Debug
         </Button>
         <Button onClick={() => setDebugState(true)} >
@@ -196,7 +220,7 @@ function Home() {
         </Button>
         <Button onClick={() => firstCall("N338451025")} >
           OneCall-Debug
-        </Button>
+        </Button> */}
 
 
         <div className="searchbarContainer">
@@ -205,6 +229,7 @@ function Home() {
             name="citySearch"
             id="citySearch"
             placeholder="Search for City"
+            onKeyUp={handleKeyUp}
           ></input>
           <div id="autosearch"></div>
         </div>
