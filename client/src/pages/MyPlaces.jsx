@@ -52,27 +52,7 @@ function MyPlaces() {
 
 
   function UserSavedPlaces() {
-    console.log(userData.savedPlaces)
-    return (
-      <section className="resultContainer">
-        {userData.savedPlaces && userData.savedPlaces.map((data) => {
-
-          <div key={data.xid} className="savePlaceItems">
-            <div className="imgContainer">
-              <img className='thumblenail' src={data.preview.source} alt="" />
-            </div>
-            <div className="infoContainer">
-              <h1 className='title' >{data.name}</h1>
-              <Button className='btn' onClick={() => handleRemovePlace(data.xid)}>
-                <DeleteIcon />
-              </Button>
-
-            </div>
-          </div>
-        })}
-
-      </section>
-    )
+    
   }
 
 
