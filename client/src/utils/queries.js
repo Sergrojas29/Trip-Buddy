@@ -29,7 +29,6 @@ export const GET_ME = gql`
         }
         preview {
           source
-          _typename
         }
       }
     }
