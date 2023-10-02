@@ -9,11 +9,10 @@ function PlaceList() {
             {listData.features.map((place, index) => {
                 while (index < 25) {
                     return (
-                        <button className="previewContain" key={place.properties.xid}>
-                            <div id="placeName" maxLength="15"> {place.properties.name} </div>
-                            <div id="placeRating"> RATING: {place.properties.rate}</div>
-                            {/* <div id="placeKind"> {place.properties.kinds} </div> */}
-                        </button>
+                        <a className="previewContain" key={place.properties.xid} href='#placeTitle' id={place.properties.xid} onClick={(e) => console.log(e.target.id)} >
+                            <div className="placeName" maxLength="15" id={place.properties.xid} > {place.properties.name} </div>
+                            <div className="placeRating" id={place.properties.xid} > RATING: {place.properties.rate}</div>
+                        </a>
                     );
                 }
 

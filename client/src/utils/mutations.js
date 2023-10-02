@@ -29,41 +29,132 @@ export const ADD_USER = gql`
 export const SAVE_PLACE = gql`
   mutation savePlace($place: PlaceInput!) {
     savePlace(place: $place) {
-      xid
-      name
-      address
-      image
-    }
-  }
-`;
-
-export const REMOVE_PLACE = gql`
-  mutation removePlace($placeId: ID) {
-    removePlace(xid: $placeId) {
       _id
       username
       email
-      place {
+      password
+      savedPlaces {
         xid
         name
-        location
-        lat
-        lon
+        rate
+        address {
+          road
+          house
+          state
+          suburb
+          country
+          postcode
+          country_code
+          house_number
+          state_district
+        }
         image
+        wikipedia_extracts {
+          title
+          text
+          html
+        }
+        preview {
+          source
+          
+        }
       }
     }
   }
 `;
 
-// export const SAVE_API_DATA = gql`
-//   mutation SaveApiData($userId: ID!, $apiData: String!) {
-//     saveApiData(userId: $userId, apiData: $apiData) {
-//       _id
-//       username
-//       email
-//       apiData
-//     }
-//   }
-// `;
+export const REMOVE_PLACE = gql`
+  mutation removePlace($xid: String!) {
+    removePlace(xid: $xid) {
+      _id
+      username
+      email
+      password
+      savedPlaces {
+        xid
+        name
+        rate
+        address {
+          road
+          house
+          state
+          suburb
+          country
+          postcode
+          country_code
+          house_number
+          state_district
+        }
+        image
+        wikipedia_extracts {
+          title
+          text
+          html
+        }
+        preview {
+          source
+          _typename
+        }
+      }
+    }
+  }
+`;
 
+export const GET_NEARBY_PLACES = gql`
+  mutation getPlaces($city: String!) {
+    getPlaces(city: $city) {
+      xid
+      name
+      rate
+      address {
+        road
+        house
+        state
+        suburb
+        country
+        postcode
+        country_code
+        house_number
+        state_district
+      }
+      image
+      wikipedia_extracts {
+        title
+        text
+        html
+      }
+      preview {
+        source
+      }
+    }
+}`;
+
+export const GET_SINGLE_PLACE = gql`
+mutation getPlace($xid: ID!) {
+  getPlace(xid: $xid) {
+    xid
+    name
+    image
+    address {
+      road
+      house
+      state
+      suburb
+      country
+      postcode
+      country_code
+      house_number
+      state_district
+    }
+    wikipedia_extracts {
+      html
+      text
+      title
+    }
+    preview {
+      source
+    }
+  }
+}
+`;
 

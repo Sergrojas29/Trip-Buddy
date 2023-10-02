@@ -11,31 +11,17 @@
     "country_code": "us",
     "house_number": "24",
     "neighbourhood": "Downtown"
+  
   },
-  "rate": "3",
-  "wikidata": "Q866789",
-  "kinds": "religion,other_temples,interesting_places",
-  "sources": {
-    "geometry": "wikidata",
-    "attributes": [
-      "wikidata"
-    ]
-  },
-  "otm": "https://opentripmap.com/en/card/Q866789",
   "wikipedia": "https://en.wikipedia.org/wiki/Roman%20Catholic%20Diocese%20of%20Albany",
   "image": "https://commons.wikimedia.org/wiki/File:Cathedral_of_the_Immaculate_Conception_Albany.jpg",
   "preview": {
     "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Cathedral_of_the_Immaculate_Conception_Albany.jpg/400px-Cathedral_of_the_Immaculate_Conception_Albany.jpg",
-    "height": 370,
-    "width": 400
   },
   "wikipedia_extracts": {
     "title": "en:Roman Catholic Diocese of Albany",
     "text": "The Roman Catholic Diocese of Albany (Latin: Diœcesis Albanensis) covers 13 counties in Eastern New York (Albany, Columbia, Delaware, Fulton, Greene, Montgomery, Otsego, Rensselaer, Saratoga, Schenectady, Schoharie, Warren, and Washington Counties), including a portion of a 14th county (southern Herkimer County, New York). Its Mother Church is the Cathedral of the Immaculate Conception in the city of Albany.When St. Mary's Church was formally established in downtown Albany in 1796, it was the only Catholic church upstate. The parish part of the Diocese of Baltimore.",
     "html": "<p><b>The Roman Catholic Diocese of Albany</b> (Latin: <i lang=\"la\">Diœcesis Albanensis</i>) covers 13 counties in Eastern New York (Albany, Columbia, Delaware, Fulton, Greene, Montgomery, Otsego, Rensselaer, Saratoga, Schenectady, Schoharie, Warren, and Washington Counties), including a portion of a 14th county (southern Herkimer County, New York). Its Mother Church is the Cathedral of the Immaculate Conception in the city of Albany.</p><p>When St. Mary's Church was formally established in downtown Albany in 1796, it was the only Catholic church upstate. The parish part of the Diocese of Baltimore.</p>"
   },
-  "point": {
-    "lon": -73.75440216064453,
-    "lat": 42.65169906616211
-  }
+
 }
