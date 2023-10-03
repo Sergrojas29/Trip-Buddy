@@ -7,8 +7,8 @@ require('dotenv').config();
 //Query: user, users,
 
 //Mutations: addUser, login, savePlace, removePlace, getPlaces, getPlace
-// const apiKey = process.env.APIKEY;
-const apiKey = '5ae2e3f221c38a28845f05b692698d7c9862f1d763b5481bca8939dd';
+ const apiKey = process.env.APIKEY;
+
 const resolvers = {
   Query: {
     users: async () => {
