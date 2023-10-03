@@ -1,12 +1,13 @@
 # Group-Project-3 - Trip Buddy
 
 ## Contents
-[Description](#description)
-[User Story](#user-story)
-[Installation](#installation)
-[Usage](#usage)
-[Resources & Credit](#resourcescredit)
-[Images](#images)
+[Description](#description)<br>
+[User Story](#user-story)<br>
+[Usage](#usage)<br>
+[Resources & Credit](#resourcescredit)<br>
+[License](#license)<br>
+[Images](#images)<br>
+[Authors](#authors)<br>
 
 ## Description
 Trip Buddy is designed for active travelers who want to enhance their travel experiences by easily discovering exciting activities and destinations during their journeys around the country and the world. With Trip Buddy, travelers can make the most out of their trips by accessing a range of useful features.
@@ -32,42 +33,38 @@ Then I can log in to my profile<br>
 When I search for a location and save it to my profile<br>
 Then I can delete the location if I need to, preparing for future trips.<br>
 
-## Installation
-1. Clone the repository: 
-```bash
-git clone git@github.com:Sergrojas29/Group-Project-3.git
-```
-
-2. Navigate to the directory:
-```bash
-cd Group-Project-3
-```
-
-3. Install dependencies:
-```bash
-npm install
-```
-
-4. Set up Environment Variables:
-```bash
-
-```
-
-5. Start the development Server:
-```bash
-npm run develop
-```
-
-6. Open the Application:
-Once the development server is running, you can access the app by opening your web browser.
-
 
 ## Usage
+Technologies used:
+ - Apollo Client
+ - Emotion React
+ - Emotion Styled
+ - MaterialUI
+ - GraphQL
+ - React DOM/Router
+ - Vite
+ - Lint
+ - BCrypt
+ - Express
+ - Mongoose
+ - JSONWebToken
 
 ## Resources/Credit
+Huge thank yous to our teachers - Rommel, Jake and Ringo. Thank you to everyone who helped us get to be the coders we are today. We are grateful for all the help we've receieved along the way and are looking forward to our futures.
 
+Relevant documentation on all dependencies were referenced.
+ChatGPT was used for debugging purposes only.
+
+## License
+This project is licensed under the MIT License.
 
 ## Images
-![Home Screen](client\public\image-1.png)
-![Saved Places](client\public\image.png)
-![Place Search](client\public\image-2.png)
+![Home Screen](client\public\image-1.png)<br>
+![Saved Places](client\public\image.png)<br>
+![Place Search](client\public\image-2.png)<br>
+
+## Authors
+Sergio Rojas-Aguilar - https://github.com/Sergrojas29<br>
+Timothy Salamatin - https://github.com/TSalamatin<br>
+Brendan Sikorjak - https://github.com/brendansikorjak<br>
+Jonathan Sterling - https://github.com/Jsterling56 
