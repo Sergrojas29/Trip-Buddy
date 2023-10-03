@@ -650,3 +650,24 @@ footer {
 #root {
   background-color: white;
 }
+
+
+
+.topContainer{
+  display: flex;
+  justify-content: center;
+  
+}
+.formContainer{
+    display: flex;
+    height: 350px;
+    flex-direction: column; 
+    justify-content:space-evenly; 
+    /* justify-self: center; */
+    /* justify-items: center; */
+    /* align-content: center; */
+    align-items: center;
+    /* align-content: center; */
+    /* align-self: center; */
+
+}
