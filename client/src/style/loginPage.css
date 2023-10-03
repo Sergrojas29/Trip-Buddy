@@ -1,7 +1,6 @@
 .topContainer{
   display: flex;
   justify-content: center;
-  /* border: solid 1pt red;  */
   
 }
 .formContainer{
@@ -16,10 +15,4 @@
     /* align-content: center; */
     /* align-self: center; */
 
-}
-.btnForm{
-    margin: 15px;
-    align-self: center;
-    
-    
 }

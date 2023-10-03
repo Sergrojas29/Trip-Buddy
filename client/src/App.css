@@ -172,11 +172,11 @@ header {
 
   #citySearch {
     width: 100%;
-    height: 40px;
+    height: 50px;
     font-size: 16pt;
     border: none;
     border-radius: 5px;
-    margin: 20px 0;
+    margin: 30px 0;
     padding: 5px;
     background: var(--lightSecondary);
 
@@ -440,7 +440,7 @@ header {
       height: 69%;
       position: relative;
       padding: 5px;
-      
+
 
 
 
@@ -453,19 +453,20 @@ header {
         width: 80%;
         overflow: scroll;
         /* border: solid 1pt red; */
-        
+
       }
-  
+
       .btnContainer {
         display: flex;
         flex-direction: column;
         width: 20%;
         justify-content: center;
         align-items: center;
-        
-        .btn-green{
+
+        .btn-green {
           color: green;
         }
+
         .btn {
           height: 40px;
           width: 25px;
@@ -473,15 +474,16 @@ header {
           text-decoration: none;
           color: white;
           margin: 5px 0;
-  
-  
+
+
         }
-  
+
         .btn:hover {
           cursor: pointer;
           transform: scale(.95);
         }
-        .btn-green{
+
+        .btn-green {
           background-color: green;
         }
       }
@@ -525,33 +527,125 @@ header {
 
 footer {
   display: flex;
+  flex-direction: row;
   z-index: 999;
   width: 100%;
-  height: 10.5rem;
+  /* height: 10.5rem; */
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 160px;
   /* position: fixed; */
   bottom: 0;
-  /* border: solid 1pt red; */
   background-color: #3f4347;
 
 
   #logoContainer {
-    /* border: solid 1pt red; */
     position: absolute;
     left: 0;
     width: 90px;
     margin-left: 30px;
-    margin-bottom: 10px;
     object-fit: contain;
 
     #logo {
       width: 100%;
     }
 
+
   }
+
+  @media screen and (max-width: 470px) {
+    footer {
+      display: flex;
+      flex-direction: column;
+      border: solid 1pt red;
+      background-color: antiquewhite;
+      #logoContainer {
+        border: solid 1pt blue;
+        position:unset;
+        left:50;
+  
+        #logo {
+          width: 100%;
+        }
+  
+  
+      }
+    }
+
+   
+
+  }
+
+
+
+  .autherTitle {
+    text-decoration: underline;
+    text-align: center;
+    margin-top: 10px;
+    color: rgb(173, 173, 173);
+  }
+
+  .footerInfo {
+    margin-top: 60px;
+    /* border: solid 1pt red; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+
+  }
+
+  .userContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    #gitLogoContainer {
+      height: 16pt;
+      width: 16pt;
+      margin: 0 5px;
+
+      #smalllogo {
+        height: 100%;
+        object-fit: cover;
+
+      }
+    }
+
+    .name {
+      width: 110%;
+      font-size: 16pt;
+      text-decoration: none;
+      color: white;
+      text-align: center;
+
+    }
+
+    .name:hover{
+      cursor: pointer;
+      color: bisque;
+    }
+  }
+
+  .copyrightContainer {
+    /* border: solid 1pt red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12pt;
+    color: rgb(166, 166, 166);
+  }
+
+
+
+
 }
+
+
+
+
+
+
 
 #root {
   background-color: white;

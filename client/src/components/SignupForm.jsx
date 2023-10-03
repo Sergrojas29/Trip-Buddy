@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { Box, Button, TextField } from '@mui/material';
-import { useMutation } from '@apollo/client';
+import { from, useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { handleError } from '@apollo/client/link/http/parseAndCheckHttpResponse';
-
+import '../style/loginpage.css'
 const SignupForm = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({
@@ -72,6 +72,7 @@ const SignupForm = () => {
       }}
       noValidate
       autoComplete="off"
+      className='formContainer'
     >
       <div>
         <TextField

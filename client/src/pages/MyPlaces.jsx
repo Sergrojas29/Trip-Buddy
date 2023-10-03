@@ -76,7 +76,10 @@ function MyPlaces() {
                     {data.wikipedia_extracts && <p>{data.wikipedia_extracts.text}</p>}
                   </div>
                   <div className="btnContainer">
-                    <Button className='btn btn-green' onClick={() => handleRemovePlace(data.xid)}>
+                    <Button className='btn btn-green' onClick={() => {
+                      const url = `http://maps.google.com/maps?q=${data.point.lat},${data.point.lon}`
+                      window.open(url, "_blank")
+                    }} >
                       <DirectionsIcon />
                     </Button>
                     <Button className='btn' onClick={() => handleRemovePlace(data.xid)}>
@@ -88,8 +91,7 @@ function MyPlaces() {
             </div>
           )
         })}
-        {(!userData || !userData.savedPlaces || userData.savedPlaces.length === 0) && ( <h1>hello</h1> )}
-        {userData?.savedPlaces?.length === 0 && (<h1>test</h1>) }
+        {(!userData || !userData.savedPlaces || userData.savedPlaces.length === 0) && (<h1 style={{textAlign: 'center'}}>Go Explore More Place</h1>)}
 
       </section>
 
