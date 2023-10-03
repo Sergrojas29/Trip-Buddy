@@ -64,7 +64,7 @@ This project is licensed under the MIT License.
 ![Place Search](client\public\image-2.png)
 
 ## Authors
-Sergio Rojas-Aguilar - https://github.com/Sergrojas29
-Timothy Salamatin - https://github.com/TSalamatin
-Brendan Sikorjak - https://github.com/brendansikorjak
+Sergio Rojas-Aguilar - https://github.com/Sergrojas29<br>
+Timothy Salamatin - https://github.com/TSalamatin<br>
+Brendan Sikorjak - https://github.com/brendansikorjak<br>
 Jonathan Sterling - https://github.com/Jsterling56 
