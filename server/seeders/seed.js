@@ -3,7 +3,7 @@ const { User, Thought } = require('../models');
 const userSeeds = require('./userSeeds.json');
 const thoughtSeeds = require('./thoughtSeeds.json');
 const cleanDB = require('./cleanDB');
-
+//new
 db.once('open', async () => {
   try {
 
