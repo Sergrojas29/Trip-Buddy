@@ -6,7 +6,6 @@ export const GET_ME = gql`
       _id
       username
       email
-      premium
       savedPlaces {
         xid
         name
