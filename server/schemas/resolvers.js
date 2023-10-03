@@ -8,7 +8,7 @@ require('dotenv').config();
 
 //Mutations: addUser, login, savePlace, removePlace, getPlaces, getPlace
 const apiKey =process.env.APIKEY;
-console.log(apiKey)
+
 const resolvers = {
   Query: {
     users: async () => {
@@ -48,7 +48,7 @@ const resolvers = {
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       try {
-        const user = await User.create({ username, email, password });
+        const user = await User.create({ username, email, password});
         const token = signToken(user);
         return { token, user };
       } catch (error) {

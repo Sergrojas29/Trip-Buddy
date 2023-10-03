@@ -9,6 +9,7 @@ export const LOGIN_USER = gql`
       user {
         _id
         username
+        premium
       }
     }
   }
@@ -21,6 +22,7 @@ export const ADD_USER = gql`
       user {
         _id
         username
+        premium
       }
     }
   }
@@ -32,7 +34,7 @@ export const SAVE_PLACE = gql`
       _id
       username
       email
-      password
+      premium
       savedPlaces {
         xid
         name
@@ -72,7 +74,7 @@ export const REMOVE_PLACE = gql`
       _id
       username
       email
-      password
+      premium
       savedPlaces {
         xid
         name
