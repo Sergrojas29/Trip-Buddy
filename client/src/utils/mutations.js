@@ -32,7 +32,7 @@ export const SAVE_PLACE = gql`
       _id
       username
       email
-      password
+
       savedPlaces {
         xid
         name
@@ -72,7 +72,6 @@ export const REMOVE_PLACE = gql`
       _id
       username
       email
-      password
       savedPlaces {
         xid
         name

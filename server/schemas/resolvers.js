@@ -7,8 +7,8 @@ require('dotenv').config();
 //Query: user, users,
 
 //Mutations: addUser, login, savePlace, removePlace, getPlaces, getPlace
-const apiKey =process.env.APIKEY;
-console.log(apiKey)
+ const apiKey = process.env.APIKEY;
+
 const resolvers = {
   Query: {
     users: async () => {
@@ -79,8 +79,23 @@ const resolvers = {
     },
 
     savePlace: async (parent, { place }, context) => {
+      console.log(context)
+
       if (context.user) {
         console.log('Incoming Save Request');
+
+        if (context.user.premium === false){
+
+          const checkUser = await User.findOne({
+
+            _id: context.user._id
+          })
+          if (checkUser.savedPlaces.length >= 5) {
+            return new Error('Only Paid Premium users can save more than 5 locations at a time')
+          }
+         
+        }
+
         try {
           const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id }, // Use context.user._id
@@ -129,9 +144,9 @@ const resolvers = {
     },
 
     getPlaces: async (parent, { city }) => {
-     
+
       console.log('Incoming request for nearby places')
-      
+
       try {
         // Replace spaces in the city name with '+' for the URL
         const typedCity = city.replace(' ', '+');
@@ -222,7 +237,7 @@ const resolvers = {
 
         const data = await response.json();
 
-          //Simplifiy it for the fields we care about
+        //Simplifiy it for the fields we care about
 
         console.log(data)
 
