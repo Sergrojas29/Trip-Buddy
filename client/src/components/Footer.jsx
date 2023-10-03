@@ -4,7 +4,9 @@ import Auth from '../utils/auth';
 import lightWeight from '../assets/lightWeight.mp3'
 import { Link } from 'react-router-dom';
 import Brendan1 from '../assets/audio/Brendan1.mp4'
-
+import JonathanWhisper from '../assets/audio/JonathanWhisper.mp3'
+import TimLightWeight from '../assets/audio/TimLightWeight.mp3'
+import SergioYell from '../assets/audio/SergioYell.mp3'
 
 
 
@@ -39,9 +41,16 @@ function Footer() {
 
   }
 
-  function playBrandan(audioNumber) {
-
-    new Audio(Brendan1).play()
+  function playUserAudio(audio) {
+    if (audio == 1) {
+      new Audio(SergioYell).play()
+    } else if (audio == 2) {
+      new Audio(TimLightWeight).play()
+    } else if (audio == 3) {
+      new Audio(Brendan1).play()
+    } else if (audio == 4) {
+      new Audio(JonathanWhisper).play()
+    }
 
   }
 
@@ -58,7 +67,7 @@ function Footer() {
             <div key={index} className="authorContainer">
 
               <div className="userContainer">
-                <div id="gitLogoContainer" onClick={() => playBrandan()}>
+                <div id="gitLogoContainer" onClick={() => playUserAudio(person.audio)}>
                   <img src={Gitlogo} alt="gitlogo" id="smalllogo" />
                 </div>
                 <a href={person.url} className="name">{person.name}</a>
