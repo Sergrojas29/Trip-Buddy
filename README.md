@@ -1,12 +1,12 @@
 # Group-Project-3 - Trip Buddy
 
 ## Contents
-[Description](#description)
-[User Story](#user-story)
-[Installation](#installation)
-[Usage](#usage)
-[Resources & Credit](#resourcescredit)
-[Images](#images)
+[Description](#description)<br>
+[User Story](#user-story)<br>
+[Installation](#installation)<br>
+[Usage](#usage)<br>
+[Resources & Credit](#resourcescredit)<br>
+[Images](#images)<br>
 
 ## Description
 Trip Buddy is designed for active travelers who want to enhance their travel experiences by easily discovering exciting activities and destinations during their journeys around the country and the world. With Trip Buddy, travelers can make the most out of their trips by accessing a range of useful features.
