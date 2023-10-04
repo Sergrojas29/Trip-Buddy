@@ -62,7 +62,7 @@ ChatGPT was used for debugging purposes only.
 This project is licensed under the MIT License.
 
 ## Images
-![Home Screen](client\public\image-1.png)<br>
+![Home Screen](./client./public/image-1.png)<br>
 ![Saved Places](client\public\image.png)<br>
 ![Place Search](client\public\image-2.png)<br>
 
