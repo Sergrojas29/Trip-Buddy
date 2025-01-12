@@ -1,9 +1,6 @@
-// import './App.css';
-// import { Outlet, BrowserRouter, Routes, Route } from 'react-router-dom';
-// import { ApolloClient, ApolloProvider } from '@apollo/client';
-// import Navbar from './components/Navbar';
-import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
-// import theme from './style/theme';
+import { CssBaseline } from '@mui/material';
+
+
 import {
   ApolloClient,
   InMemoryCache,
@@ -44,17 +41,11 @@ function App() {
   return (
     <>
       <ApolloProvider client={client}>
-        {/* <ThemeProvider theme={createTheme(theme)}> */}
-        {/* <ThemeProvider > */}
-        {/* <ThemeProvider/> */}
         <CssBaseline>
-          {/* <BrowserRouter> */}
           <Navbar />
           <Outlet />
           <Footer />
-          {/* </BrowserRouter> */}
         </CssBaseline>
-        {/* </ThemeProvider> */}
       </ApolloProvider>
     </>
   );
